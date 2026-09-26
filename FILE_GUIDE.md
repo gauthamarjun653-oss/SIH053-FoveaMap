@@ -503,6 +503,11 @@ Install into a virtual environment; pretrained model weights are obtained separa
 Documents SIH26053 — Implementation Specification.  
 Provides project instructions or design context; check dated claims against the current core and fresh measurements.
 
+## `run_seq07.sh`
+
+Starts full sequence 07 playback from frame 0 through the existing VNC viewer, using model inference by default.  
+Supports dataset-label replay, replay interval and optional browser opening; requires local data and dependencies.
+
 ## `scripts/compare_core_memory.py`
 
 Honest payload comparison: old/new maps and a minimal sparse 3D reference.  

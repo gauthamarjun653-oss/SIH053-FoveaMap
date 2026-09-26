@@ -86,3 +86,13 @@ The map retains separate ground heights and obstacle bounds. Vehicle limits and
 map payload budget are in `configs/core.yaml`; they are demonstration defaults,
 not certified navigation parameters. The map is replaced each frame; only bounded
 track histories persist. There is no accumulated global navigation map here.
+
+## One-command sequence 07 replay
+
+Run `./run_seq07.sh` from the repository root, or use its absolute path from any directory.
+It restarts the managed demo, plays from frame 0 through the final scan with SalsaNext inference,
+and opens the browser when a desktop and xdg-open are available. No frame subset is selected.
+Use `./run_seq07.sh --mode gt-labels` for dataset-label replay without neural inference.
+Optional flags: `--interval 0.2`, `--no-browser`, and `--help`.
+The requested interval is not a guaranteed FPS. Data, model weights and native VNC dependencies must already exist locally.
+Playback stops at the end; stop background services with `bash scripts/kitti_vnc.sh stop`.
