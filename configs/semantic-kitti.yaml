@@ -1,0 +1,26 @@
+# Minimal extract of the official semantic-kitti.yaml (api repo), containing only
+# what this project consumes. The learning_map_inv table below is asserted against
+# a hard-coded literal at load time (spec section 5.3 / T-04): if either this file
+# or the literal is wrong, startup aborts loudly instead of mislabelling silently.
+
+learning_map_inv:
+  0: 0      # unlabeled
+  1: 10     # car
+  2: 11     # bicycle
+  3: 15     # motorcycle
+  4: 18     # truck
+  5: 20     # other-vehicle
+  6: 30     # person
+  7: 31     # bicyclist
+  8: 32     # motorcyclist
+  9: 40     # road
+  10: 44    # parking
+  11: 48    # sidewalk
+  12: 49    # other-ground
+  13: 50    # building
+  14: 51    # fence
+  15: 70    # vegetation
+  16: 71    # trunk
+  17: 72    # terrain
+  18: 80    # pole
+  19: 81    # traffic-sign

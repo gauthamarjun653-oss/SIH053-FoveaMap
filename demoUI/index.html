@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FoveaMap — Live Demo</title>
+<style>
+  :root {
+    --bg: #0a0a0a; --surface: #141414; --border: #262626;
+    --text: #f5f5f5; --muted: #a3a3a3;
+    --green: #22c55e; --amber: #f59e0b;
+    --mono: "Consolas", monospace; --sans: "Segoe UI", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: var(--sans);
+         height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
+
+  header {
+    padding: 0.5rem 1.5rem; border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: 1.5rem; flex-shrink: 0;
+  }
+  header h1 { font-size: 1.15rem; font-weight: 800; }
+  header .sub { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); }
+
+  .stats {
+    display: flex; flex-shrink: 0;
+    border-bottom: 1px solid var(--border); background: var(--surface);
+  }
+  .stat {
+    flex: 1; padding: 0.45rem 1.1rem; border-right: 1px solid var(--border);
+    display: flex; flex-direction: column; gap: 0.05rem;
+  }
+  .stat:last-child { border-right: none; }
+  .stat .v { font-family: var(--mono); font-size: 1rem; font-weight: 700; }
+  .stat .v.g { color: var(--green); }
+  .stat .v.a { color: var(--amber); }
+  .stat .k { font-family: var(--mono); font-size: 0.65rem; color: var(--muted);
+              text-transform: uppercase; letter-spacing: 0.08em; }
+
+  .views {
+    flex: 1; display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 1px; background: var(--border); min-height: 0; overflow: hidden;
+  }
+  .view { background: var(--bg); display: flex; flex-direction: column; min-height: 0; overflow: hidden; }
+  .view-label {
+    padding: 0.35rem 1rem; font-family: var(--mono); font-size: 0.7rem;
+    text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted);
+    border-bottom: 1px solid var(--border); flex-shrink: 0;
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+  .badge { padding: 0.1rem 0.45rem; border-radius: 3px; font-size: 0.62rem; border: 1px solid; }
+  .badge.raw  { color: var(--amber); border-color: rgba(245,158,11,0.5); }
+  .badge.ours { color: var(--green); border-color: rgba(34,197,94,0.5); }
+  .canvas-wrap { flex: 1; min-height: 0; position: relative; overflow: hidden; }
+
+  /* Three.js canvas fills its wrapper */
+  #cv3d { position: absolute; inset: 0; width: 100% !important; height: 100% !important; }
+
+  /* 2.5D grid canvas */
+  #cvGrid { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+
+  /* 2D occupancy canvas */
+  #cv2d { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+  .badge.base { color: #8395a7; border-color: rgba(131,149,167,0.5); }
+
+  /* raycast pick tooltip (hover to inspect) */
+  .picktip {
+    position: absolute; z-index: 3; display: none;
+    background: rgba(10,10,10,0.92); border: 1px solid var(--border);
+    border-left: 3px solid var(--green); border-radius: 4px;
+    padding: 0.4rem 0.6rem; font-family: var(--mono); font-size: 0.7rem;
+    line-height: 1.55; pointer-events: none; white-space: nowrap;
+  }
+  .picktip .pk { color: var(--muted); }
+  #cvGrid, #cv2d { cursor: crosshair; }
+
+  /* per-panel metrics overlay */
+  .panel-metrics {
+    position: absolute; top: 8px; right: 8px; z-index: 2;
+    background: rgba(20,20,20,0.85); border: 1px solid var(--border);
+    border-radius: 5px; padding: 0.45rem 0.7rem;
+    font-family: var(--mono); font-size: 0.72rem; line-height: 1.5;
+    pointer-events: none;
+  }
+  .panel-metrics .mk { color: var(--muted); text-transform: uppercase;
+    letter-spacing: 0.06em; font-size: 0.62rem; margin-right: 0.5em; }
+  .panel-metrics .mv { font-weight: 700; float: right; margin-left: 1em; }
+  .panel-metrics .mv.g { color: var(--green); }
+  .panel-metrics .mv.a { color: var(--amber); }
+  .panel-metrics div { display: flex; justify-content: space-between; gap: 1em; }
+
+  /* legend — always visible, never squeezed */
+  .legend {
+    flex-shrink: 0; display: flex; gap: 0.9rem; align-items: center; flex-wrap: wrap;
+    padding: 0.35rem 1.2rem; border-top: 1px solid var(--border);
+    font-family: var(--mono); font-size: 0.7rem; color: var(--muted);
+    background: var(--surface); min-height: 28px;
+  }
+  .sw { display: inline-block; width: 9px; height: 9px; border-radius: 2px;
+        margin-right: 0.3em; vertical-align: -0.05em; }
+  .sep { color: var(--border); }
+  .hi { color: var(--green); }
+  /* height ramp swatch */
+  .ramp {
+    display: inline-block; width: 48px; height: 9px; border-radius: 2px;
+    background: linear-gradient(to right, #3b64d8, #22c55e, #f59e0b, #ef4444);
+    margin-right: 0.3em; vertical-align: -0.05em;
+  }
+
+  /* Projector mode: press F - chrome hides, stats grow for the back row */
+  body.projector header, body.projector .legend { display: none; }
+  body.projector .stat .v { font-size: 1.8rem; }
+  body.projector .stat .k { font-size: 0.85rem; }
+  body.projector .panel-metrics { font-size: 0.95rem; }
+  body.projector .panel-metrics .mk { font-size: 0.75rem; }
+  body.projector .view-label { font-size: 0.85rem; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>FoveaMap</h1>
+  <span class="sub" id="headerSub">Left: raw 3D LiDAR point cloud &nbsp;·&nbsp; Right: our 2.5D foveated grid (top-down)</span>
+  <label class="sub" for="seqSelect" style="margin-left:auto">Sequence:
+    <select id="seqSelect" style="background:#1a1c22;color:#f5f5f5;border:1px solid #262626;border-radius:4px;font-family:Consolas,monospace;font-size:0.75rem;padding:0.15rem 0.4rem"></select>
+  </label>
+  <button id="viewToggle" style="background:#1a1c22;color:#f5f5f5;border:1px solid #262626;border-radius:4px;font-family:Consolas,monospace;font-size:0.72rem;padding:0.25rem 0.6rem;cursor:pointer">Right view: 2.5D Map</button>
+</header>
+
+<div class="stats">
+  <div class="stat">
+    <span class="v a" id="sPoints">0</span>
+    <span class="k">3D points in cloud</span>
+  </div>
+  <div class="stat">
+    <span class="v g" id="sFovCells">0</span>
+    <span class="k">Foveated cells (accumulated)</span>
+  </div>
+  <div class="stat">
+    <span class="v a" id="sUniCells">0</span>
+    <span class="k">Uniform 5 cm cells</span>
+  </div>
+  <div class="stat">
+    <span class="v g" id="sRatio">—</span>
+    <span class="k">Cell ratio (uniform / foveated)</span>
+  </div>
+  <div class="stat">
+    <span class="v g" id="sSweep">0</span>
+    <span class="k">Frames replayed</span>
+  </div>
+</div>
+
+<div class="views">
+  <div class="view">
+    <div class="view-label">
+      Raw LiDAR — 3D point cloud
+      <span class="badge raw">hover to inspect</span>
+    </div>
+    <div class="canvas-wrap">
+      <canvas id="cv3d"></canvas>
+      <div class="picktip" id="tip3d"></div>
+      <div class="panel-metrics">
+        <div><span class="mk">Memory &middot; unbounded</span><span class="mv a" id="m3dMem">—</span></div>
+        <div><span class="mk">Shown (current scan)</span><span class="mv" id="m3dMemView">—</span></div>
+        <div><span class="mk">Resolution</span><span class="mv" id="m3dRes">—</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="view">
+    <div class="view-label">
+      Uniform 2D occupancy — flat grid (baseline)
+      <span class="badge base">hover a cell</span>
+    </div>
+    <div class="canvas-wrap">
+      <canvas id="cv2d"></canvas>
+      <div class="picktip" id="tip2d"></div>
+      <div class="panel-metrics">
+        <div><span class="mk">Memory</span><span class="mv" id="m2dMem">—</span></div>
+        <div><span class="mk">Resolution</span><span class="mv" id="m2dRes">—</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="view">
+    <div class="view-label">
+      FoveaMap — 2.5D foveated grid (height + class)
+      <span class="badge ours">hover a cell</span>
+    </div>
+    <div class="canvas-wrap">
+      <canvas id="cvGrid"></canvas>
+      <div class="picktip" id="tipGrid"></div>
+      <div class="panel-metrics">
+        <div><span class="mk">Memory &middot; bounded</span><span class="mv g" id="mGridMem">—</span></div>
+        <div><span class="mk">Resolution</span><span class="mv" id="mGridRes">—</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="legend">
+  <span><span class="sw" style="background:#3C78D8"></span>Road</span>
+  <span><span class="sw" style="background:#E0A93E"></span>Static obstacle</span>
+  <span><span class="sw" style="background:#E63C3C"></span>Dynamic</span>
+  <span class="sep">│</span>
+  <span>Right: <span class="ramp"></span>ground brightness = mean height; obstacle cells extrude to their measured max height (that is the 2.5D)</span>
+  <span class="sep">│</span>
+  <span>Middle 2D: <span class="sw" style="background:#8395a7"></span>occupied cell — class and height discarded (that is what 2.5D adds back)</span>
+  <span class="sep">│</span>
+  <span>Dashed rings = resolution steps: 5→10→20→40 cm</span>
+  <span class="sep">│</span>
+  <span>Axes: <span class="sw" style="background:#b48cff"></span>X (m) <span class="sw" style="background:#00cec9"></span>Y (m) <span class="sw" style="background:#ffe066"></span>Z (m)</span>
+  <span class="sep">│</span>
+  <span class="hi" id="sRecall"></span>
+  <span class="sep">│</span>
+  <span>Scan line = sensor azimuth, slowed ~25x for visibility (real sensor: 10 rev/s); one revolution = one frame</span>
+  <span class="sep">│</span>
+  <span>Press F: projector mode</span>
+</div>
+
+<!-- no external dependencies; frames_XX.js carry REAL scan replay data -->
+<script src="metrics.js" onerror="void(0)"></script>
+<script src="frames_00.js" onerror="void(0)"></script>
+<script src="frames_08.js" onerror="void(0)"></script>
+<script>
+"use strict";
+
+/* ================================================================
+   SHARED SCENE GEOMETRY
+   ================================================================ */
+var RINGS   = [{rMin:2.5,rMax:10,cell:0.05},{rMin:10,rMax:25,cell:0.10},
+               {rMin:25,rMax:50,cell:0.20},{rMin:50,rMax:100,cell:0.40}];
+var COLORS  = ["#3C78D8","#E0A93E","#E63C3C"];
+var HALF_W  = 50;
+var RAY_S   = 0.003;
+var SWEEP_S = 3.5;
+var ROAD    = 5.0;
+
+var segs = [];
+function wall(x1,y1,x2,y2,cls,h){segs.push({x1:x1,y1:y1,x2:x2,y2:y2,cls:cls,h:h||3.0});}
+function box(cx,cy,hw,hh,cls,h){
+  wall(cx-hw,cy-hh,cx+hw,cy-hh,cls,h); wall(cx+hw,cy-hh,cx+hw,cy+hh,cls,h);
+  wall(cx+hw,cy+hh,cx-hw,cy+hh,cls,h); wall(cx-hw,cy+hh,cx-hw,cy-hh,cls,h);
+}
+/* buildings ~3-6 m tall, parked cars ~1.4 m: real height variation reads
+   as depth in both the point cloud and the extruded 2.5D columns */
+[-ROAD-0.5,ROAD+0.5].forEach(function(w){
+  wall(w,ROAD,w,90,1,4.2); wall(w,-ROAD,w,-90,1,3.4);
+  wall(ROAD,w,90,w,1,5.0); wall(-ROAD,w,-90,w,1,3.8);
+});
+[[14,12,7,5,4.5],[27,20,5,7,6.0],[13,28,6,4,3.2],[25,36,7,5,5.2],
+ [-13,12,6,5,3.6],[-25,18,5,7,5.6],[-14,30,5,4,4.0],
+ [14,-13,7,5,3.8],[26,-23,5,6,5.4],[13,-31,5,4,3.0],
+ [-13,-13,6,5,4.6],[-25,-21,5,6,3.4]].forEach(function(b){box(b[0],b[1],b[2],b[3],1,b[4]);});
+[[7,16,1,2.2],[7,-18,1,2.2],[-7,22,1,2.2],[-7,-13,1,2.2],
+ [22,7,2.2,1],[-24,7,2.2,1],[32,-7,2.2,1],[-18,-7,2.2,1]].forEach(function(c){box(c[0],c[1],c[2],c[3],1,1.4);});
+
+var movers=[
+  {x:2,y:-48,vx:0,vy:9,hw:1,hh:2.2,height:1.5},
+  {x:-2,y:44,vx:0,vy:-8,hw:1,hh:2.2,height:1.5},
+  {x:-44,y:2,vx:10,vy:0,hw:2.2,hh:1,height:1.5},
+  {x:7.5,y:-25,vx:0,vy:1.5,hw:0.25,hh:0.25,height:1.8}
+];
+
+function raySeg(dx,dy,s){
+  var ex=s.x2-s.x1,ey=s.y2-s.y1,den=dx*ey-dy*ex;
+  if(Math.abs(den)<1e-9) return Infinity;
+  var t=(s.x1*ey-s.y1*ex)/den;
+  if(t<2.5) return Infinity;
+  var u=ex?(t*dx-s.x1)/ex:(t*dy-s.y1)/ey;
+  return(u>=-1e-9&&u<=1+1e-9)?t:Infinity;
+}
+var groundR=[]; for(var _g=2.6;_g<100;_g*=1.032) groundR.push(_g);
+
+/* ── cell maps — store {cls, n, meanZ} per cell for 2.5D ── */
+var FOFF=2048,FMUL=4096,UOFF=4096,UMUL=8192;
+/* fovMaps[ri] maps key → {cls, n, meanZ} */
+var fovMaps=RINGS.map(function(){return new Map();});
+var uniMap=new Map();
+var sweepCount=0, angle=0;
+
+function ringOf(r){
+  for(var i=0;i<RINGS.length;i++) if(r>=RINGS[i].rMin&&r<=RINGS[i].rMax) return i;
+  return -1;
+}
+
+/* blend class colour with height brightness for 2.5D effect */
+function cellColor(hexCls, meanZ) {
+  // meanZ: ground ~-0.1, road surface ~0, kerb ~0.1, car roof ~1.5, building ~3
+  // map to brightness 0.35 (low) → 1.0 (high)
+  var t = Math.max(0, Math.min(1, (meanZ + 2.2) / 3.4));
+  var bright = 0.35 + t * 0.65;
+  var r = parseInt(hexCls.slice(1,3),16);
+  var g = parseInt(hexCls.slice(3,5),16);
+  var b = parseInt(hexCls.slice(5,7),16);
+  return "rgb("+Math.round(r*bright)+","+Math.round(g*bright)+","+Math.round(b*bright)+")";
+}
+
+/* ================================================================
+   LEFT CANVAS — plain canvas 3D point cloud (isometric projection)
+   ================================================================ */
+var cv3d = document.getElementById("cv3d");
+var DPR = Math.min(window.devicePixelRatio || 1, 2);
+function resize3d(){
+  var wrap=cv3d.parentElement;
+  cv3d.width=wrap.clientWidth*DPR; cv3d.height=wrap.clientHeight*DPR;
+  cv3d.style.width=wrap.clientWidth+"px"; cv3d.style.height=wrap.clientHeight+"px";
+}
+resize3d();
+window.addEventListener("resize", resize3d);
+
+/* ring-buffer of accumulated points */
+var MAX_CLOUD = 100000;
+var cloudPts  = [];   // {x,y,z,r,g,b}
+var cloudHead = 0, cloudCount = 0;
+
+/* camera orbit state — drag to rotate
+   camYaw  : horizontal orbit, full 360°, wraps to [0,2π]
+   camPitch: elevation angle in radians
+             0.18 = low/side view, 1.45 = nearly top-down
+             default 0.55 gives a nice 3/4 view
+   camDist : zoom multiplier                                  */
+var camYaw = 0.55, camPitch = 0.55, camDist = 1.0;
+var dragState = null;
+
+cv3d.addEventListener("mousedown", function(e){
+  dragState = {x:e.clientX, y:e.clientY, yaw:camYaw, pitch:camPitch};
+  e.preventDefault();
+});
+window.addEventListener("mousemove", function(e){
+  if(!dragState) return;
+  /* horizontal drag → yaw (full 360, no clamp) */
+  camYaw   = dragState.yaw   - (e.clientX - dragState.x) * 0.010;
+  /* vertical drag: full 360-degree orbit - overhead, side-on, below,
+     upside down; nothing is clamped away */
+  camPitch = dragState.pitch + (e.clientY - dragState.y) * 0.007;
+});
+window.addEventListener("mouseup", function(){ dragState=null; });
+cv3d.addEventListener("wheel", function(e){
+  camDist = Math.max(0.3, Math.min(3.5, camDist + e.deltaY * 0.001));
+  e.preventDefault();
+}, {passive:false});
+
+/* touch drag */
+var touchState = null;
+cv3d.addEventListener("touchstart", function(e){
+  if(e.touches.length===1)
+    touchState={x:e.touches[0].clientX,y:e.touches[0].clientY,yaw:camYaw,pitch:camPitch};
+},{passive:true});
+cv3d.addEventListener("touchmove", function(e){
+  if(!touchState||e.touches.length!==1) return;
+  camYaw  = touchState.yaw   - (e.touches[0].clientX - touchState.x) * 0.010;
+  camPitch= touchState.pitch + (e.touches[0].clientY - touchState.y) * 0.007;
+},{passive:true});
+cv3d.addEventListener("touchend",function(){touchState=null;},{passive:true});
+
+/* ── mouse raycast picking: hover shoots a ray at the scene ──
+   Left panel: nearest projected point within the pick radius (computed for
+   free inside the existing draw loop - every point is projected anyway).
+   Middle/right panels: screen position inverted through each panel's own
+   transform onto the ground plane (or tested against the extruded column
+   faces), then looked up in the very maps the renderers draw from - the
+   tooltip shows the stored payload, so render and inspection cannot
+   disagree. The 2D panel's tooltip honestly reports what occupancy does
+   NOT store; that is the comparison. */
+var CLS_NAME = ["Road / ground", "Static obstacle", "Dynamic"];
+var mouse3d = null, mouseG = null, mouse2d = null;
+function trackMouse(cv, set, tipId){
+  cv.addEventListener("mousemove", function(e){
+    var r = cv.getBoundingClientRect();
+    set({x: e.clientX - r.left, y: e.clientY - r.top});
+  });
+  cv.addEventListener("mouseleave", function(){
+    set(null);
+    document.getElementById(tipId).style.display = "none";
+  });
+}
+trackMouse(cv3d, function(m){ mouse3d = m; }, "tip3d");
+function placeTip(tip, wrapW, wrapH, mx, my, html){
+  tip.innerHTML = html; tip.style.display = "block";
+  var x = mx + 14, y = my + 14;
+  if (x + tip.offsetWidth  > wrapW - 4) x = mx - tip.offsetWidth  - 10;
+  if (y + tip.offsetHeight > wrapH - 4) y = my - tip.offsetHeight - 10;
+  tip.style.left = x + "px"; tip.style.top = y + "px";
+}
+
+function project(x, y, z, W, H) {
+  /* Orbiting perspective camera:
+     1. Rotate scene around Z by camYaw (horizontal orbit)
+     2. Tilt by camPitch (elevation): low value = side view, high = top-down
+     3. Camera sits at fixed distance along the view axis
+     4. Divide by depth for perspective                            */
+  var cosY = Math.cos(camYaw), sinY = Math.sin(camYaw);
+  /* yaw rotation */
+  var rx =  x*cosY - y*sinY;
+  var ry =  x*sinY + y*cosY;
+  var rz =  z;
+  /* pitch rotation around screen-X axis */
+  var cosP = Math.cos(camPitch), sinP = Math.sin(camPitch);
+  var vx =  rx;
+  var vy =  ry*cosP - rz*sinP;   /* depth axis (into screen) */
+  var vz =  ry*sinP + rz*cosP;   /* up axis                  */
+  /* camera pulled back by camDist; near-clip at 4 */
+  var depth = 200*camDist - vy;
+  if(depth < 4) depth = 4;
+  var focal = Math.min(W, H) * 1.0;
+  return {
+    sx: W*0.5 + vx * focal / depth,
+    sy: H*0.5 - vz * focal / depth,
+    d:  depth
+  };
+}
+
+/* colour helpers */
+function heightToColor(z) {
+  /* Real KITTI z is sensor-relative: ground ~ -1.9..-1.5 m, wall tops ~ +2 m.
+     The ramp must span that range or all real ground collapses to one colour. */
+  var t = Math.max(0, Math.min(1, (z + 2.0) / 4.0));
+  return {
+    r: Math.round((60  + t*195)),
+    g: Math.round((100 + t*58)),
+    b: Math.round((216 - t*166))
+  };
+}
+var CLASS_COL = [null,
+  {r:224,g:169,b:62},   // static — amber
+  {r:230,g:60, b:60}    // dynamic — red
+];
+
+var totalPtsSeen = 0;   // every point the sensor ever produced - never resets
+function addToCloud(x,y,z,cls){
+  totalPtsSeen++;
+  var c = cls===0 ? heightToColor(z) : CLASS_COL[cls];
+  /* real LiDAR: return intensity falls off with range - bake the fade in.
+     Colour string cached once so the draw loop does zero string work. */
+  var range = Math.hypot(x,y);
+  var fade = Math.max(0.3, 1.1 - range/110);
+  var col = "rgb(" + Math.round(c.r*fade) + "," + Math.round(c.g*fade) + "," +
+            Math.round(c.b*fade) + ")";
+  cloudPts[cloudHead] = {x:x,y:y,z:z,cls:cls,col:col};
+  cloudHead = (cloudHead+1) % MAX_CLOUD;
+  if(cloudCount < MAX_CLOUD) cloudCount++;
+}
+
+function draw3d(dt){
+  var ctx = cv3d.getContext("2d");
+  var W=cv3d.width/DPR, H=cv3d.height/DPR;
+  ctx.setTransform(DPR,0,0,DPR,0,0);
+
+  /* subtle vertical gradient ground haze instead of flat black */
+  var bg = ctx.createLinearGradient(0,0,0,H);
+  bg.addColorStop(0,"#0a0d12"); bg.addColorStop(0.55,"#0a0a0a"); bg.addColorStop(1,"#0d1014");
+  ctx.fillStyle=bg; ctx.fillRect(0,0,W,H);
+
+  /* faint reference grid, fades with distance via perspective */
+  ctx.strokeStyle="rgba(255,255,255,0.05)"; ctx.lineWidth=0.5;
+  for(var g=-50;g<=50;g+=10){
+    var a=project(g,-50,0,W,H), b=project(g,50,0,W,H);
+    var c=project(-50,g,0,W,H), d=project(50,g,0,W,H);
+    ctx.beginPath(); ctx.moveTo(a.sx,a.sy); ctx.lineTo(b.sx,b.sy); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(c.sx,c.sy); ctx.lineTo(d.sx,d.sy); ctx.stroke();
+  }
+
+  /* points: perspective size + cached colour; nearer points draw larger.
+     Real mode draws the two live azimuth segments (new revolution behind
+     the scan line, previous revolution ahead of it) - the scene is always
+     a complete 360-degree scan, like a real spinning LiDAR. */
+  var pick = null, pickD2 = 81, canPick = mouse3d && !dragState;
+  function drawPt(p){
+    var pr = project(p.x,p.y,p.z,W,H);
+    if(pr.sx<-4||pr.sx>W+4||pr.sy<-4||pr.sy>H+4) return;
+    var sz = 380/pr.d; if(sz<1.3) sz=1.3; else if(sz>3.6) sz=3.6;
+    ctx.fillStyle=p.col;
+    ctx.fillRect(pr.sx-sz*0.5, pr.sy-sz*0.5, sz, sz);
+    if(canPick){
+      var mdx=pr.sx-mouse3d.x, mdy=pr.sy-mouse3d.y, d2=mdx*mdx+mdy*mdy;
+      if(d2<pickD2){ pickD2=d2; pick={p:p, sx:pr.sx, sy:pr.sy}; }
+    }
+  }
+  if (cloudSegs) {
+    for (var si=0; si<cloudSegs.length; si++) {
+      var seg = cloudSegs[si];
+      for (var i=seg.from; i<seg.to; i++) drawPt(seg.arr[i]);
+    }
+  } else {
+    var start = cloudCount < MAX_CLOUD ? 0 : cloudHead;
+    for(var i2=0;i2<cloudCount;i2++) drawPt(cloudPts[(start+i2)%MAX_CLOUD]);
+  }
+  var tip3d = document.getElementById("tip3d");
+  if(pick){
+    ctx.strokeStyle="#ffffff"; ctx.lineWidth=1.2;
+    ctx.beginPath(); ctx.arc(pick.sx, pick.sy, 6, 0, 2*Math.PI); ctx.stroke();
+    var pp=pick.p, rng=Math.hypot(pp.x,pp.y), pri=ringOf(rng);
+    placeTip(tip3d, W, H, mouse3d.x, mouse3d.y,
+      "<b>" + CLS_NAME[pp.cls] + "</b><br>" +
+      "<span class='pk'>x</span> " + pp.x.toFixed(2) + " m &nbsp;" +
+      "<span class='pk'>y</span> " + pp.y.toFixed(2) + " m &nbsp;" +
+      "<span class='pk'>z</span> " + pp.z.toFixed(2) + " m<br>" +
+      "<span class='pk'>range</span> " + rng.toFixed(1) + " m" +
+      (pri>=0 ? " &rarr; ring " + (pri+1) + " (" + (RINGS[pri].cell*100|0) + " cm cells)" : " (outside rings)"));
+  } else {
+    tip3d.style.display="none";
+  }
+
+  /* scan line: the sensor's current azimuth (slowed for visibility) */
+  var th3 = REAL ? realState.theta : angle;
+  var s0=project(0,0,0.2,W,H), s1=project(Math.cos(th3)*88,Math.sin(th3)*88,0.2,W,H);
+  ctx.strokeStyle="rgba(120,220,255,0.5)"; ctx.lineWidth=1;
+  ctx.beginPath(); ctx.moveTo(s0.sx,s0.sy); ctx.lineTo(s1.sx,s1.sy); ctx.stroke();
+
+  /* ring halos at 10/25/50 m: the same spatial anchors as the 2.5D panel,
+     drawn as projected ground circles so both views read on one scale */
+  ctx.setLineDash([4,6]); ctx.lineWidth=1;
+  [[10,0.35],[25,0.28],[50,0.22]].forEach(function(rc){
+    ctx.strokeStyle="rgba(147,197,253,"+rc[1]+")";
+    ctx.beginPath();
+    for(var a2=0;a2<=64;a2++){
+      var th=a2/64*2*Math.PI;
+      var pp=project(Math.cos(th)*rc[0], Math.sin(th)*rc[0], 0, W, H);
+      if(a2===0) ctx.moveTo(pp.sx,pp.sy); else ctx.lineTo(pp.sx,pp.sy);
+    }
+    ctx.stroke();
+  });
+  ctx.setLineDash([]);
+
+  /* axis markers: X (violet) / Y (teal) ground axes, Z (yellow) up - each
+     axis its own colour, distinct from the class palette; distances in
+     metres with proper units */
+  ctx.font="12px Consolas,monospace"; ctx.lineWidth=1.2;
+  function axisLine(x1,y1,z1,x2,y2,z2,color){
+    var a=project(x1,y1,z1,W,H), b2=project(x2,y2,z2,W,H);
+    ctx.strokeStyle=color; ctx.globalAlpha=0.75;
+    ctx.beginPath(); ctx.moveTo(a.sx,a.sy); ctx.lineTo(b2.sx,b2.sy); ctx.stroke();
+    ctx.globalAlpha=1;
+    return b2;
+  }
+  var ex=axisLine(0,0,0, 52,0,0, AX_X);
+  var ey=axisLine(0,0,0, 0,52,0, AX_Y);
+  var ez=axisLine(0,0,0, 0,0,7, AX_Z);
+  ctx.fillStyle=AX_X; ctx.fillText("X (m)", ex.sx+4, ex.sy);
+  ctx.fillStyle=AX_Y; ctx.fillText("Y (m)", ey.sx+4, ey.sy);
+  ctx.fillStyle=AX_Z; ctx.fillText("Z (m)", ez.sx+4, ez.sy);
+  [10,25,50].forEach(function(m){
+    var tx=project(m,0,0,W,H), ty=project(0,m,0,W,H);
+    ctx.fillStyle=AX_X;
+    ctx.fillRect(tx.sx-1.5,tx.sy-1.5,3,3); ctx.fillText(m+" m", tx.sx+4, tx.sy-4);
+    ctx.fillStyle=AX_Y;
+    ctx.fillRect(ty.sx-1.5,ty.sy-1.5,3,3); ctx.fillText(m+" m", ty.sx+4, ty.sy-4);
+  });
+  ctx.fillStyle=AX_Z;
+  [2,4,6].forEach(function(m){
+    var tz=project(0,0,m,W,H);
+    ctx.fillRect(tz.sx-1.5,tz.sy-1.5,3,3); ctx.fillText(m+" m", tz.sx+5, tz.sy+3);
+  });
+
+  /* ego vehicle as a small 3D box (8 projected corners) */
+  ctx.strokeStyle="#e8eef5"; ctx.lineWidth=1.2; ctx.fillStyle="rgba(240,245,250,0.25)";
+  var C=[], vx=[-1,1], vyy=[-2.1,2.1], vzz=[0,1.5], k=0;
+  for(var zi=0;zi<2;zi++) for(var yi=0;yi<2;yi++) for(var xi=0;xi<2;xi++)
+    C[k++]=project(vx[xi],vyy[yi],vzz[zi],W,H);
+  [[0,1],[1,3],[3,2],[2,0],[4,5],[5,7],[7,6],[6,4],[0,4],[1,5],[2,6],[3,7]]
+    .forEach(function(e){
+      ctx.beginPath(); ctx.moveTo(C[e[0]].sx,C[e[0]].sy);
+      ctx.lineTo(C[e[1]].sx,C[e[1]].sy); ctx.stroke();
+    });
+
+  ctx.font="12px Consolas,monospace";
+  ctx.fillStyle="rgba(255,255,255,0.28)";
+  ctx.fillText(cloudCount.toLocaleString()+" pts",W-110,H-8);
+}
+
+/* ================================================================
+   RAY CAST — adds to 3D cloud AND 2D grid maps
+   ================================================================ */
+function addPoint(x, y, z, cls){
+  addToCloud(x, y, z, cls);
+  /* 2.5D grid — track class and running mean height */
+  var r=Math.hypot(x,y), ri=ringOf(r);
+  if(ri<0) return;
+  var cell=RINGS[ri].cell;
+  var fk=(Math.floor(x/cell)+FOFF)*FMUL+(Math.floor(y/cell)+FOFF);
+  var prev=fovMaps[ri].get(fk);
+  if(prev===undefined){
+    fovMaps[ri].set(fk,{cls:cls,n:1,meanZ:z,maxZ:z});
+  } else {
+    /* highest-priority class; running mean AND max height (the extrusion
+       height - a wall's mean is only half its height) */
+    prev.n++;
+    prev.meanZ += (z - prev.meanZ)/prev.n;
+    if(z > prev.maxZ) prev.maxZ = z;
+    if(cls > prev.cls) prev.cls = cls;
+  }
+  /* uniform map — count only (left panel is the point cloud) */
+  var uk=(Math.floor(x/0.05)+UOFF)*UMUL+(Math.floor(y/0.05)+UOFF);
+  if(!uniMap.has(uk)) uniMap.set(uk,1);
+}
+
+function castRay(theta){
+  var dx=Math.cos(theta), dy=Math.sin(theta);
+  var hit=Infinity, hitCls=1, hitZ=0.5, i, t;
+  for(i=0;i<segs.length;i++){
+    t=raySeg(dx,dy,segs[i]);
+    if(t<hit){hit=t; hitCls=segs[i].cls; hitZ=segs[i].h;}
+  }
+  for(i=0;i<movers.length;i++){
+    var mv=movers[i], mh=mv.height||1.5;
+    var ms=[
+      {x1:mv.x-mv.hw,y1:mv.y-mv.hh,x2:mv.x+mv.hw,y2:mv.y-mv.hh},
+      {x1:mv.x+mv.hw,y1:mv.y-mv.hh,x2:mv.x+mv.hw,y2:mv.y+mv.hh},
+      {x1:mv.x+mv.hw,y1:mv.y+mv.hh,x2:mv.x-mv.hw,y2:mv.y+mv.hh},
+      {x1:mv.x-mv.hw,y1:mv.y+mv.hh,x2:mv.x-mv.hw,y2:mv.y-mv.hh}
+    ];
+    for(var j=0;j<4;j++){
+      t=raySeg(dx,dy,ms[j]);
+      if(t<hit){hit=t; hitCls=2; hitZ=mh;}
+    }
+  }
+  /* ground returns — simulate multiple beam elevation angles */
+  for(i=0;i<groundR.length;i++){
+    var r=groundR[i];
+    if(r>=hit||r>100) break;
+    /* scatter z slightly to give 3D depth cue */
+    var z=-0.05+Math.sin(i*0.22+theta)*0.06;
+    addPoint(dx*r, dy*r, z, 0);
+  }
+  /* obstacle / wall hit — vertical slices make facades read as solid walls
+     in 3D; slight per-slice jitter breaks the artificial perfect column */
+  if(isFinite(hit)&&hit<=100){
+    var nSlices = hitCls===0 ? 1 : Math.max(2, Math.round(hitZ/0.22));
+    for(var s=0;s<nSlices;s++){
+      addPoint(dx*hit, dy*hit, s*0.22 + Math.sin(s*3.7+theta*13)*0.03, hitCls);
+    }
+  }
+}
+
+/* ================================================================
+   REAL SCAN REPLAY - when frames.js is present the dashboard replays
+   actual KITTI sweeps (azimuth-ordered points + the pipeline's real
+   per-cell statistics). The synthetic ray-cast below remains only as
+   a fallback when no frames are exported.
+   ================================================================ */
+var SEQ_REGISTRY = window.FOVEA_FRAMES_SEQS || {};
+var REAL = null, realState = null;
+
+/* Real spinning LiDAR acquires azimuthally: one revolution = one frame, and
+   at any instant the world holds a full 360 degrees of returns - the sector
+   behind the scan line is the NEW revolution, ahead of it the PREVIOUS one.
+   The replay reproduces exactly that: sector-by-sector replacement of the
+   previous frame's points and cells as the line passes, never an empty
+   scene. Each frame is prebuilt once (cached point colours, azimuth-sorted
+   point/cell arrays) so per-tick work is pointer advances only. */
+var REV_T = 2.5;   // seconds per revolution ON SCREEN (slowed ~25x for
+                   // visibility; the real sensor spins 10 rev/s). One
+                   // revolution = one frame, exactly like the sensor.
+
+function prepPayload(p){
+  if (p._prepped) return;
+  p.frames.forEach(function(f){
+    f.nPts = f.pts.length / 4;
+    /* full point cloud with cached colours (same fade rule as addToCloud) */
+    f.cloud = new Array(f.nPts);
+    for (var i = 0; i < f.nPts; i++) {
+      var o = i*4;
+      var px = f.pts[o]/100, py = f.pts[o+1]/100, pz = f.pts[o+2]/100, cls = f.pts[o+3];
+      var c = cls===0 ? heightToColor(pz) : CLASS_COL[cls];
+      var fade = Math.max(0.3, 1.1 - Math.hypot(px,py)/110);
+      f.cloud[i] = { x:px, y:py, z:pz, cls:cls,
+        col: "rgb("+Math.round(c.r*fade)+","+Math.round(c.g*fade)+","+Math.round(c.b*fade)+")" };
+    }
+    /* per-ring cell maps, whole frame */
+    f.fovPre = f.rings.map(function(layer){
+      var m = new Map();
+      for (var j = 0; j < layer.cells.length; j += 5) {
+        m.set((layer.cells[j] + FOFF) * FMUL + (layer.cells[j+1] + FOFF),
+              { cls: layer.cells[j+2], n: 1,
+                meanZ: layer.cells[j+4]/100, maxZ: layer.cells[j+3]/100 });
+      }
+      return m;
+    });
+    /* per-point azimuth (points are already azimuth-sorted by the exporter) */
+    f.ptAz = new Float32Array(f.nPts);
+    for (var q = 0; q < f.nPts; q++) {
+      var oq = q*4;
+      f.ptAz[q] = ((Math.atan2(f.pts[oq+1], f.pts[oq]) % (2*Math.PI)) + 2*Math.PI) % (2*Math.PI);
+    }
+    /* per-ring cells sorted by azimuth: parallel key/value/azimuth arrays */
+    f.fovAz = f.rings.map(function(layer){
+      var n = layer.cells.length / 5, rows = [];
+      for (var i = 0; i < n; i++) {
+        var b = i*5;
+        var ccx = (layer.cells[b] + 0.5) * layer.cell;
+        var ccy = (layer.cells[b+1] + 0.5) * layer.cell;
+        rows.push({
+          az: ((Math.atan2(ccy, ccx) % (2*Math.PI)) + 2*Math.PI) % (2*Math.PI),
+          key: (layer.cells[b] + FOFF) * FMUL + (layer.cells[b+1] + FOFF),
+          val: { cls: layer.cells[b+2], n: 1,
+                 meanZ: layer.cells[b+4]/100, maxZ: layer.cells[b+3]/100 }
+        });
+      }
+      rows.sort(function(a, b2){ return a.az - b2.az; });
+      return rows;
+    });
+    /* uniform 5 cm occupancy cells in azimuth order (first-point order) */
+    f.uniAz = [];
+    var seen = new Map();
+    for (var k = 0; k < f.nPts; k++) {
+      var o2 = k*4;
+      var uk = (Math.floor(f.pts[o2]/100/0.05)+UOFF)*UMUL +
+               (Math.floor(f.pts[o2+1]/100/0.05)+UOFF);
+      if(!seen.has(uk)){ seen.set(uk,1); f.uniAz.push({ az: f.ptAz[k], key: uk }); }
+    }
+    f.uniAz.sort(function(a, b3){ return a.az - b3.az; });
+  });
+  p._prepped = true;
+}
+
+/* The screen always holds one full revolution of data: ahead of the scan
+   line = previous revolution, behind it = the new one being acquired. The
+   working maps are mutated in place (delete old sector cells, add new), so
+   the draw functions never see an empty scene. cloudSegs tells draw3d which
+   ranges of which frames' point arrays are currently live. */
+var cloudSegs = null;
+
+function initRealPlayback(p){
+  var f0 = p.frames[0];
+  realState = {
+    cur: 0, nxt: 1 % p.frames.length, theta: 0,
+    pNxt: 0, pCur: 0,
+    fovNxt: f0.rings.map(function(){ return 0; }),
+    fovCur: f0.rings.map(function(){ return 0; }),
+    uniNxt: 0, uniCur: 0
+  };
+  fovMaps = f0.fovPre.map(function(m){ return new Map(m); });   // working copies
+  uniMap = new Map();
+  f0.uniAz.forEach(function(c){ uniMap.set(c.key, 1); });
+  cloudSegs = [ { arr: p.frames[realState.nxt].cloud, from: 0, to: 0 },
+                { arr: f0.cloud, from: 0, to: f0.cloud.length } ];
+  totalPtsSeen += f0.n_points_full;
+  realFrameStats(f0);
+}
+
+function stepReal(dt){
+  var cur = REAL.frames[realState.cur], nxt = REAL.frames[realState.nxt];
+  realState.theta += (2*Math.PI/REV_T) * dt;
+  var th = Math.min(realState.theta, 2*Math.PI);
+
+  /* points: reveal next-frame points up to the scan line, retire current-
+     frame points behind it (both arrays are azimuth-sorted) */
+  while (realState.pNxt < nxt.nPts && nxt.ptAz[realState.pNxt] <= th) realState.pNxt++;
+  while (realState.pCur < cur.nPts && cur.ptAz[realState.pCur] <= th) realState.pCur++;
+  cloudSegs[0].arr = nxt.cloud; cloudSegs[0].to = realState.pNxt;
+  cloudSegs[1].arr = cur.cloud; cloudSegs[1].from = realState.pCur;
+  cloudSegs[1].to = cur.cloud.length;
+  cloudCount = realState.pNxt + (cur.cloud.length - realState.pCur);
+
+  /* cells: delete the old sector first, then add the new (order matters so
+     a cell occupied in both frames ends up holding the NEW payload) */
+  cur.fovAz.forEach(function(rows, ri){
+    while (realState.fovCur[ri] < rows.length && rows[realState.fovCur[ri]].az <= th) {
+      fovMaps[ri].delete(rows[realState.fovCur[ri]].key);
+      realState.fovCur[ri]++;
+    }
+  });
+  nxt.fovAz.forEach(function(rows, ri){
+    while (realState.fovNxt[ri] < rows.length && rows[realState.fovNxt[ri]].az <= th) {
+      fovMaps[ri].set(rows[realState.fovNxt[ri]].key, rows[realState.fovNxt[ri]].val);
+      realState.fovNxt[ri]++;
+    }
+  });
+  while (realState.uniCur < cur.uniAz.length && cur.uniAz[realState.uniCur].az <= th) {
+    uniMap.delete(cur.uniAz[realState.uniCur].key); realState.uniCur++;
+  }
+  while (realState.uniNxt < nxt.uniAz.length && nxt.uniAz[realState.uniNxt].az <= th) {
+    uniMap.set(nxt.uniAz[realState.uniNxt].key, 1); realState.uniNxt++;
+  }
+
+  /* one full revolution = one frame, exactly like the sensor */
+  if (realState.theta >= 2*Math.PI) {
+    realState.theta -= 2*Math.PI;
+    sweepCount++;
+    realState.cur = realState.nxt;
+    realState.nxt = (realState.nxt + 1) % REAL.frames.length;
+    realState.pNxt = 0; realState.pCur = 0;
+    realState.fovNxt = realState.fovNxt.map(function(){ return 0; });
+    realState.fovCur = realState.fovCur.map(function(){ return 0; });
+    realState.uniNxt = 0; realState.uniCur = 0;
+    var nf = REAL.frames[realState.cur];
+    totalPtsSeen += nf.n_points_full;
+    realFrameStats(nf);
+  }
+}
+
+function setSequence(seq){
+  var p = SEQ_REGISTRY[seq];
+  if (!p || !p.frames || !p.frames.length) return;
+  prepPayload(p);
+  REAL = p;
+  document.getElementById("headerSub").textContent =
+    "REAL KITTI seq " + p.sequence + " scan replay (frames " +
+    p.frames.map(function(f){ return f.frame; }).join(", ") +
+    ", ground-truth labels) - left: raw 3D, middle: 2D occupancy, right: 2.5D foveated";
+  initRealPlayback(p);
+}
+
+(function initControls(){
+  var keys = Object.keys(SEQ_REGISTRY).sort();
+  var sel = document.getElementById("seqSelect");
+  if (keys.length) {
+    keys.forEach(function(k){
+      var o = document.createElement("option");
+      o.value = k; o.textContent = "KITTI " + k;
+      sel.appendChild(o);
+    });
+    sel.addEventListener("change", function(){ setSequence(this.value); });
+    setSequence(keys[0]);
+  } else {
+    sel.disabled = true;
+    var o = document.createElement("option");
+    o.textContent = "synthetic";
+    sel.appendChild(o);
+  }
+  var vt = document.getElementById("viewToggle");
+  vt.addEventListener("click", function(){
+    gridEngineView = !gridEngineView;
+    vt.textContent = gridEngineView ? "Right view: Grid Engine" : "Right view: 2.5D Map";
+  });
+})();
+
+function realFrameStats(f){
+  var fov = f.rings.reduce(function(a, l){ return a + l.cells.length / 5; }, 0);
+  document.getElementById("sPoints").textContent   = f.n_points_full.toLocaleString();
+  document.getElementById("sFovCells").textContent = fov.toLocaleString();
+  document.getElementById("sUniCells").textContent = f.uniform_cells.toLocaleString();
+  document.getElementById("sRatio").textContent    = (f.uniform_cells / fov).toFixed(2) + "×";
+}
+
+
+
+function step(dt){
+  /* slow cinematic orbit while the user is not dragging - also paused while
+     the cursor hovers the 3D panel, so the pick raycast has a stable target */
+  if(!dragState && !touchState && !mouse3d){
+    camYaw += (dt||0.016) * 0.18;   /* ~10°/s — one full orbit every ~35 s */
+    camYaw = ((camYaw % (2*Math.PI)) + 2*Math.PI) % (2*Math.PI);
+  }
+  if (REAL) { stepReal(dt); return; }
+  var dTheta=(2*Math.PI/SWEEP_S)*dt;
+  var nRays=Math.max(1,Math.round(dTheta/RAY_S));
+  for(var i=0;i<nRays;i++) castRay(angle+i*dTheta/nRays);
+  angle+=dTheta;
+  if(angle>=2*Math.PI){
+    angle-=2*Math.PI; sweepCount++;
+    if(sweepCount%5===0){
+      fovMaps=RINGS.map(function(){return new Map();});
+      uniMap=new Map();
+      cloudPts=[]; cloudHead=0; cloudCount=0;
+    }
+  }
+  movers.forEach(function(mv){
+    mv.x+=mv.vx*dt; mv.y+=mv.vy*dt;
+    if(mv.vy>0&&mv.y>52) mv.y=-52;
+    if(mv.vy<0&&mv.y<-52) mv.y=52;
+    if(mv.vx>0&&mv.x>52) mv.x=-52;
+  });
+}
+
+/* ================================================================
+   2D GRID CANVAS (right panel)
+   ================================================================ */
+var cvGrid = document.getElementById("cvGrid");
+function resizeGrid(){
+  var wrap=cvGrid.parentElement;
+  cvGrid.width=wrap.clientWidth*DPR; cvGrid.height=wrap.clientHeight*DPR;
+  cvGrid.style.width=wrap.clientWidth+"px"; cvGrid.style.height=wrap.clientHeight+"px";
+}
+resizeGrid();
+window.addEventListener("resize", resizeGrid);
+trackMouse(cvGrid, function(m){ mouseG = m; }, "tipGrid");
+
+/* ================================================================
+   2D OCCUPANCY CANVAS (middle panel) - the flat-grid baseline made
+   visible: every occupied 5 cm cell in one neutral colour. No class,
+   no height - deliberately, because that is what this representation
+   stores (9 B/cell: two int32 indices + an obstacle bit). The visual
+   difference against the panels either side IS the comparison.
+   ================================================================ */
+var cv2d = document.getElementById("cv2d");
+function resize2d(){
+  var wrap=cv2d.parentElement;
+  cv2d.width=wrap.clientWidth*DPR; cv2d.height=wrap.clientHeight*DPR;
+  cv2d.style.width=wrap.clientWidth+"px"; cv2d.style.height=wrap.clientHeight+"px";
+}
+resize2d();
+window.addEventListener("resize", resize2d);
+trackMouse(cv2d, function(m){ mouse2d = m; }, "tip2d");
+
+function draw2d(){
+  var ctx=cv2d.getContext("2d");
+  var W=cv2d.width/DPR, H=cv2d.height/DPR;
+  ctx.setTransform(DPR,0,0,DPR,0,0);
+  var s=Math.min(W,H)/(2*HALF_W);
+  var cx=W/2, cy=H/2;
+  var bg = ctx.createLinearGradient(0,0,0,H);
+  bg.addColorStop(0,"#0a0d12"); bg.addColorStop(1,"#0d0d0d");
+  ctx.fillStyle=bg; ctx.fillRect(0,0,W,H);
+
+  /* occupied cells: one colour - occupancy is all this grid knows */
+  var px=Math.max(0.05*s,1);
+  ctx.fillStyle="#8395a7"; ctx.globalAlpha=0.9;
+  uniMap.forEach(function(v,key){
+    var ux=Math.floor(key/UMUL)-UOFF, uy=(key%UMUL)-UOFF;
+    ctx.fillRect(cx+ux*0.05*s, cy+uy*0.05*s, px, px);
+  });
+  ctx.globalAlpha=1;
+
+  /* the same spatial anchors as the other panels */
+  ctx.setLineDash([3,5]); ctx.lineWidth=1; ctx.strokeStyle="rgba(255,255,255,0.28)";
+  RINGS.forEach(function(rg){
+    ctx.beginPath();
+    ctx.arc(cx, cy, rg.rMax*s, 0, 2*Math.PI);
+    ctx.stroke();
+  });
+  ctx.setLineDash([]);
+
+  /* axes: X violet, Y teal, distances in metres */
+  ctx.lineWidth=1.2; ctx.font="12px Consolas,monospace";
+  ctx.strokeStyle=AX_X; ctx.globalAlpha=0.7;
+  ctx.beginPath(); ctx.moveTo(cx-50*s,cy); ctx.lineTo(cx+50*s,cy); ctx.stroke();
+  ctx.strokeStyle=AX_Y;
+  ctx.beginPath(); ctx.moveTo(cx,cy-50*s); ctx.lineTo(cx,cy+50*s); ctx.stroke();
+  ctx.globalAlpha=1;
+  ctx.fillStyle=AX_X; ctx.fillText("X (m)", cx+50*s-40, cy-5);
+  ctx.fillStyle=AX_Y; ctx.fillText("Y (m)", cx+5, cy+50*s-6);
+  [10,25,50].forEach(function(m){
+    ctx.fillStyle=AX_X;
+    ctx.fillRect(cx+m*s-1.5, cy-1.5, 3, 3); ctx.fillText(m+" m", cx+m*s-12, cy+15);
+    ctx.fillStyle=AX_Y;
+    ctx.fillRect(cx-1.5, cy+m*s-1.5, 3, 3); ctx.fillText(m+" m", cx+6, cy+m*s+4);
+  });
+
+  /* scan line: sensor azimuth */
+  var th2 = REAL ? realState.theta : angle;
+  ctx.strokeStyle="rgba(120,220,255,0.5)"; ctx.lineWidth=1;
+  ctx.beginPath(); ctx.moveTo(cx,cy);
+  ctx.lineTo(cx+Math.cos(th2)*50*s, cy+Math.sin(th2)*50*s); ctx.stroke();
+
+  /* ego vehicle */
+  ctx.fillStyle="#fff"; ctx.strokeStyle="#3b82f6"; ctx.lineWidth=1.5;
+  ctx.beginPath();
+  ctx.roundRect?ctx.roundRect(cx-4,cy-7,8,14,2):ctx.rect(cx-4,cy-7,8,14);
+  ctx.fill(); ctx.stroke();
+
+  ctx.font="12px Consolas,monospace";
+  ctx.fillStyle="rgba(245,245,245,0.55)";
+  ctx.fillText("OCCUPANCY ONLY - class and height discarded", 10, 16);
+
+  /* pick raycast: cursor inverted onto the flat grid → cell lookup. The
+     tooltip states what occupancy does NOT know - that is the point. */
+  var tip2d = document.getElementById("tip2d");
+  if(mouse2d){
+    var owx=(mouse2d.x-cx)/s, owy=(mouse2d.y-cy)/s;
+    var okey=(Math.floor(owx/0.05)+UOFF)*UMUL+(Math.floor(owy/0.05)+UOFF);
+    var orng=Math.hypot(owx,owy);
+    if(uniMap.has(okey) && orng<=HALF_W*Math.SQRT2){
+      var ocx=Math.floor(owx/0.05)*0.05, ocy=Math.floor(owy/0.05)*0.05;
+      ctx.strokeStyle="#ffffff"; ctx.lineWidth=1.2;
+      ctx.strokeRect(cx+ocx*s-1, cy+ocy*s-1, Math.max(0.05*s,1)+2, Math.max(0.05*s,1)+2);
+      placeTip(tip2d, W, H, mouse2d.x, mouse2d.y,
+        "<b>Occupied</b> &middot; 5 cm cell<br>" +
+        "<span class='pk'>cell</span> x " + ocx.toFixed(2) + " m, y " + ocy.toFixed(2) +
+        " m &middot; <span class='pk'>range</span> " + orng.toFixed(1) + " m<br>" +
+        "<span class='pk'>class</span> unknown &middot; <span class='pk'>height</span> unknown &mdash; not stored");
+    } else {
+      tip2d.style.display="none";
+    }
+  }
+}
+
+/* True 2.5D render: the ground plane is tilted (an oblique projection) and
+   every obstacle cell is EXTRUDED into a lit column - a shaded top face and
+   a darker front face - with its height taken from the cell's own max-z
+   statistic. Columns are painter-sorted back to front. This is the payload
+   made visible: the same cells, drawn from their stored heights. */
+var TILT = 0.72;      // cos of ground-plane tilt (squash factor)
+var ZLIFT = 0.55;     // vertical pixels per metre of height, x scale
+
+/* Axis colours - deliberately distinct from the class palette
+   (road blue / static amber / dynamic red) so axes never read as data. */
+var AX_X = "#b48cff";   // violet
+var AX_Y = "#00cec9";   // teal
+var AX_Z = "#ffe066";   // yellow
+/* Ring colours for the grid-engine view (structural, not class, data). */
+var RING_COLORS = ["#60a5fa", "#34d399", "#fbbf24", "#f472b6"];
+var gridEngineView = false;
+
+function shade(hex, f){
+  var r=parseInt(hex.slice(1,3),16), g=parseInt(hex.slice(3,5),16), b=parseInt(hex.slice(5,7),16);
+  return "rgb("+Math.round(r*f)+","+Math.round(g*f)+","+Math.round(b*f)+")";
+}
+
+function drawGrid(){
+  var ctx=cvGrid.getContext("2d");
+  var W=cvGrid.width/DPR, H=cvGrid.height/DPR;
+  ctx.setTransform(DPR,0,0,DPR,0,0);
+  var s=Math.min(W,H)/(2*HALF_W);
+  var cx=W/2, cy=H/2 + (gridEngineView ? 0 : H*0.06);
+  var zPx = s*ZLIFT;
+  /* grid-engine view is flat top-down (tilt 1): the subject is the lattice
+     structure itself - ring-coloured cell outlines, no extrusion */
+  var tilt = gridEngineView ? 1.0 : TILT;
+
+  var bg = ctx.createLinearGradient(0,0,0,H);
+  bg.addColorStop(0,"#0a0d12"); bg.addColorStop(1,"#0d0d0d");
+  ctx.fillStyle=bg; ctx.fillRect(0,0,W,H);
+
+  function gx(x){ return cx + x*s; }
+  function gy(y,z){ return cy + y*s*tilt - (z||0)*zPx; }
+
+  /* pass 1: cells. Map view: flat ground on the tilted plane (height as
+     brightness), obstacles deferred to the extrusion pass. Engine view:
+     every occupied cell as an OUTLINE in its ring's colour - the lattice
+     itself is the subject, cell size visibly stepping 5/10/20/40 cm. */
+  var columns=[];
+  RINGS.forEach(function(rg,ri){
+    var px=Math.max(rg.cell*s-0.3,1.2), py=Math.max(px*tilt,1);
+    fovMaps[ri].forEach(function(cell,key){
+      var fx=Math.floor(key/FMUL)-FOFF;
+      var fy=(key%FMUL)-FOFF;
+      var wx=fx*rg.cell, wy=fy*rg.cell;
+      if(gridEngineView){
+        ctx.strokeStyle=RING_COLORS[ri]; ctx.globalAlpha=0.75; ctx.lineWidth=0.6;
+        ctx.strokeRect(gx(wx), gy(wy,0), px, py);
+        ctx.globalAlpha=1;
+        return;
+      }
+      /* Extrusion height is measured from the GROUND, not the sensor:
+         real KITTI z is sensor-relative (ground ~ -1.73 m), so without the
+         offset a 2 m car renders as a 0.3 m stub. Synthetic scene ground
+         is already at z=0, so its offset is 0. */
+      var h=Math.min(cell.maxZ + (REAL ? 1.73 : 0), 6);
+      if(cell.cls===0 && h<0.4){
+        ctx.fillStyle=cellColor(COLORS[0], cell.meanZ);
+        ctx.fillRect(gx(wx), gy(wy,0), px, py);
+      } else {
+        columns.push({wx:wx, wy:wy, px:px, py:py, h:h<0.4?0.4:h, cls:cell.cls,
+                      ri:ri, maxZ:cell.maxZ, meanZ:cell.meanZ});
+      }
+    });
+  });
+
+  /* ring boundaries: ellipses on the tilted plane, labelled */
+  ctx.setLineDash([3,5]); ctx.lineWidth=1; ctx.strokeStyle="rgba(255,255,255,0.28)";
+  RINGS.forEach(function(rg){
+    ctx.beginPath();
+    ctx.ellipse(cx, cy, rg.rMax*s, rg.rMax*s*tilt, 0, 0, 2*Math.PI);
+    ctx.stroke();
+  });
+  ctx.setLineDash([]);
+
+  /* pass 2: extruded columns, back to front (larger wy = nearer viewer) */
+  columns.sort(function(a,b){ return a.wy - b.wy; });
+  for(var i=0;i<columns.length;i++){
+    var c=columns[i];
+    var x0=gx(c.wx), yBase=gy(c.wy,0), yTop=gy(c.wy,c.h);
+    var col=COLORS[c.cls];
+    ctx.fillStyle=shade(col,0.45);                    // front face (shadow side)
+    ctx.fillRect(x0, yTop+c.py, c.px, yBase-yTop);
+    ctx.fillStyle=shade(col, c.cls===0?0.85:1.0);     // lit top face
+    ctx.fillRect(x0, yTop, c.px, c.py);
+  }
+
+  /* ring labels above everything */
+  ctx.font="bold 12px Consolas,monospace";
+  ctx.fillStyle="rgba(255,255,255,0.6)";
+  RINGS.forEach(function(rg){
+    ctx.fillText((rg.cell*100|0)+" cm cells", cx+5, cy-rg.rMax*s*tilt+13);
+  });
+
+  /* axis lines with metre ticks on the tilted plane: X right (violet),
+     Y toward the viewer (teal); distances in metres, cell sizes in cm -
+     tick distances line up with the ring radii for cross-reading */
+  ctx.lineWidth=1.2; ctx.font="12px Consolas,monospace";
+  ctx.strokeStyle=AX_X; ctx.globalAlpha=0.7;
+  ctx.beginPath(); ctx.moveTo(gx(-50),gy(0,0)); ctx.lineTo(gx(50),gy(0,0)); ctx.stroke();
+  ctx.strokeStyle=AX_Y;
+  ctx.beginPath(); ctx.moveTo(gx(0),gy(-50,0)); ctx.lineTo(gx(0),gy(50,0)); ctx.stroke();
+  ctx.globalAlpha=1;
+  ctx.fillStyle=AX_X; ctx.fillText("X (m)", gx(50)-34, gy(0,0)-5);
+  ctx.fillStyle=AX_Y; ctx.fillText("Y (m)", gx(0)+5, gy(50,0)-4);
+  [10,25,50].forEach(function(m){
+    ctx.fillStyle=AX_X;
+    ctx.fillRect(gx(m)-1.5, gy(0,0)-1.5, 3, 3);
+    ctx.fillText(m+" m", gx(m)-10, gy(0,0)+14);
+    ctx.fillRect(gx(-m)-1.5, gy(0,0)-1.5, 3, 3);
+    ctx.fillStyle=AX_Y;
+    ctx.fillRect(gx(0)-1.5, gy(m,0)-1.5, 3, 3);
+    ctx.fillText(m+" m", gx(0)+6, gy(m,0)+3);
+    ctx.fillRect(gx(0)-1.5, gy(-m,0)-1.5, 3, 3);
+  });
+
+  /* scan line: sensor azimuth, squashed onto the plane */
+  var thG = REAL ? realState.theta : angle;
+  ctx.strokeStyle="rgba(120,220,255,0.5)"; ctx.lineWidth=1;
+  ctx.beginPath(); ctx.moveTo(cx,cy);
+  ctx.lineTo(cx+Math.cos(thG)*50*s, cy+Math.sin(thG)*50*s*tilt); ctx.stroke();
+
+  /* vehicle marker on the plane */
+  ctx.save(); ctx.translate(cx,cy); ctx.scale(1,tilt);
+  ctx.fillStyle="#fff"; ctx.strokeStyle="#3b82f6"; ctx.lineWidth=1.5;
+  ctx.beginPath();
+  ctx.roundRect?ctx.roundRect(-4,-7,8,14,2):ctx.rect(-4,-7,8,14);
+  ctx.fill(); ctx.stroke();
+  ctx.fillStyle="#3b82f6"; ctx.beginPath();
+  ctx.moveTo(0,-9); ctx.lineTo(-3,-5); ctx.lineTo(3,-5);
+  ctx.closePath(); ctx.fill();
+  ctx.restore();
+
+  if(gridEngineView){
+    ctx.font="12px Consolas,monospace";
+    ctx.fillStyle="rgba(245,245,245,0.75)";
+    ctx.fillText("GRID ENGINE VIEW - occupied cells outlined, colour = ring; sizes step 5 / 10 / 20 / 40 cm", 10, 16);
+    RINGS.forEach(function(rg,ri){
+      ctx.fillStyle=RING_COLORS[ri];
+      ctx.fillRect(10, 26+ri*14, 8, 8);
+      ctx.fillText("R"+(ri+1)+"  "+(rg.cell*100|0)+" cm  ("+rg.rMin+"-"+rg.rMax+" m)", 24, 34+ri*14);
+    });
+  }
+
+  /* ── pick raycast: cursor → extruded column faces, else inverted onto the
+     ground plane → cell lookup in fovMaps. The tooltip reads the cell's
+     stored statistics directly - render and inspection cannot disagree. */
+  var tipGrid = document.getElementById("tipGrid");
+  if(mouseG){
+    var hit = null;
+    /* columns are painter-sorted back-to-front; test front-most first */
+    for(var pi=columns.length-1; pi>=0; pi--){
+      var pc=columns[pi];
+      var hx0=gx(pc.wx), hyT=gy(pc.wy,pc.h), hyB=gy(pc.wy,0);
+      if(mouseG.x>=hx0 && mouseG.x<=hx0+pc.px && mouseG.y>=hyT && mouseG.y<=hyB+pc.py){
+        hit={ri:pc.ri, cls:pc.cls, meanZ:pc.meanZ, maxZ:pc.maxZ, hAbove:pc.h,
+             wx:pc.wx, wy:pc.wy, hx:hx0, hy:hyT, hw:pc.px, hh:(hyB+pc.py)-hyT};
+        break;
+      }
+    }
+    if(!hit){
+      var iwx=(mouseG.x-cx)/s, iwy=(mouseG.y-cy)/(s*tilt);
+      var irr=Math.hypot(iwx,iwy), iri=ringOf(irr);
+      if(iri>=0){
+        var icell=RINGS[iri].cell;
+        var ick=(Math.floor(iwx/icell)+FOFF)*FMUL+(Math.floor(iwy/icell)+FOFF);
+        var icd=fovMaps[iri].get(ick);
+        var ipx=Math.max(icell*s-0.3,1.2), ipy=Math.max(ipx*tilt,1);
+        var icwx=Math.floor(iwx/icell)*icell, icwy=Math.floor(iwy/icell)*icell;
+        if(icd) hit={ri:iri, cls:icd.cls, meanZ:icd.meanZ, maxZ:icd.maxZ,
+                     hAbove:Math.min(icd.maxZ + (REAL ? 1.73 : 0), 6),
+                     wx:icwx, wy:icwy, hx:gx(icwx), hy:gy(icwy,0), hw:ipx, hh:ipy};
+        else    hit={ri:iri, empty:true, wx:icwx, wy:icwy,
+                     hx:gx(icwx), hy:gy(icwy,0), hw:ipx, hh:ipy};
+      }
+    }
+    if(hit){
+      ctx.strokeStyle="#ffffff"; ctx.lineWidth=1.2;
+      ctx.strokeRect(hit.hx-0.5, hit.hy-0.5, hit.hw+1, hit.hh+1);
+      var hrg=RINGS[hit.ri], hrange=Math.hypot(hit.wx,hit.wy);
+      var head = hit.empty ? "Empty cell — no returns" : "<b>"+CLS_NAME[hit.cls]+"</b>";
+      var body =
+        "<span class='pk'>ring</span> " + (hit.ri+1) + " · " + (hrg.cell*100|0) + " cm cells (" +
+        hrg.rMin + "–" + hrg.rMax + " m)<br>" +
+        "<span class='pk'>cell</span> x " + hit.wx.toFixed(2) + " m, y " + hit.wy.toFixed(2) +
+        " m · <span class='pk'>range</span> " + hrange.toFixed(1) + " m";
+      if(!hit.empty){
+        body += "<br><span class='pk'>mean z</span> " + hit.meanZ.toFixed(2) +
+                " m · <span class='pk'>max z</span> " + hit.maxZ.toFixed(2) + " m" +
+                " · <span class='pk'>height</span> " + hit.hAbove.toFixed(2) + " m";
+      }
+      placeTip(tipGrid, W, H, mouseG.x, mouseG.y, head + "<br>" + body);
+    } else {
+      tipGrid.style.display="none";
+    }
+  }
+}
+
+/* ================================================================
+   MAIN LOOP
+   ================================================================ */
+var last=null;
+function frame(ts){
+  if(!last) last=ts;
+  var dt=Math.min((ts-last)/1000, 0.05); last=ts;
+
+  step(dt);
+  draw3d(dt);
+  draw2d();
+  drawGrid();
+
+  /* HUD */
+  var fovTotal=fovMaps.reduce(function(a,m){return a+m.size;},0);
+  document.getElementById("sPoints").textContent  = cloudCount.toLocaleString();
+  document.getElementById("sFovCells").textContent= fovTotal.toLocaleString();
+  if (!REAL) {
+    /* synthetic mode counts its own uniform grid live; real mode freezes
+       the exact full-frame uniform count and ratio at each sweep boundary
+       (realFrameStats) rather than estimating mid-sweep */
+    var uniTotal=uniMap.size;
+    document.getElementById("sUniCells").textContent= uniTotal.toLocaleString();
+    document.getElementById("sRatio").textContent   = fovTotal>0?(uniTotal/fovTotal).toFixed(2)+"×":"—";
+  }
+  document.getElementById("sSweep").textContent   = sweepCount;
+
+  /* per-panel metrics — all computed at runtime, nothing typed in:
+     3D cloud memory  = points x 16 B (float32 x,y,z,intensity, KITTI layout)
+     2.5D grid memory = cells x 84 B (the real per-cell stats payload)
+     FPS = measured render frame rate of this page (rolling average)  */
+  fpsAcc += dt; fpsFrames++;
+  if(fpsAcc >= 0.5){
+    var fps = fpsFrames / fpsAcc;
+    fpsAcc = 0; fpsFrames = 0;
+    /* the honest comparison: a raw cloud must KEEP every point to keep the
+       map - cumulative points x 16 B climbs without limit, while the grid
+       absorbs new points into existing cells and stays bounded */
+    var cum = totalPtsSeen * 16 / 1e6;
+    document.getElementById("m3dMem").textContent =
+      (cum >= 1000 ? (cum/1000).toFixed(2) + " GB" : cum.toFixed(1) + " MB") + " ↑";
+    document.getElementById("m3dMemView").textContent =
+      (cloudCount * 16 / 1e6).toFixed(2) + " MB";
+    document.getElementById("mGridMem").textContent =
+      (fovTotal * 84 / 1e6).toFixed(2) + " MB";
+    document.getElementById("m3dRes").textContent   = "raw pts (no grid)";
+    /* 2D occupancy panel - same metric list, computed from its own live
+       cells at the real baseline payload (9 B: two int32 + obstacle bit) */
+    var uniCellsNow = REAL ? REAL.frames[realState.cur].uniform_cells : uniMap.size;
+    document.getElementById("m2dMem").textContent   =
+      (uniCellsNow * 9 / 1e6).toFixed(2) + " MB";
+    document.getElementById("m2dRes").textContent   = "5 cm (uniform 2D)";
+    document.getElementById("mGridRes").textContent = "5 cm → 40 cm";
+  }
+
+  requestAnimationFrame(frame);
+}
+var fpsAcc = 0, fpsFrames = 0;
+
+/* ================================================================
+   METRICS
+   ================================================================ */
+function applyMetrics(m){
+  if(!m||!m.foveated) return;
+  var rb=(m.foveated.recall_by_band)||{};
+  var v=rb["0-10"];
+  if(v!=null){
+    var p=m.provenance||{};
+    var mode=p.inference?String(p.inference):"unknown mode";
+    var seq=p.sequence?String(p.sequence):"unknown seq";
+    document.getElementById("sRecall").textContent=
+      "Measured recall 0–10 m: "+(v*100).toFixed(1)+"% ("+seq+", "+mode+")";
+  }
+}
+fetch("metrics.json",{cache:"no-store"})
+  .then(function(r){return r.ok?r.json():null;})
+  .then(applyMetrics)
+  .catch(function(){applyMetrics(window.FOVEA_METRICS||null);});
+
+/* Projector mode: F toggles, Escape exits. Canvases re-measure on toggle. */
+document.addEventListener("keydown", function(e){
+  if (e.target && (e.target.tagName === "SELECT" || e.target.tagName === "INPUT")) return;
+  if (e.key === "f" || e.key === "F") {
+    document.body.classList.toggle("projector");
+  } else if (e.key === "Escape") {
+    document.body.classList.remove("projector");
+  } else { return; }
+  requestAnimationFrame(function(){ resize3d(); resize2d(); resizeGrid(); });
+});
+
+requestAnimationFrame(frame);
+</script>
+</body>
+</html>

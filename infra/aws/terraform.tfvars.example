@@ -1,0 +1,25 @@
+# ==============================================================================
+# Example tfvars for AWS Deployment
+# Rename to terraform.tfvars or pass via -var-file
+# ==============================================================================
+
+aws_region           = "us-east-1"
+environment          = "dev"
+s3_bucket_name       = "sih-perception-dataset-882040517559"
+iam_user_name        = "sih-perception-team"
+enable_gpu_instance  = true
+instance_type        = "g4dn.xlarge"   # NVIDIA T4 16GB
+enable_spot_instance = true            # Set false if Spot quota is 0 to use On-Demand
+root_volume_size_gb  = 150
+
+# Auto-shutdown configuration
+instance_initiated_shutdown_behavior = "terminate"  # "terminate" or "stop"
+auto_idle_shutdown_minutes          = 180          # Safety timeout (3 hours), 0 to disable
+
+# Restrict SSH access to your external IP (find via `curl ifconfig.me`)
+allowed_ssh_cidr     = "0.0.0.0/0"     # Replace with "YOUR_PUBLIC_IP/32"
+
+# Specify existing key name or provide public key string below
+aws_ssh_key_name     = ""
+aws_ssh_public_key   = ""              # e.g. "ssh-ed25519 AAAAC3NzaC1... user@host"
+

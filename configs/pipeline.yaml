@@ -1,0 +1,45 @@
+# SIH26053 pipeline configuration.
+# Dataset lives OUTSIDE the repo, read-only.
+
+data_root: "data/semantickitti" # relative to the repo root, or pass --data-root; expects <data_root>/sequences/00/{calib.txt,poses.txt,velodyne/,labels/}
+sequences:
+  train: ["00", "02", "05"]
+  validate: ["08"]             # standard split - do not substitute
+
+projection:
+  # Confirm 64 x 2048 against the data before building on it (spec section 6 / open item 1).
+  height: 64
+  width: 2048
+  fov_up_deg: 3.0
+  fov_down_deg: -25.0
+  range_min: 2.5               # metres; discards are counted, never silent
+  range_max: 100.0
+
+segmentation:
+  weights_path: "weights/salsanext_state_dict.pt"   # state dict only; whole-model checkpoints converted offline
+  semantic_kitti_yaml: "configs/semantic-kitti.yaml"
+  device: "auto"               # auto | cuda | cpu
+  fp16: true                   # fallback rung 1, enabled 2026-08-28 after the measured
+                               # 50.6 ms fp32 median exceeded the 40 ms budget (stage 5)
+
+grid:
+  memory_ceiling_mb: 512       # exceeded -> abort loudly with occupied cell count (never degrade silently)
+
+stats:
+  min_class_count: 1           # render rule: highest-severity class present with >= this many returns
+
+negative_obstacles:
+  # Initial thresholds (spec 11.3); the pre-check on sequence 00 decides whether to reframe.
+  depth_m: 0.15
+  max_extent_m: 1.0
+  reframed_depth_m: 0.08       # used only if the pre-check finds < 30 instances
+
+offline:
+  map_voxel_m: 0.10            # incremental dedup voxel for the global map
+  z_extent_min_m: 10.0         # AC-F1 bounds for an urban sequence
+  z_extent_max_m: 40.0
+
+benchmark:
+  bands_m: [[0.0, 10.0], [10.0, 25.0], [25.0, 50.0], [50.0, 100.0]]
+  reference_cell_m: 0.05       # recall reference lattice, independent of any representation
+  output_dir: "runs"

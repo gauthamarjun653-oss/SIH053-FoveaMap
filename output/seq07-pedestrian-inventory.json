@@ -1,0 +1,4482 @@
+{
+  "sequence": "07",
+  "label_files": 1101,
+  "frames_with_pedestrian_labels": 735,
+  "pedestrian_instance_ids": 14,
+  "person_label_point_observations": 166135,
+  "most_points": [
+    {
+      "frame": 182,
+      "person_points": 1684,
+      "stationary_label_points": 129,
+      "moving_label_points": 1555
+    },
+    {
+      "frame": 184,
+      "person_points": 1535,
+      "stationary_label_points": 172,
+      "moving_label_points": 1363
+    },
+    {
+      "frame": 181,
+      "person_points": 1500,
+      "stationary_label_points": 116,
+      "moving_label_points": 1384
+    },
+    {
+      "frame": 185,
+      "person_points": 1373,
+      "stationary_label_points": 189,
+      "moving_label_points": 1184
+    },
+    {
+      "frame": 187,
+      "person_points": 1261,
+      "stationary_label_points": 246,
+      "moving_label_points": 1015
+    },
+    {
+      "frame": 180,
+      "person_points": 1204,
+      "stationary_label_points": 107,
+      "moving_label_points": 1097
+    },
+    {
+      "frame": 186,
+      "person_points": 1195,
+      "stationary_label_points": 218,
+      "moving_label_points": 977
+    },
+    {
+      "frame": 188,
+      "person_points": 1188,
+      "stationary_label_points": 266,
+      "moving_label_points": 922
+    },
+    {
+      "frame": 1087,
+      "person_points": 1174,
+      "stationary_label_points": 1087,
+      "moving_label_points": 87
+    },
+    {
+      "frame": 1091,
+      "person_points": 1168,
+      "stationary_label_points": 1079,
+      "moving_label_points": 89
+    }
+  ],
+  "caveat": "Ground-truth annotation inventory, not model detections. Points repeat across scans; instances exclude ID zero.",
+  "frames": [
+    {
+      "frame": 0,
+      "person_points": 794,
+      "stationary_label_points": 610,
+      "moving_label_points": 184
+    },
+    {
+      "frame": 1,
+      "person_points": 796,
+      "stationary_label_points": 615,
+      "moving_label_points": 181
+    },
+    {
+      "frame": 2,
+      "person_points": 820,
+      "stationary_label_points": 640,
+      "moving_label_points": 180
+    },
+    {
+      "frame": 3,
+      "person_points": 813,
+      "stationary_label_points": 639,
+      "moving_label_points": 174
+    },
+    {
+      "frame": 4,
+      "person_points": 816,
+      "stationary_label_points": 643,
+      "moving_label_points": 173
+    },
+    {
+      "frame": 5,
+      "person_points": 834,
+      "stationary_label_points": 668,
+      "moving_label_points": 166
+    },
+    {
+      "frame": 6,
+      "person_points": 849,
+      "stationary_label_points": 675,
+      "moving_label_points": 174
+    },
+    {
+      "frame": 7,
+      "person_points": 875,
+      "stationary_label_points": 688,
+      "moving_label_points": 187
+    },
+    {
+      "frame": 8,
+      "person_points": 897,
+      "stationary_label_points": 710,
+      "moving_label_points": 187
+    },
+    {
+      "frame": 9,
+      "person_points": 891,
+      "stationary_label_points": 705,
+      "moving_label_points": 186
+    },
+    {
+      "frame": 10,
+      "person_points": 900,
+      "stationary_label_points": 710,
+      "moving_label_points": 190
+    },
+    {
+      "frame": 11,
+      "person_points": 912,
+      "stationary_label_points": 723,
+      "moving_label_points": 189
+    },
+    {
+      "frame": 12,
+      "person_points": 928,
+      "stationary_label_points": 740,
+      "moving_label_points": 188
+    },
+    {
+      "frame": 13,
+      "person_points": 943,
+      "stationary_label_points": 759,
+      "moving_label_points": 184
+    },
+    {
+      "frame": 14,
+      "person_points": 952,
+      "stationary_label_points": 772,
+      "moving_label_points": 180
+    },
+    {
+      "frame": 15,
+      "person_points": 947,
+      "stationary_label_points": 773,
+      "moving_label_points": 174
+    },
+    {
+      "frame": 16,
+      "person_points": 982,
+      "stationary_label_points": 800,
+      "moving_label_points": 182
+    },
+    {
+      "frame": 17,
+      "person_points": 995,
+      "stationary_label_points": 797,
+      "moving_label_points": 198
+    },
+    {
+      "frame": 18,
+      "person_points": 1014,
+      "stationary_label_points": 807,
+      "moving_label_points": 207
+    },
+    {
+      "frame": 19,
+      "person_points": 1045,
+      "stationary_label_points": 830,
+      "moving_label_points": 215
+    },
+    {
+      "frame": 20,
+      "person_points": 1037,
+      "stationary_label_points": 829,
+      "moving_label_points": 208
+    },
+    {
+      "frame": 21,
+      "person_points": 1074,
+      "stationary_label_points": 865,
+      "moving_label_points": 209
+    },
+    {
+      "frame": 22,
+      "person_points": 1071,
+      "stationary_label_points": 873,
+      "moving_label_points": 198
+    },
+    {
+      "frame": 23,
+      "person_points": 1066,
+      "stationary_label_points": 867,
+      "moving_label_points": 199
+    },
+    {
+      "frame": 24,
+      "person_points": 1063,
+      "stationary_label_points": 866,
+      "moving_label_points": 197
+    },
+    {
+      "frame": 25,
+      "person_points": 1048,
+      "stationary_label_points": 857,
+      "moving_label_points": 191
+    },
+    {
+      "frame": 26,
+      "person_points": 1058,
+      "stationary_label_points": 864,
+      "moving_label_points": 194
+    },
+    {
+      "frame": 27,
+      "person_points": 1066,
+      "stationary_label_points": 862,
+      "moving_label_points": 204
+    },
+    {
+      "frame": 28,
+      "person_points": 1074,
+      "stationary_label_points": 863,
+      "moving_label_points": 211
+    },
+    {
+      "frame": 29,
+      "person_points": 1056,
+      "stationary_label_points": 856,
+      "moving_label_points": 200
+    },
+    {
+      "frame": 30,
+      "person_points": 1045,
+      "stationary_label_points": 842,
+      "moving_label_points": 203
+    },
+    {
+      "frame": 31,
+      "person_points": 1048,
+      "stationary_label_points": 847,
+      "moving_label_points": 201
+    },
+    {
+      "frame": 32,
+      "person_points": 1026,
+      "stationary_label_points": 828,
+      "moving_label_points": 198
+    },
+    {
+      "frame": 33,
+      "person_points": 984,
+      "stationary_label_points": 795,
+      "moving_label_points": 189
+    },
+    {
+      "frame": 34,
+      "person_points": 945,
+      "stationary_label_points": 771,
+      "moving_label_points": 174
+    },
+    {
+      "frame": 35,
+      "person_points": 911,
+      "stationary_label_points": 741,
+      "moving_label_points": 170
+    },
+    {
+      "frame": 36,
+      "person_points": 886,
+      "stationary_label_points": 721,
+      "moving_label_points": 165
+    },
+    {
+      "frame": 37,
+      "person_points": 818,
+      "stationary_label_points": 662,
+      "moving_label_points": 156
+    },
+    {
+      "frame": 38,
+      "person_points": 784,
+      "stationary_label_points": 639,
+      "moving_label_points": 145
+    },
+    {
+      "frame": 39,
+      "person_points": 743,
+      "stationary_label_points": 605,
+      "moving_label_points": 138
+    },
+    {
+      "frame": 40,
+      "person_points": 712,
+      "stationary_label_points": 586,
+      "moving_label_points": 126
+    },
+    {
+      "frame": 41,
+      "person_points": 672,
+      "stationary_label_points": 545,
+      "moving_label_points": 127
+    },
+    {
+      "frame": 42,
+      "person_points": 641,
+      "stationary_label_points": 518,
+      "moving_label_points": 123
+    },
+    {
+      "frame": 43,
+      "person_points": 597,
+      "stationary_label_points": 485,
+      "moving_label_points": 112
+    },
+    {
+      "frame": 44,
+      "person_points": 554,
+      "stationary_label_points": 455,
+      "moving_label_points": 99
+    },
+    {
+      "frame": 45,
+      "person_points": 515,
+      "stationary_label_points": 415,
+      "moving_label_points": 100
+    },
+    {
+      "frame": 46,
+      "person_points": 477,
+      "stationary_label_points": 385,
+      "moving_label_points": 92
+    },
+    {
+      "frame": 47,
+      "person_points": 437,
+      "stationary_label_points": 356,
+      "moving_label_points": 81
+    },
+    {
+      "frame": 48,
+      "person_points": 408,
+      "stationary_label_points": 325,
+      "moving_label_points": 83
+    },
+    {
+      "frame": 49,
+      "person_points": 376,
+      "stationary_label_points": 319,
+      "moving_label_points": 57
+    },
+    {
+      "frame": 50,
+      "person_points": 347,
+      "stationary_label_points": 290,
+      "moving_label_points": 57
+    },
+    {
+      "frame": 51,
+      "person_points": 332,
+      "stationary_label_points": 274,
+      "moving_label_points": 58
+    },
+    {
+      "frame": 52,
+      "person_points": 295,
+      "stationary_label_points": 252,
+      "moving_label_points": 43
+    },
+    {
+      "frame": 53,
+      "person_points": 262,
+      "stationary_label_points": 234,
+      "moving_label_points": 28
+    },
+    {
+      "frame": 54,
+      "person_points": 237,
+      "stationary_label_points": 223,
+      "moving_label_points": 14
+    },
+    {
+      "frame": 55,
+      "person_points": 219,
+      "stationary_label_points": 213,
+      "moving_label_points": 6
+    },
+    {
+      "frame": 56,
+      "person_points": 207,
+      "stationary_label_points": 207,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 57,
+      "person_points": 184,
+      "stationary_label_points": 184,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 58,
+      "person_points": 175,
+      "stationary_label_points": 175,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 59,
+      "person_points": 159,
+      "stationary_label_points": 159,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 60,
+      "person_points": 160,
+      "stationary_label_points": 160,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 61,
+      "person_points": 146,
+      "stationary_label_points": 146,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 62,
+      "person_points": 142,
+      "stationary_label_points": 142,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 63,
+      "person_points": 125,
+      "stationary_label_points": 125,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 64,
+      "person_points": 98,
+      "stationary_label_points": 98,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 65,
+      "person_points": 95,
+      "stationary_label_points": 95,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 66,
+      "person_points": 77,
+      "stationary_label_points": 77,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 67,
+      "person_points": 73,
+      "stationary_label_points": 73,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 68,
+      "person_points": 61,
+      "stationary_label_points": 61,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 69,
+      "person_points": 56,
+      "stationary_label_points": 56,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 70,
+      "person_points": 56,
+      "stationary_label_points": 56,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 71,
+      "person_points": 37,
+      "stationary_label_points": 37,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 72,
+      "person_points": 37,
+      "stationary_label_points": 37,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 73,
+      "person_points": 32,
+      "stationary_label_points": 32,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 74,
+      "person_points": 30,
+      "stationary_label_points": 30,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 75,
+      "person_points": 25,
+      "stationary_label_points": 25,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 76,
+      "person_points": 28,
+      "stationary_label_points": 28,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 77,
+      "person_points": 23,
+      "stationary_label_points": 23,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 78,
+      "person_points": 18,
+      "stationary_label_points": 18,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 79,
+      "person_points": 20,
+      "stationary_label_points": 20,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 80,
+      "person_points": 22,
+      "stationary_label_points": 22,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 81,
+      "person_points": 18,
+      "stationary_label_points": 18,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 82,
+      "person_points": 19,
+      "stationary_label_points": 19,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 83,
+      "person_points": 20,
+      "stationary_label_points": 20,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 84,
+      "person_points": 18,
+      "stationary_label_points": 18,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 85,
+      "person_points": 11,
+      "stationary_label_points": 11,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 86,
+      "person_points": 12,
+      "stationary_label_points": 12,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 87,
+      "person_points": 8,
+      "stationary_label_points": 8,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 88,
+      "person_points": 13,
+      "stationary_label_points": 13,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 89,
+      "person_points": 10,
+      "stationary_label_points": 10,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 90,
+      "person_points": 1,
+      "stationary_label_points": 1,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 129,
+      "person_points": 17,
+      "stationary_label_points": 0,
+      "moving_label_points": 17
+    },
+    {
+      "frame": 130,
+      "person_points": 26,
+      "stationary_label_points": 0,
+      "moving_label_points": 26
+    },
+    {
+      "frame": 131,
+      "person_points": 27,
+      "stationary_label_points": 1,
+      "moving_label_points": 26
+    },
+    {
+      "frame": 132,
+      "person_points": 30,
+      "stationary_label_points": 0,
+      "moving_label_points": 30
+    },
+    {
+      "frame": 133,
+      "person_points": 32,
+      "stationary_label_points": 0,
+      "moving_label_points": 32
+    },
+    {
+      "frame": 134,
+      "person_points": 27,
+      "stationary_label_points": 0,
+      "moving_label_points": 27
+    },
+    {
+      "frame": 135,
+      "person_points": 30,
+      "stationary_label_points": 0,
+      "moving_label_points": 30
+    },
+    {
+      "frame": 136,
+      "person_points": 28,
+      "stationary_label_points": 0,
+      "moving_label_points": 28
+    },
+    {
+      "frame": 137,
+      "person_points": 24,
+      "stationary_label_points": 0,
+      "moving_label_points": 24
+    },
+    {
+      "frame": 138,
+      "person_points": 18,
+      "stationary_label_points": 0,
+      "moving_label_points": 18
+    },
+    {
+      "frame": 139,
+      "person_points": 17,
+      "stationary_label_points": 0,
+      "moving_label_points": 17
+    },
+    {
+      "frame": 140,
+      "person_points": 15,
+      "stationary_label_points": 0,
+      "moving_label_points": 15
+    },
+    {
+      "frame": 141,
+      "person_points": 22,
+      "stationary_label_points": 0,
+      "moving_label_points": 22
+    },
+    {
+      "frame": 142,
+      "person_points": 17,
+      "stationary_label_points": 0,
+      "moving_label_points": 17
+    },
+    {
+      "frame": 143,
+      "person_points": 18,
+      "stationary_label_points": 0,
+      "moving_label_points": 18
+    },
+    {
+      "frame": 144,
+      "person_points": 21,
+      "stationary_label_points": 0,
+      "moving_label_points": 21
+    },
+    {
+      "frame": 145,
+      "person_points": 21,
+      "stationary_label_points": 0,
+      "moving_label_points": 21
+    },
+    {
+      "frame": 146,
+      "person_points": 24,
+      "stationary_label_points": 0,
+      "moving_label_points": 24
+    },
+    {
+      "frame": 147,
+      "person_points": 30,
+      "stationary_label_points": 2,
+      "moving_label_points": 28
+    },
+    {
+      "frame": 148,
+      "person_points": 30,
+      "stationary_label_points": 0,
+      "moving_label_points": 30
+    },
+    {
+      "frame": 149,
+      "person_points": 33,
+      "stationary_label_points": 1,
+      "moving_label_points": 32
+    },
+    {
+      "frame": 150,
+      "person_points": 37,
+      "stationary_label_points": 1,
+      "moving_label_points": 36
+    },
+    {
+      "frame": 151,
+      "person_points": 40,
+      "stationary_label_points": 1,
+      "moving_label_points": 39
+    },
+    {
+      "frame": 152,
+      "person_points": 49,
+      "stationary_label_points": 2,
+      "moving_label_points": 47
+    },
+    {
+      "frame": 153,
+      "person_points": 55,
+      "stationary_label_points": 1,
+      "moving_label_points": 54
+    },
+    {
+      "frame": 154,
+      "person_points": 60,
+      "stationary_label_points": 1,
+      "moving_label_points": 59
+    },
+    {
+      "frame": 155,
+      "person_points": 61,
+      "stationary_label_points": 0,
+      "moving_label_points": 61
+    },
+    {
+      "frame": 156,
+      "person_points": 67,
+      "stationary_label_points": 1,
+      "moving_label_points": 66
+    },
+    {
+      "frame": 157,
+      "person_points": 72,
+      "stationary_label_points": 2,
+      "moving_label_points": 70
+    },
+    {
+      "frame": 158,
+      "person_points": 80,
+      "stationary_label_points": 1,
+      "moving_label_points": 79
+    },
+    {
+      "frame": 159,
+      "person_points": 87,
+      "stationary_label_points": 2,
+      "moving_label_points": 85
+    },
+    {
+      "frame": 160,
+      "person_points": 94,
+      "stationary_label_points": 10,
+      "moving_label_points": 84
+    },
+    {
+      "frame": 161,
+      "person_points": 99,
+      "stationary_label_points": 11,
+      "moving_label_points": 88
+    },
+    {
+      "frame": 162,
+      "person_points": 103,
+      "stationary_label_points": 13,
+      "moving_label_points": 90
+    },
+    {
+      "frame": 163,
+      "person_points": 110,
+      "stationary_label_points": 13,
+      "moving_label_points": 97
+    },
+    {
+      "frame": 164,
+      "person_points": 127,
+      "stationary_label_points": 13,
+      "moving_label_points": 114
+    },
+    {
+      "frame": 165,
+      "person_points": 135,
+      "stationary_label_points": 12,
+      "moving_label_points": 123
+    },
+    {
+      "frame": 166,
+      "person_points": 143,
+      "stationary_label_points": 13,
+      "moving_label_points": 130
+    },
+    {
+      "frame": 167,
+      "person_points": 171,
+      "stationary_label_points": 11,
+      "moving_label_points": 160
+    },
+    {
+      "frame": 168,
+      "person_points": 186,
+      "stationary_label_points": 11,
+      "moving_label_points": 175
+    },
+    {
+      "frame": 169,
+      "person_points": 198,
+      "stationary_label_points": 12,
+      "moving_label_points": 186
+    },
+    {
+      "frame": 170,
+      "person_points": 235,
+      "stationary_label_points": 17,
+      "moving_label_points": 218
+    },
+    {
+      "frame": 171,
+      "person_points": 257,
+      "stationary_label_points": 16,
+      "moving_label_points": 241
+    },
+    {
+      "frame": 172,
+      "person_points": 306,
+      "stationary_label_points": 23,
+      "moving_label_points": 283
+    },
+    {
+      "frame": 173,
+      "person_points": 390,
+      "stationary_label_points": 52,
+      "moving_label_points": 338
+    },
+    {
+      "frame": 174,
+      "person_points": 438,
+      "stationary_label_points": 60,
+      "moving_label_points": 378
+    },
+    {
+      "frame": 175,
+      "person_points": 518,
+      "stationary_label_points": 80,
+      "moving_label_points": 438
+    },
+    {
+      "frame": 176,
+      "person_points": 593,
+      "stationary_label_points": 80,
+      "moving_label_points": 513
+    },
+    {
+      "frame": 177,
+      "person_points": 703,
+      "stationary_label_points": 87,
+      "moving_label_points": 616
+    },
+    {
+      "frame": 178,
+      "person_points": 841,
+      "stationary_label_points": 96,
+      "moving_label_points": 745
+    },
+    {
+      "frame": 179,
+      "person_points": 1021,
+      "stationary_label_points": 101,
+      "moving_label_points": 920
+    },
+    {
+      "frame": 180,
+      "person_points": 1204,
+      "stationary_label_points": 107,
+      "moving_label_points": 1097
+    },
+    {
+      "frame": 181,
+      "person_points": 1500,
+      "stationary_label_points": 116,
+      "moving_label_points": 1384
+    },
+    {
+      "frame": 182,
+      "person_points": 1684,
+      "stationary_label_points": 129,
+      "moving_label_points": 1555
+    },
+    {
+      "frame": 183,
+      "person_points": 906,
+      "stationary_label_points": 148,
+      "moving_label_points": 758
+    },
+    {
+      "frame": 184,
+      "person_points": 1535,
+      "stationary_label_points": 172,
+      "moving_label_points": 1363
+    },
+    {
+      "frame": 185,
+      "person_points": 1373,
+      "stationary_label_points": 189,
+      "moving_label_points": 1184
+    },
+    {
+      "frame": 186,
+      "person_points": 1195,
+      "stationary_label_points": 218,
+      "moving_label_points": 977
+    },
+    {
+      "frame": 187,
+      "person_points": 1261,
+      "stationary_label_points": 246,
+      "moving_label_points": 1015
+    },
+    {
+      "frame": 188,
+      "person_points": 1188,
+      "stationary_label_points": 266,
+      "moving_label_points": 922
+    },
+    {
+      "frame": 189,
+      "person_points": 1016,
+      "stationary_label_points": 316,
+      "moving_label_points": 700
+    },
+    {
+      "frame": 190,
+      "person_points": 824,
+      "stationary_label_points": 349,
+      "moving_label_points": 475
+    },
+    {
+      "frame": 191,
+      "person_points": 836,
+      "stationary_label_points": 382,
+      "moving_label_points": 454
+    },
+    {
+      "frame": 192,
+      "person_points": 907,
+      "stationary_label_points": 458,
+      "moving_label_points": 449
+    },
+    {
+      "frame": 193,
+      "person_points": 909,
+      "stationary_label_points": 530,
+      "moving_label_points": 379
+    },
+    {
+      "frame": 194,
+      "person_points": 904,
+      "stationary_label_points": 576,
+      "moving_label_points": 328
+    },
+    {
+      "frame": 195,
+      "person_points": 932,
+      "stationary_label_points": 654,
+      "moving_label_points": 278
+    },
+    {
+      "frame": 196,
+      "person_points": 945,
+      "stationary_label_points": 709,
+      "moving_label_points": 236
+    },
+    {
+      "frame": 197,
+      "person_points": 943,
+      "stationary_label_points": 728,
+      "moving_label_points": 215
+    },
+    {
+      "frame": 198,
+      "person_points": 899,
+      "stationary_label_points": 707,
+      "moving_label_points": 192
+    },
+    {
+      "frame": 199,
+      "person_points": 845,
+      "stationary_label_points": 676,
+      "moving_label_points": 169
+    },
+    {
+      "frame": 200,
+      "person_points": 783,
+      "stationary_label_points": 623,
+      "moving_label_points": 160
+    },
+    {
+      "frame": 201,
+      "person_points": 699,
+      "stationary_label_points": 562,
+      "moving_label_points": 137
+    },
+    {
+      "frame": 202,
+      "person_points": 624,
+      "stationary_label_points": 504,
+      "moving_label_points": 120
+    },
+    {
+      "frame": 203,
+      "person_points": 518,
+      "stationary_label_points": 410,
+      "moving_label_points": 108
+    },
+    {
+      "frame": 204,
+      "person_points": 334,
+      "stationary_label_points": 244,
+      "moving_label_points": 90
+    },
+    {
+      "frame": 205,
+      "person_points": 366,
+      "stationary_label_points": 282,
+      "moving_label_points": 84
+    },
+    {
+      "frame": 206,
+      "person_points": 307,
+      "stationary_label_points": 237,
+      "moving_label_points": 70
+    },
+    {
+      "frame": 207,
+      "person_points": 257,
+      "stationary_label_points": 186,
+      "moving_label_points": 71
+    },
+    {
+      "frame": 208,
+      "person_points": 205,
+      "stationary_label_points": 142,
+      "moving_label_points": 63
+    },
+    {
+      "frame": 209,
+      "person_points": 156,
+      "stationary_label_points": 101,
+      "moving_label_points": 55
+    },
+    {
+      "frame": 210,
+      "person_points": 117,
+      "stationary_label_points": 68,
+      "moving_label_points": 49
+    },
+    {
+      "frame": 211,
+      "person_points": 95,
+      "stationary_label_points": 47,
+      "moving_label_points": 48
+    },
+    {
+      "frame": 212,
+      "person_points": 76,
+      "stationary_label_points": 27,
+      "moving_label_points": 49
+    },
+    {
+      "frame": 213,
+      "person_points": 55,
+      "stationary_label_points": 11,
+      "moving_label_points": 44
+    },
+    {
+      "frame": 214,
+      "person_points": 44,
+      "stationary_label_points": 2,
+      "moving_label_points": 42
+    },
+    {
+      "frame": 215,
+      "person_points": 47,
+      "stationary_label_points": 0,
+      "moving_label_points": 47
+    },
+    {
+      "frame": 216,
+      "person_points": 37,
+      "stationary_label_points": 0,
+      "moving_label_points": 37
+    },
+    {
+      "frame": 217,
+      "person_points": 38,
+      "stationary_label_points": 0,
+      "moving_label_points": 38
+    },
+    {
+      "frame": 218,
+      "person_points": 38,
+      "stationary_label_points": 0,
+      "moving_label_points": 38
+    },
+    {
+      "frame": 219,
+      "person_points": 44,
+      "stationary_label_points": 0,
+      "moving_label_points": 44
+    },
+    {
+      "frame": 220,
+      "person_points": 37,
+      "stationary_label_points": 0,
+      "moving_label_points": 37
+    },
+    {
+      "frame": 221,
+      "person_points": 42,
+      "stationary_label_points": 0,
+      "moving_label_points": 42
+    },
+    {
+      "frame": 222,
+      "person_points": 42,
+      "stationary_label_points": 0,
+      "moving_label_points": 42
+    },
+    {
+      "frame": 223,
+      "person_points": 41,
+      "stationary_label_points": 0,
+      "moving_label_points": 41
+    },
+    {
+      "frame": 224,
+      "person_points": 41,
+      "stationary_label_points": 0,
+      "moving_label_points": 41
+    },
+    {
+      "frame": 225,
+      "person_points": 37,
+      "stationary_label_points": 0,
+      "moving_label_points": 37
+    },
+    {
+      "frame": 226,
+      "person_points": 65,
+      "stationary_label_points": 0,
+      "moving_label_points": 65
+    },
+    {
+      "frame": 227,
+      "person_points": 66,
+      "stationary_label_points": 0,
+      "moving_label_points": 66
+    },
+    {
+      "frame": 228,
+      "person_points": 37,
+      "stationary_label_points": 0,
+      "moving_label_points": 37
+    },
+    {
+      "frame": 229,
+      "person_points": 51,
+      "stationary_label_points": 0,
+      "moving_label_points": 51
+    },
+    {
+      "frame": 230,
+      "person_points": 40,
+      "stationary_label_points": 0,
+      "moving_label_points": 40
+    },
+    {
+      "frame": 231,
+      "person_points": 40,
+      "stationary_label_points": 0,
+      "moving_label_points": 40
+    },
+    {
+      "frame": 232,
+      "person_points": 40,
+      "stationary_label_points": 0,
+      "moving_label_points": 40
+    },
+    {
+      "frame": 233,
+      "person_points": 36,
+      "stationary_label_points": 0,
+      "moving_label_points": 36
+    },
+    {
+      "frame": 234,
+      "person_points": 32,
+      "stationary_label_points": 0,
+      "moving_label_points": 32
+    },
+    {
+      "frame": 235,
+      "person_points": 40,
+      "stationary_label_points": 0,
+      "moving_label_points": 40
+    },
+    {
+      "frame": 236,
+      "person_points": 37,
+      "stationary_label_points": 0,
+      "moving_label_points": 37
+    },
+    {
+      "frame": 237,
+      "person_points": 30,
+      "stationary_label_points": 0,
+      "moving_label_points": 30
+    },
+    {
+      "frame": 238,
+      "person_points": 27,
+      "stationary_label_points": 0,
+      "moving_label_points": 27
+    },
+    {
+      "frame": 239,
+      "person_points": 29,
+      "stationary_label_points": 0,
+      "moving_label_points": 29
+    },
+    {
+      "frame": 240,
+      "person_points": 27,
+      "stationary_label_points": 0,
+      "moving_label_points": 27
+    },
+    {
+      "frame": 241,
+      "person_points": 22,
+      "stationary_label_points": 0,
+      "moving_label_points": 22
+    },
+    {
+      "frame": 242,
+      "person_points": 22,
+      "stationary_label_points": 0,
+      "moving_label_points": 22
+    },
+    {
+      "frame": 243,
+      "person_points": 28,
+      "stationary_label_points": 1,
+      "moving_label_points": 27
+    },
+    {
+      "frame": 244,
+      "person_points": 19,
+      "stationary_label_points": 0,
+      "moving_label_points": 19
+    },
+    {
+      "frame": 245,
+      "person_points": 32,
+      "stationary_label_points": 0,
+      "moving_label_points": 32
+    },
+    {
+      "frame": 246,
+      "person_points": 29,
+      "stationary_label_points": 0,
+      "moving_label_points": 29
+    },
+    {
+      "frame": 247,
+      "person_points": 33,
+      "stationary_label_points": 0,
+      "moving_label_points": 33
+    },
+    {
+      "frame": 248,
+      "person_points": 31,
+      "stationary_label_points": 0,
+      "moving_label_points": 31
+    },
+    {
+      "frame": 249,
+      "person_points": 41,
+      "stationary_label_points": 0,
+      "moving_label_points": 41
+    },
+    {
+      "frame": 250,
+      "person_points": 49,
+      "stationary_label_points": 0,
+      "moving_label_points": 49
+    },
+    {
+      "frame": 251,
+      "person_points": 56,
+      "stationary_label_points": 0,
+      "moving_label_points": 56
+    },
+    {
+      "frame": 252,
+      "person_points": 55,
+      "stationary_label_points": 0,
+      "moving_label_points": 55
+    },
+    {
+      "frame": 253,
+      "person_points": 65,
+      "stationary_label_points": 0,
+      "moving_label_points": 65
+    },
+    {
+      "frame": 254,
+      "person_points": 85,
+      "stationary_label_points": 0,
+      "moving_label_points": 85
+    },
+    {
+      "frame": 255,
+      "person_points": 114,
+      "stationary_label_points": 0,
+      "moving_label_points": 114
+    },
+    {
+      "frame": 256,
+      "person_points": 133,
+      "stationary_label_points": 0,
+      "moving_label_points": 133
+    },
+    {
+      "frame": 257,
+      "person_points": 142,
+      "stationary_label_points": 0,
+      "moving_label_points": 142
+    },
+    {
+      "frame": 258,
+      "person_points": 144,
+      "stationary_label_points": 0,
+      "moving_label_points": 144
+    },
+    {
+      "frame": 259,
+      "person_points": 189,
+      "stationary_label_points": 0,
+      "moving_label_points": 189
+    },
+    {
+      "frame": 260,
+      "person_points": 221,
+      "stationary_label_points": 0,
+      "moving_label_points": 221
+    },
+    {
+      "frame": 261,
+      "person_points": 235,
+      "stationary_label_points": 0,
+      "moving_label_points": 235
+    },
+    {
+      "frame": 262,
+      "person_points": 191,
+      "stationary_label_points": 0,
+      "moving_label_points": 191
+    },
+    {
+      "frame": 263,
+      "person_points": 189,
+      "stationary_label_points": 0,
+      "moving_label_points": 189
+    },
+    {
+      "frame": 264,
+      "person_points": 233,
+      "stationary_label_points": 0,
+      "moving_label_points": 233
+    },
+    {
+      "frame": 265,
+      "person_points": 234,
+      "stationary_label_points": 0,
+      "moving_label_points": 234
+    },
+    {
+      "frame": 266,
+      "person_points": 182,
+      "stationary_label_points": 0,
+      "moving_label_points": 182
+    },
+    {
+      "frame": 267,
+      "person_points": 136,
+      "stationary_label_points": 0,
+      "moving_label_points": 136
+    },
+    {
+      "frame": 268,
+      "person_points": 107,
+      "stationary_label_points": 0,
+      "moving_label_points": 107
+    },
+    {
+      "frame": 269,
+      "person_points": 103,
+      "stationary_label_points": 0,
+      "moving_label_points": 103
+    },
+    {
+      "frame": 270,
+      "person_points": 96,
+      "stationary_label_points": 0,
+      "moving_label_points": 96
+    },
+    {
+      "frame": 271,
+      "person_points": 71,
+      "stationary_label_points": 0,
+      "moving_label_points": 71
+    },
+    {
+      "frame": 272,
+      "person_points": 51,
+      "stationary_label_points": 0,
+      "moving_label_points": 51
+    },
+    {
+      "frame": 273,
+      "person_points": 46,
+      "stationary_label_points": 0,
+      "moving_label_points": 46
+    },
+    {
+      "frame": 274,
+      "person_points": 49,
+      "stationary_label_points": 0,
+      "moving_label_points": 49
+    },
+    {
+      "frame": 275,
+      "person_points": 41,
+      "stationary_label_points": 0,
+      "moving_label_points": 41
+    },
+    {
+      "frame": 276,
+      "person_points": 33,
+      "stationary_label_points": 0,
+      "moving_label_points": 33
+    },
+    {
+      "frame": 277,
+      "person_points": 25,
+      "stationary_label_points": 0,
+      "moving_label_points": 25
+    },
+    {
+      "frame": 278,
+      "person_points": 31,
+      "stationary_label_points": 0,
+      "moving_label_points": 31
+    },
+    {
+      "frame": 279,
+      "person_points": 37,
+      "stationary_label_points": 0,
+      "moving_label_points": 37
+    },
+    {
+      "frame": 280,
+      "person_points": 37,
+      "stationary_label_points": 0,
+      "moving_label_points": 37
+    },
+    {
+      "frame": 281,
+      "person_points": 37,
+      "stationary_label_points": 0,
+      "moving_label_points": 37
+    },
+    {
+      "frame": 282,
+      "person_points": 36,
+      "stationary_label_points": 0,
+      "moving_label_points": 36
+    },
+    {
+      "frame": 283,
+      "person_points": 36,
+      "stationary_label_points": 0,
+      "moving_label_points": 36
+    },
+    {
+      "frame": 284,
+      "person_points": 40,
+      "stationary_label_points": 0,
+      "moving_label_points": 40
+    },
+    {
+      "frame": 285,
+      "person_points": 44,
+      "stationary_label_points": 0,
+      "moving_label_points": 44
+    },
+    {
+      "frame": 286,
+      "person_points": 36,
+      "stationary_label_points": 0,
+      "moving_label_points": 36
+    },
+    {
+      "frame": 287,
+      "person_points": 34,
+      "stationary_label_points": 0,
+      "moving_label_points": 34
+    },
+    {
+      "frame": 288,
+      "person_points": 33,
+      "stationary_label_points": 0,
+      "moving_label_points": 33
+    },
+    {
+      "frame": 289,
+      "person_points": 36,
+      "stationary_label_points": 0,
+      "moving_label_points": 36
+    },
+    {
+      "frame": 290,
+      "person_points": 36,
+      "stationary_label_points": 0,
+      "moving_label_points": 36
+    },
+    {
+      "frame": 291,
+      "person_points": 31,
+      "stationary_label_points": 0,
+      "moving_label_points": 31
+    },
+    {
+      "frame": 292,
+      "person_points": 30,
+      "stationary_label_points": 0,
+      "moving_label_points": 30
+    },
+    {
+      "frame": 293,
+      "person_points": 26,
+      "stationary_label_points": 0,
+      "moving_label_points": 26
+    },
+    {
+      "frame": 294,
+      "person_points": 32,
+      "stationary_label_points": 0,
+      "moving_label_points": 32
+    },
+    {
+      "frame": 295,
+      "person_points": 25,
+      "stationary_label_points": 0,
+      "moving_label_points": 25
+    },
+    {
+      "frame": 296,
+      "person_points": 23,
+      "stationary_label_points": 0,
+      "moving_label_points": 23
+    },
+    {
+      "frame": 297,
+      "person_points": 25,
+      "stationary_label_points": 0,
+      "moving_label_points": 25
+    },
+    {
+      "frame": 298,
+      "person_points": 25,
+      "stationary_label_points": 0,
+      "moving_label_points": 25
+    },
+    {
+      "frame": 299,
+      "person_points": 20,
+      "stationary_label_points": 0,
+      "moving_label_points": 20
+    },
+    {
+      "frame": 300,
+      "person_points": 20,
+      "stationary_label_points": 0,
+      "moving_label_points": 20
+    },
+    {
+      "frame": 301,
+      "person_points": 22,
+      "stationary_label_points": 0,
+      "moving_label_points": 22
+    },
+    {
+      "frame": 302,
+      "person_points": 20,
+      "stationary_label_points": 0,
+      "moving_label_points": 20
+    },
+    {
+      "frame": 303,
+      "person_points": 19,
+      "stationary_label_points": 0,
+      "moving_label_points": 19
+    },
+    {
+      "frame": 304,
+      "person_points": 16,
+      "stationary_label_points": 0,
+      "moving_label_points": 16
+    },
+    {
+      "frame": 305,
+      "person_points": 18,
+      "stationary_label_points": 0,
+      "moving_label_points": 18
+    },
+    {
+      "frame": 306,
+      "person_points": 20,
+      "stationary_label_points": 0,
+      "moving_label_points": 20
+    },
+    {
+      "frame": 307,
+      "person_points": 19,
+      "stationary_label_points": 0,
+      "moving_label_points": 19
+    },
+    {
+      "frame": 308,
+      "person_points": 13,
+      "stationary_label_points": 0,
+      "moving_label_points": 13
+    },
+    {
+      "frame": 309,
+      "person_points": 17,
+      "stationary_label_points": 0,
+      "moving_label_points": 17
+    },
+    {
+      "frame": 310,
+      "person_points": 20,
+      "stationary_label_points": 0,
+      "moving_label_points": 20
+    },
+    {
+      "frame": 311,
+      "person_points": 22,
+      "stationary_label_points": 0,
+      "moving_label_points": 22
+    },
+    {
+      "frame": 312,
+      "person_points": 18,
+      "stationary_label_points": 0,
+      "moving_label_points": 18
+    },
+    {
+      "frame": 313,
+      "person_points": 19,
+      "stationary_label_points": 0,
+      "moving_label_points": 19
+    },
+    {
+      "frame": 314,
+      "person_points": 16,
+      "stationary_label_points": 0,
+      "moving_label_points": 16
+    },
+    {
+      "frame": 315,
+      "person_points": 20,
+      "stationary_label_points": 0,
+      "moving_label_points": 20
+    },
+    {
+      "frame": 316,
+      "person_points": 16,
+      "stationary_label_points": 0,
+      "moving_label_points": 16
+    },
+    {
+      "frame": 317,
+      "person_points": 15,
+      "stationary_label_points": 0,
+      "moving_label_points": 15
+    },
+    {
+      "frame": 318,
+      "person_points": 12,
+      "stationary_label_points": 0,
+      "moving_label_points": 12
+    },
+    {
+      "frame": 319,
+      "person_points": 12,
+      "stationary_label_points": 0,
+      "moving_label_points": 12
+    },
+    {
+      "frame": 320,
+      "person_points": 13,
+      "stationary_label_points": 0,
+      "moving_label_points": 13
+    },
+    {
+      "frame": 321,
+      "person_points": 12,
+      "stationary_label_points": 0,
+      "moving_label_points": 12
+    },
+    {
+      "frame": 322,
+      "person_points": 10,
+      "stationary_label_points": 0,
+      "moving_label_points": 10
+    },
+    {
+      "frame": 323,
+      "person_points": 10,
+      "stationary_label_points": 0,
+      "moving_label_points": 10
+    },
+    {
+      "frame": 324,
+      "person_points": 13,
+      "stationary_label_points": 0,
+      "moving_label_points": 13
+    },
+    {
+      "frame": 325,
+      "person_points": 13,
+      "stationary_label_points": 0,
+      "moving_label_points": 13
+    },
+    {
+      "frame": 326,
+      "person_points": 18,
+      "stationary_label_points": 0,
+      "moving_label_points": 18
+    },
+    {
+      "frame": 327,
+      "person_points": 19,
+      "stationary_label_points": 0,
+      "moving_label_points": 19
+    },
+    {
+      "frame": 328,
+      "person_points": 20,
+      "stationary_label_points": 0,
+      "moving_label_points": 20
+    },
+    {
+      "frame": 329,
+      "person_points": 20,
+      "stationary_label_points": 0,
+      "moving_label_points": 20
+    },
+    {
+      "frame": 330,
+      "person_points": 22,
+      "stationary_label_points": 0,
+      "moving_label_points": 22
+    },
+    {
+      "frame": 331,
+      "person_points": 19,
+      "stationary_label_points": 0,
+      "moving_label_points": 19
+    },
+    {
+      "frame": 332,
+      "person_points": 15,
+      "stationary_label_points": 0,
+      "moving_label_points": 15
+    },
+    {
+      "frame": 333,
+      "person_points": 19,
+      "stationary_label_points": 0,
+      "moving_label_points": 19
+    },
+    {
+      "frame": 334,
+      "person_points": 16,
+      "stationary_label_points": 0,
+      "moving_label_points": 16
+    },
+    {
+      "frame": 335,
+      "person_points": 19,
+      "stationary_label_points": 0,
+      "moving_label_points": 19
+    },
+    {
+      "frame": 336,
+      "person_points": 17,
+      "stationary_label_points": 0,
+      "moving_label_points": 17
+    },
+    {
+      "frame": 337,
+      "person_points": 16,
+      "stationary_label_points": 0,
+      "moving_label_points": 16
+    },
+    {
+      "frame": 338,
+      "person_points": 16,
+      "stationary_label_points": 0,
+      "moving_label_points": 16
+    },
+    {
+      "frame": 339,
+      "person_points": 17,
+      "stationary_label_points": 0,
+      "moving_label_points": 17
+    },
+    {
+      "frame": 340,
+      "person_points": 12,
+      "stationary_label_points": 0,
+      "moving_label_points": 12
+    },
+    {
+      "frame": 587,
+      "person_points": 2,
+      "stationary_label_points": 0,
+      "moving_label_points": 2
+    },
+    {
+      "frame": 588,
+      "person_points": 21,
+      "stationary_label_points": 0,
+      "moving_label_points": 21
+    },
+    {
+      "frame": 589,
+      "person_points": 30,
+      "stationary_label_points": 0,
+      "moving_label_points": 30
+    },
+    {
+      "frame": 590,
+      "person_points": 27,
+      "stationary_label_points": 0,
+      "moving_label_points": 27
+    },
+    {
+      "frame": 591,
+      "person_points": 27,
+      "stationary_label_points": 0,
+      "moving_label_points": 27
+    },
+    {
+      "frame": 592,
+      "person_points": 38,
+      "stationary_label_points": 0,
+      "moving_label_points": 38
+    },
+    {
+      "frame": 593,
+      "person_points": 34,
+      "stationary_label_points": 0,
+      "moving_label_points": 34
+    },
+    {
+      "frame": 594,
+      "person_points": 39,
+      "stationary_label_points": 0,
+      "moving_label_points": 39
+    },
+    {
+      "frame": 595,
+      "person_points": 48,
+      "stationary_label_points": 0,
+      "moving_label_points": 48
+    },
+    {
+      "frame": 596,
+      "person_points": 58,
+      "stationary_label_points": 0,
+      "moving_label_points": 58
+    },
+    {
+      "frame": 597,
+      "person_points": 77,
+      "stationary_label_points": 0,
+      "moving_label_points": 77
+    },
+    {
+      "frame": 598,
+      "person_points": 95,
+      "stationary_label_points": 0,
+      "moving_label_points": 95
+    },
+    {
+      "frame": 599,
+      "person_points": 119,
+      "stationary_label_points": 0,
+      "moving_label_points": 119
+    },
+    {
+      "frame": 600,
+      "person_points": 153,
+      "stationary_label_points": 0,
+      "moving_label_points": 153
+    },
+    {
+      "frame": 601,
+      "person_points": 203,
+      "stationary_label_points": 0,
+      "moving_label_points": 203
+    },
+    {
+      "frame": 602,
+      "person_points": 255,
+      "stationary_label_points": 0,
+      "moving_label_points": 255
+    },
+    {
+      "frame": 603,
+      "person_points": 270,
+      "stationary_label_points": 0,
+      "moving_label_points": 270
+    },
+    {
+      "frame": 604,
+      "person_points": 240,
+      "stationary_label_points": 0,
+      "moving_label_points": 240
+    },
+    {
+      "frame": 605,
+      "person_points": 60,
+      "stationary_label_points": 0,
+      "moving_label_points": 60
+    },
+    {
+      "frame": 606,
+      "person_points": 402,
+      "stationary_label_points": 0,
+      "moving_label_points": 402
+    },
+    {
+      "frame": 607,
+      "person_points": 619,
+      "stationary_label_points": 0,
+      "moving_label_points": 619
+    },
+    {
+      "frame": 608,
+      "person_points": 556,
+      "stationary_label_points": 0,
+      "moving_label_points": 556
+    },
+    {
+      "frame": 609,
+      "person_points": 258,
+      "stationary_label_points": 0,
+      "moving_label_points": 258
+    },
+    {
+      "frame": 610,
+      "person_points": 220,
+      "stationary_label_points": 0,
+      "moving_label_points": 220
+    },
+    {
+      "frame": 611,
+      "person_points": 188,
+      "stationary_label_points": 0,
+      "moving_label_points": 188
+    },
+    {
+      "frame": 612,
+      "person_points": 135,
+      "stationary_label_points": 0,
+      "moving_label_points": 135
+    },
+    {
+      "frame": 613,
+      "person_points": 116,
+      "stationary_label_points": 0,
+      "moving_label_points": 116
+    },
+    {
+      "frame": 614,
+      "person_points": 43,
+      "stationary_label_points": 0,
+      "moving_label_points": 43
+    },
+    {
+      "frame": 615,
+      "person_points": 182,
+      "stationary_label_points": 0,
+      "moving_label_points": 182
+    },
+    {
+      "frame": 616,
+      "person_points": 196,
+      "stationary_label_points": 0,
+      "moving_label_points": 196
+    },
+    {
+      "frame": 617,
+      "person_points": 156,
+      "stationary_label_points": 0,
+      "moving_label_points": 156
+    },
+    {
+      "frame": 618,
+      "person_points": 120,
+      "stationary_label_points": 0,
+      "moving_label_points": 120
+    },
+    {
+      "frame": 619,
+      "person_points": 103,
+      "stationary_label_points": 0,
+      "moving_label_points": 103
+    },
+    {
+      "frame": 620,
+      "person_points": 94,
+      "stationary_label_points": 0,
+      "moving_label_points": 94
+    },
+    {
+      "frame": 621,
+      "person_points": 87,
+      "stationary_label_points": 0,
+      "moving_label_points": 87
+    },
+    {
+      "frame": 622,
+      "person_points": 64,
+      "stationary_label_points": 0,
+      "moving_label_points": 64
+    },
+    {
+      "frame": 623,
+      "person_points": 42,
+      "stationary_label_points": 0,
+      "moving_label_points": 42
+    },
+    {
+      "frame": 624,
+      "person_points": 30,
+      "stationary_label_points": 0,
+      "moving_label_points": 30
+    },
+    {
+      "frame": 625,
+      "person_points": 23,
+      "stationary_label_points": 0,
+      "moving_label_points": 23
+    },
+    {
+      "frame": 626,
+      "person_points": 21,
+      "stationary_label_points": 0,
+      "moving_label_points": 21
+    },
+    {
+      "frame": 627,
+      "person_points": 33,
+      "stationary_label_points": 0,
+      "moving_label_points": 33
+    },
+    {
+      "frame": 628,
+      "person_points": 38,
+      "stationary_label_points": 0,
+      "moving_label_points": 38
+    },
+    {
+      "frame": 629,
+      "person_points": 27,
+      "stationary_label_points": 0,
+      "moving_label_points": 27
+    },
+    {
+      "frame": 630,
+      "person_points": 9,
+      "stationary_label_points": 0,
+      "moving_label_points": 9
+    },
+    {
+      "frame": 632,
+      "person_points": 1,
+      "stationary_label_points": 0,
+      "moving_label_points": 1
+    },
+    {
+      "frame": 633,
+      "person_points": 3,
+      "stationary_label_points": 0,
+      "moving_label_points": 3
+    },
+    {
+      "frame": 634,
+      "person_points": 6,
+      "stationary_label_points": 0,
+      "moving_label_points": 6
+    },
+    {
+      "frame": 635,
+      "person_points": 17,
+      "stationary_label_points": 0,
+      "moving_label_points": 17
+    },
+    {
+      "frame": 636,
+      "person_points": 14,
+      "stationary_label_points": 0,
+      "moving_label_points": 14
+    },
+    {
+      "frame": 637,
+      "person_points": 2,
+      "stationary_label_points": 0,
+      "moving_label_points": 2
+    },
+    {
+      "frame": 638,
+      "person_points": 1,
+      "stationary_label_points": 0,
+      "moving_label_points": 1
+    },
+    {
+      "frame": 640,
+      "person_points": 1,
+      "stationary_label_points": 0,
+      "moving_label_points": 1
+    },
+    {
+      "frame": 653,
+      "person_points": 3,
+      "stationary_label_points": 3,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 654,
+      "person_points": 15,
+      "stationary_label_points": 15,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 655,
+      "person_points": 17,
+      "stationary_label_points": 17,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 656,
+      "person_points": 14,
+      "stationary_label_points": 14,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 657,
+      "person_points": 16,
+      "stationary_label_points": 16,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 658,
+      "person_points": 16,
+      "stationary_label_points": 16,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 659,
+      "person_points": 18,
+      "stationary_label_points": 18,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 660,
+      "person_points": 20,
+      "stationary_label_points": 20,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 661,
+      "person_points": 15,
+      "stationary_label_points": 15,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 662,
+      "person_points": 17,
+      "stationary_label_points": 16,
+      "moving_label_points": 1
+    },
+    {
+      "frame": 663,
+      "person_points": 17,
+      "stationary_label_points": 17,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 664,
+      "person_points": 15,
+      "stationary_label_points": 15,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 665,
+      "person_points": 13,
+      "stationary_label_points": 13,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 666,
+      "person_points": 21,
+      "stationary_label_points": 21,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 667,
+      "person_points": 17,
+      "stationary_label_points": 17,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 668,
+      "person_points": 18,
+      "stationary_label_points": 18,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 669,
+      "person_points": 18,
+      "stationary_label_points": 18,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 670,
+      "person_points": 17,
+      "stationary_label_points": 17,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 671,
+      "person_points": 21,
+      "stationary_label_points": 21,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 672,
+      "person_points": 16,
+      "stationary_label_points": 16,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 673,
+      "person_points": 17,
+      "stationary_label_points": 17,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 674,
+      "person_points": 17,
+      "stationary_label_points": 17,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 675,
+      "person_points": 18,
+      "stationary_label_points": 18,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 676,
+      "person_points": 19,
+      "stationary_label_points": 18,
+      "moving_label_points": 1
+    },
+    {
+      "frame": 677,
+      "person_points": 21,
+      "stationary_label_points": 20,
+      "moving_label_points": 1
+    },
+    {
+      "frame": 678,
+      "person_points": 20,
+      "stationary_label_points": 19,
+      "moving_label_points": 1
+    },
+    {
+      "frame": 679,
+      "person_points": 20,
+      "stationary_label_points": 19,
+      "moving_label_points": 1
+    },
+    {
+      "frame": 680,
+      "person_points": 19,
+      "stationary_label_points": 19,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 681,
+      "person_points": 18,
+      "stationary_label_points": 18,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 682,
+      "person_points": 16,
+      "stationary_label_points": 16,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 683,
+      "person_points": 19,
+      "stationary_label_points": 19,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 684,
+      "person_points": 17,
+      "stationary_label_points": 17,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 685,
+      "person_points": 17,
+      "stationary_label_points": 17,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 686,
+      "person_points": 18,
+      "stationary_label_points": 18,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 687,
+      "person_points": 14,
+      "stationary_label_points": 14,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 688,
+      "person_points": 19,
+      "stationary_label_points": 19,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 689,
+      "person_points": 17,
+      "stationary_label_points": 17,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 690,
+      "person_points": 14,
+      "stationary_label_points": 14,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 691,
+      "person_points": 18,
+      "stationary_label_points": 18,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 692,
+      "person_points": 14,
+      "stationary_label_points": 14,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 693,
+      "person_points": 14,
+      "stationary_label_points": 14,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 694,
+      "person_points": 15,
+      "stationary_label_points": 15,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 695,
+      "person_points": 17,
+      "stationary_label_points": 16,
+      "moving_label_points": 1
+    },
+    {
+      "frame": 696,
+      "person_points": 15,
+      "stationary_label_points": 15,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 697,
+      "person_points": 14,
+      "stationary_label_points": 14,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 698,
+      "person_points": 15,
+      "stationary_label_points": 15,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 699,
+      "person_points": 13,
+      "stationary_label_points": 13,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 700,
+      "person_points": 13,
+      "stationary_label_points": 13,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 701,
+      "person_points": 13,
+      "stationary_label_points": 13,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 702,
+      "person_points": 12,
+      "stationary_label_points": 12,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 703,
+      "person_points": 13,
+      "stationary_label_points": 13,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 704,
+      "person_points": 12,
+      "stationary_label_points": 11,
+      "moving_label_points": 1
+    },
+    {
+      "frame": 705,
+      "person_points": 11,
+      "stationary_label_points": 11,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 706,
+      "person_points": 13,
+      "stationary_label_points": 13,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 707,
+      "person_points": 11,
+      "stationary_label_points": 11,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 708,
+      "person_points": 11,
+      "stationary_label_points": 11,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 709,
+      "person_points": 13,
+      "stationary_label_points": 13,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 710,
+      "person_points": 13,
+      "stationary_label_points": 13,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 711,
+      "person_points": 13,
+      "stationary_label_points": 13,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 712,
+      "person_points": 14,
+      "stationary_label_points": 14,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 713,
+      "person_points": 14,
+      "stationary_label_points": 14,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 714,
+      "person_points": 12,
+      "stationary_label_points": 12,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 715,
+      "person_points": 12,
+      "stationary_label_points": 12,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 716,
+      "person_points": 14,
+      "stationary_label_points": 14,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 717,
+      "person_points": 14,
+      "stationary_label_points": 14,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 718,
+      "person_points": 10,
+      "stationary_label_points": 10,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 719,
+      "person_points": 13,
+      "stationary_label_points": 13,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 720,
+      "person_points": 14,
+      "stationary_label_points": 14,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 721,
+      "person_points": 14,
+      "stationary_label_points": 14,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 722,
+      "person_points": 12,
+      "stationary_label_points": 12,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 723,
+      "person_points": 13,
+      "stationary_label_points": 13,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 724,
+      "person_points": 15,
+      "stationary_label_points": 15,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 725,
+      "person_points": 13,
+      "stationary_label_points": 13,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 726,
+      "person_points": 10,
+      "stationary_label_points": 10,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 727,
+      "person_points": 9,
+      "stationary_label_points": 9,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 728,
+      "person_points": 10,
+      "stationary_label_points": 10,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 729,
+      "person_points": 11,
+      "stationary_label_points": 11,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 730,
+      "person_points": 12,
+      "stationary_label_points": 12,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 731,
+      "person_points": 11,
+      "stationary_label_points": 11,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 732,
+      "person_points": 14,
+      "stationary_label_points": 14,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 733,
+      "person_points": 14,
+      "stationary_label_points": 11,
+      "moving_label_points": 3
+    },
+    {
+      "frame": 734,
+      "person_points": 17,
+      "stationary_label_points": 13,
+      "moving_label_points": 4
+    },
+    {
+      "frame": 735,
+      "person_points": 15,
+      "stationary_label_points": 12,
+      "moving_label_points": 3
+    },
+    {
+      "frame": 736,
+      "person_points": 12,
+      "stationary_label_points": 12,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 737,
+      "person_points": 13,
+      "stationary_label_points": 13,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 738,
+      "person_points": 12,
+      "stationary_label_points": 11,
+      "moving_label_points": 1
+    },
+    {
+      "frame": 739,
+      "person_points": 11,
+      "stationary_label_points": 11,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 740,
+      "person_points": 11,
+      "stationary_label_points": 11,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 741,
+      "person_points": 13,
+      "stationary_label_points": 13,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 742,
+      "person_points": 9,
+      "stationary_label_points": 9,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 743,
+      "person_points": 2,
+      "stationary_label_points": 2,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 744,
+      "person_points": 8,
+      "stationary_label_points": 8,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 745,
+      "person_points": 3,
+      "stationary_label_points": 3,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 746,
+      "person_points": 1,
+      "stationary_label_points": 0,
+      "moving_label_points": 1
+    },
+    {
+      "frame": 747,
+      "person_points": 5,
+      "stationary_label_points": 5,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 748,
+      "person_points": 13,
+      "stationary_label_points": 13,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 749,
+      "person_points": 10,
+      "stationary_label_points": 10,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 750,
+      "person_points": 7,
+      "stationary_label_points": 7,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 751,
+      "person_points": 7,
+      "stationary_label_points": 7,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 752,
+      "person_points": 5,
+      "stationary_label_points": 5,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 753,
+      "person_points": 2,
+      "stationary_label_points": 2,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 756,
+      "person_points": 4,
+      "stationary_label_points": 4,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 757,
+      "person_points": 5,
+      "stationary_label_points": 5,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 758,
+      "person_points": 5,
+      "stationary_label_points": 5,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 759,
+      "person_points": 4,
+      "stationary_label_points": 4,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 760,
+      "person_points": 2,
+      "stationary_label_points": 2,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 763,
+      "person_points": 1,
+      "stationary_label_points": 0,
+      "moving_label_points": 1
+    },
+    {
+      "frame": 764,
+      "person_points": 1,
+      "stationary_label_points": 0,
+      "moving_label_points": 1
+    },
+    {
+      "frame": 795,
+      "person_points": 1,
+      "stationary_label_points": 1,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 797,
+      "person_points": 13,
+      "stationary_label_points": 13,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 798,
+      "person_points": 48,
+      "stationary_label_points": 48,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 799,
+      "person_points": 98,
+      "stationary_label_points": 98,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 800,
+      "person_points": 169,
+      "stationary_label_points": 169,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 801,
+      "person_points": 245,
+      "stationary_label_points": 245,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 802,
+      "person_points": 203,
+      "stationary_label_points": 203,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 803,
+      "person_points": 140,
+      "stationary_label_points": 140,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 804,
+      "person_points": 48,
+      "stationary_label_points": 48,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 818,
+      "person_points": 10,
+      "stationary_label_points": 10,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 819,
+      "person_points": 14,
+      "stationary_label_points": 14,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 820,
+      "person_points": 16,
+      "stationary_label_points": 16,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 821,
+      "person_points": 16,
+      "stationary_label_points": 16,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 822,
+      "person_points": 29,
+      "stationary_label_points": 23,
+      "moving_label_points": 6
+    },
+    {
+      "frame": 823,
+      "person_points": 33,
+      "stationary_label_points": 27,
+      "moving_label_points": 6
+    },
+    {
+      "frame": 824,
+      "person_points": 32,
+      "stationary_label_points": 29,
+      "moving_label_points": 3
+    },
+    {
+      "frame": 825,
+      "person_points": 30,
+      "stationary_label_points": 30,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 826,
+      "person_points": 34,
+      "stationary_label_points": 30,
+      "moving_label_points": 4
+    },
+    {
+      "frame": 827,
+      "person_points": 37,
+      "stationary_label_points": 30,
+      "moving_label_points": 7
+    },
+    {
+      "frame": 828,
+      "person_points": 31,
+      "stationary_label_points": 31,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 829,
+      "person_points": 48,
+      "stationary_label_points": 31,
+      "moving_label_points": 17
+    },
+    {
+      "frame": 830,
+      "person_points": 84,
+      "stationary_label_points": 33,
+      "moving_label_points": 51
+    },
+    {
+      "frame": 831,
+      "person_points": 61,
+      "stationary_label_points": 35,
+      "moving_label_points": 26
+    },
+    {
+      "frame": 832,
+      "person_points": 56,
+      "stationary_label_points": 41,
+      "moving_label_points": 15
+    },
+    {
+      "frame": 833,
+      "person_points": 47,
+      "stationary_label_points": 43,
+      "moving_label_points": 4
+    },
+    {
+      "frame": 834,
+      "person_points": 99,
+      "stationary_label_points": 49,
+      "moving_label_points": 50
+    },
+    {
+      "frame": 835,
+      "person_points": 66,
+      "stationary_label_points": 43,
+      "moving_label_points": 23
+    },
+    {
+      "frame": 836,
+      "person_points": 88,
+      "stationary_label_points": 52,
+      "moving_label_points": 36
+    },
+    {
+      "frame": 837,
+      "person_points": 53,
+      "stationary_label_points": 53,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 838,
+      "person_points": 64,
+      "stationary_label_points": 64,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 839,
+      "person_points": 96,
+      "stationary_label_points": 76,
+      "moving_label_points": 20
+    },
+    {
+      "frame": 840,
+      "person_points": 93,
+      "stationary_label_points": 81,
+      "moving_label_points": 12
+    },
+    {
+      "frame": 841,
+      "person_points": 101,
+      "stationary_label_points": 86,
+      "moving_label_points": 15
+    },
+    {
+      "frame": 842,
+      "person_points": 125,
+      "stationary_label_points": 101,
+      "moving_label_points": 24
+    },
+    {
+      "frame": 843,
+      "person_points": 152,
+      "stationary_label_points": 121,
+      "moving_label_points": 31
+    },
+    {
+      "frame": 844,
+      "person_points": 201,
+      "stationary_label_points": 163,
+      "moving_label_points": 38
+    },
+    {
+      "frame": 845,
+      "person_points": 334,
+      "stationary_label_points": 287,
+      "moving_label_points": 47
+    },
+    {
+      "frame": 846,
+      "person_points": 313,
+      "stationary_label_points": 260,
+      "moving_label_points": 53
+    },
+    {
+      "frame": 847,
+      "person_points": 248,
+      "stationary_label_points": 194,
+      "moving_label_points": 54
+    },
+    {
+      "frame": 848,
+      "person_points": 204,
+      "stationary_label_points": 153,
+      "moving_label_points": 51
+    },
+    {
+      "frame": 849,
+      "person_points": 175,
+      "stationary_label_points": 134,
+      "moving_label_points": 41
+    },
+    {
+      "frame": 850,
+      "person_points": 166,
+      "stationary_label_points": 126,
+      "moving_label_points": 40
+    },
+    {
+      "frame": 851,
+      "person_points": 142,
+      "stationary_label_points": 108,
+      "moving_label_points": 34
+    },
+    {
+      "frame": 852,
+      "person_points": 142,
+      "stationary_label_points": 113,
+      "moving_label_points": 29
+    },
+    {
+      "frame": 853,
+      "person_points": 125,
+      "stationary_label_points": 107,
+      "moving_label_points": 18
+    },
+    {
+      "frame": 854,
+      "person_points": 125,
+      "stationary_label_points": 105,
+      "moving_label_points": 20
+    },
+    {
+      "frame": 855,
+      "person_points": 109,
+      "stationary_label_points": 97,
+      "moving_label_points": 12
+    },
+    {
+      "frame": 856,
+      "person_points": 97,
+      "stationary_label_points": 84,
+      "moving_label_points": 13
+    },
+    {
+      "frame": 857,
+      "person_points": 64,
+      "stationary_label_points": 52,
+      "moving_label_points": 12
+    },
+    {
+      "frame": 858,
+      "person_points": 13,
+      "stationary_label_points": 4,
+      "moving_label_points": 9
+    },
+    {
+      "frame": 859,
+      "person_points": 12,
+      "stationary_label_points": 1,
+      "moving_label_points": 11
+    },
+    {
+      "frame": 860,
+      "person_points": 23,
+      "stationary_label_points": 11,
+      "moving_label_points": 12
+    },
+    {
+      "frame": 861,
+      "person_points": 42,
+      "stationary_label_points": 31,
+      "moving_label_points": 11
+    },
+    {
+      "frame": 862,
+      "person_points": 49,
+      "stationary_label_points": 37,
+      "moving_label_points": 12
+    },
+    {
+      "frame": 863,
+      "person_points": 55,
+      "stationary_label_points": 41,
+      "moving_label_points": 14
+    },
+    {
+      "frame": 864,
+      "person_points": 54,
+      "stationary_label_points": 38,
+      "moving_label_points": 16
+    },
+    {
+      "frame": 865,
+      "person_points": 54,
+      "stationary_label_points": 34,
+      "moving_label_points": 20
+    },
+    {
+      "frame": 866,
+      "person_points": 42,
+      "stationary_label_points": 26,
+      "moving_label_points": 16
+    },
+    {
+      "frame": 867,
+      "person_points": 43,
+      "stationary_label_points": 26,
+      "moving_label_points": 17
+    },
+    {
+      "frame": 868,
+      "person_points": 42,
+      "stationary_label_points": 23,
+      "moving_label_points": 19
+    },
+    {
+      "frame": 869,
+      "person_points": 41,
+      "stationary_label_points": 19,
+      "moving_label_points": 22
+    },
+    {
+      "frame": 870,
+      "person_points": 34,
+      "stationary_label_points": 14,
+      "moving_label_points": 20
+    },
+    {
+      "frame": 871,
+      "person_points": 37,
+      "stationary_label_points": 15,
+      "moving_label_points": 22
+    },
+    {
+      "frame": 872,
+      "person_points": 41,
+      "stationary_label_points": 15,
+      "moving_label_points": 26
+    },
+    {
+      "frame": 873,
+      "person_points": 40,
+      "stationary_label_points": 14,
+      "moving_label_points": 26
+    },
+    {
+      "frame": 874,
+      "person_points": 42,
+      "stationary_label_points": 15,
+      "moving_label_points": 27
+    },
+    {
+      "frame": 875,
+      "person_points": 38,
+      "stationary_label_points": 12,
+      "moving_label_points": 26
+    },
+    {
+      "frame": 876,
+      "person_points": 36,
+      "stationary_label_points": 7,
+      "moving_label_points": 29
+    },
+    {
+      "frame": 877,
+      "person_points": 39,
+      "stationary_label_points": 7,
+      "moving_label_points": 32
+    },
+    {
+      "frame": 878,
+      "person_points": 34,
+      "stationary_label_points": 3,
+      "moving_label_points": 31
+    },
+    {
+      "frame": 879,
+      "person_points": 25,
+      "stationary_label_points": 3,
+      "moving_label_points": 22
+    },
+    {
+      "frame": 880,
+      "person_points": 20,
+      "stationary_label_points": 3,
+      "moving_label_points": 17
+    },
+    {
+      "frame": 881,
+      "person_points": 12,
+      "stationary_label_points": 3,
+      "moving_label_points": 9
+    },
+    {
+      "frame": 882,
+      "person_points": 15,
+      "stationary_label_points": 3,
+      "moving_label_points": 12
+    },
+    {
+      "frame": 883,
+      "person_points": 10,
+      "stationary_label_points": 2,
+      "moving_label_points": 8
+    },
+    {
+      "frame": 884,
+      "person_points": 14,
+      "stationary_label_points": 2,
+      "moving_label_points": 12
+    },
+    {
+      "frame": 885,
+      "person_points": 21,
+      "stationary_label_points": 2,
+      "moving_label_points": 19
+    },
+    {
+      "frame": 886,
+      "person_points": 31,
+      "stationary_label_points": 1,
+      "moving_label_points": 30
+    },
+    {
+      "frame": 887,
+      "person_points": 62,
+      "stationary_label_points": 1,
+      "moving_label_points": 61
+    },
+    {
+      "frame": 888,
+      "person_points": 61,
+      "stationary_label_points": 2,
+      "moving_label_points": 59
+    },
+    {
+      "frame": 889,
+      "person_points": 68,
+      "stationary_label_points": 2,
+      "moving_label_points": 66
+    },
+    {
+      "frame": 890,
+      "person_points": 71,
+      "stationary_label_points": 2,
+      "moving_label_points": 69
+    },
+    {
+      "frame": 891,
+      "person_points": 75,
+      "stationary_label_points": 1,
+      "moving_label_points": 74
+    },
+    {
+      "frame": 892,
+      "person_points": 77,
+      "stationary_label_points": 2,
+      "moving_label_points": 75
+    },
+    {
+      "frame": 893,
+      "person_points": 88,
+      "stationary_label_points": 2,
+      "moving_label_points": 86
+    },
+    {
+      "frame": 894,
+      "person_points": 92,
+      "stationary_label_points": 2,
+      "moving_label_points": 90
+    },
+    {
+      "frame": 895,
+      "person_points": 96,
+      "stationary_label_points": 0,
+      "moving_label_points": 96
+    },
+    {
+      "frame": 896,
+      "person_points": 105,
+      "stationary_label_points": 0,
+      "moving_label_points": 105
+    },
+    {
+      "frame": 897,
+      "person_points": 107,
+      "stationary_label_points": 0,
+      "moving_label_points": 107
+    },
+    {
+      "frame": 898,
+      "person_points": 124,
+      "stationary_label_points": 0,
+      "moving_label_points": 124
+    },
+    {
+      "frame": 899,
+      "person_points": 136,
+      "stationary_label_points": 2,
+      "moving_label_points": 134
+    },
+    {
+      "frame": 900,
+      "person_points": 139,
+      "stationary_label_points": 2,
+      "moving_label_points": 137
+    },
+    {
+      "frame": 901,
+      "person_points": 151,
+      "stationary_label_points": 1,
+      "moving_label_points": 150
+    },
+    {
+      "frame": 902,
+      "person_points": 167,
+      "stationary_label_points": 3,
+      "moving_label_points": 164
+    },
+    {
+      "frame": 903,
+      "person_points": 171,
+      "stationary_label_points": 3,
+      "moving_label_points": 168
+    },
+    {
+      "frame": 904,
+      "person_points": 182,
+      "stationary_label_points": 1,
+      "moving_label_points": 181
+    },
+    {
+      "frame": 905,
+      "person_points": 196,
+      "stationary_label_points": 2,
+      "moving_label_points": 194
+    },
+    {
+      "frame": 906,
+      "person_points": 209,
+      "stationary_label_points": 2,
+      "moving_label_points": 207
+    },
+    {
+      "frame": 907,
+      "person_points": 217,
+      "stationary_label_points": 2,
+      "moving_label_points": 215
+    },
+    {
+      "frame": 908,
+      "person_points": 227,
+      "stationary_label_points": 3,
+      "moving_label_points": 224
+    },
+    {
+      "frame": 909,
+      "person_points": 243,
+      "stationary_label_points": 3,
+      "moving_label_points": 240
+    },
+    {
+      "frame": 910,
+      "person_points": 252,
+      "stationary_label_points": 2,
+      "moving_label_points": 250
+    },
+    {
+      "frame": 911,
+      "person_points": 261,
+      "stationary_label_points": 3,
+      "moving_label_points": 258
+    },
+    {
+      "frame": 912,
+      "person_points": 280,
+      "stationary_label_points": 1,
+      "moving_label_points": 279
+    },
+    {
+      "frame": 913,
+      "person_points": 271,
+      "stationary_label_points": 0,
+      "moving_label_points": 271
+    },
+    {
+      "frame": 914,
+      "person_points": 274,
+      "stationary_label_points": 0,
+      "moving_label_points": 274
+    },
+    {
+      "frame": 915,
+      "person_points": 284,
+      "stationary_label_points": 0,
+      "moving_label_points": 284
+    },
+    {
+      "frame": 916,
+      "person_points": 287,
+      "stationary_label_points": 0,
+      "moving_label_points": 287
+    },
+    {
+      "frame": 917,
+      "person_points": 302,
+      "stationary_label_points": 0,
+      "moving_label_points": 302
+    },
+    {
+      "frame": 918,
+      "person_points": 298,
+      "stationary_label_points": 0,
+      "moving_label_points": 298
+    },
+    {
+      "frame": 919,
+      "person_points": 286,
+      "stationary_label_points": 0,
+      "moving_label_points": 286
+    },
+    {
+      "frame": 920,
+      "person_points": 284,
+      "stationary_label_points": 0,
+      "moving_label_points": 284
+    },
+    {
+      "frame": 921,
+      "person_points": 275,
+      "stationary_label_points": 0,
+      "moving_label_points": 275
+    },
+    {
+      "frame": 922,
+      "person_points": 269,
+      "stationary_label_points": 0,
+      "moving_label_points": 269
+    },
+    {
+      "frame": 923,
+      "person_points": 263,
+      "stationary_label_points": 0,
+      "moving_label_points": 263
+    },
+    {
+      "frame": 924,
+      "person_points": 256,
+      "stationary_label_points": 0,
+      "moving_label_points": 256
+    },
+    {
+      "frame": 925,
+      "person_points": 250,
+      "stationary_label_points": 0,
+      "moving_label_points": 250
+    },
+    {
+      "frame": 926,
+      "person_points": 232,
+      "stationary_label_points": 0,
+      "moving_label_points": 232
+    },
+    {
+      "frame": 927,
+      "person_points": 223,
+      "stationary_label_points": 0,
+      "moving_label_points": 223
+    },
+    {
+      "frame": 928,
+      "person_points": 210,
+      "stationary_label_points": 0,
+      "moving_label_points": 210
+    },
+    {
+      "frame": 929,
+      "person_points": 198,
+      "stationary_label_points": 0,
+      "moving_label_points": 198
+    },
+    {
+      "frame": 930,
+      "person_points": 184,
+      "stationary_label_points": 0,
+      "moving_label_points": 184
+    },
+    {
+      "frame": 931,
+      "person_points": 172,
+      "stationary_label_points": 0,
+      "moving_label_points": 172
+    },
+    {
+      "frame": 932,
+      "person_points": 162,
+      "stationary_label_points": 0,
+      "moving_label_points": 162
+    },
+    {
+      "frame": 933,
+      "person_points": 153,
+      "stationary_label_points": 0,
+      "moving_label_points": 153
+    },
+    {
+      "frame": 934,
+      "person_points": 139,
+      "stationary_label_points": 0,
+      "moving_label_points": 139
+    },
+    {
+      "frame": 935,
+      "person_points": 134,
+      "stationary_label_points": 0,
+      "moving_label_points": 134
+    },
+    {
+      "frame": 936,
+      "person_points": 123,
+      "stationary_label_points": 0,
+      "moving_label_points": 123
+    },
+    {
+      "frame": 937,
+      "person_points": 114,
+      "stationary_label_points": 0,
+      "moving_label_points": 114
+    },
+    {
+      "frame": 938,
+      "person_points": 103,
+      "stationary_label_points": 0,
+      "moving_label_points": 103
+    },
+    {
+      "frame": 939,
+      "person_points": 72,
+      "stationary_label_points": 0,
+      "moving_label_points": 72
+    },
+    {
+      "frame": 940,
+      "person_points": 5,
+      "stationary_label_points": 0,
+      "moving_label_points": 5
+    },
+    {
+      "frame": 944,
+      "person_points": 13,
+      "stationary_label_points": 0,
+      "moving_label_points": 13
+    },
+    {
+      "frame": 945,
+      "person_points": 3,
+      "stationary_label_points": 0,
+      "moving_label_points": 3
+    },
+    {
+      "frame": 948,
+      "person_points": 4,
+      "stationary_label_points": 0,
+      "moving_label_points": 4
+    },
+    {
+      "frame": 949,
+      "person_points": 8,
+      "stationary_label_points": 0,
+      "moving_label_points": 8
+    },
+    {
+      "frame": 950,
+      "person_points": 14,
+      "stationary_label_points": 0,
+      "moving_label_points": 14
+    },
+    {
+      "frame": 951,
+      "person_points": 12,
+      "stationary_label_points": 0,
+      "moving_label_points": 12
+    },
+    {
+      "frame": 952,
+      "person_points": 5,
+      "stationary_label_points": 0,
+      "moving_label_points": 5
+    },
+    {
+      "frame": 953,
+      "person_points": 1,
+      "stationary_label_points": 0,
+      "moving_label_points": 1
+    },
+    {
+      "frame": 965,
+      "person_points": 1,
+      "stationary_label_points": 0,
+      "moving_label_points": 1
+    },
+    {
+      "frame": 966,
+      "person_points": 1,
+      "stationary_label_points": 0,
+      "moving_label_points": 1
+    },
+    {
+      "frame": 968,
+      "person_points": 1,
+      "stationary_label_points": 0,
+      "moving_label_points": 1
+    },
+    {
+      "frame": 972,
+      "person_points": 1,
+      "stationary_label_points": 0,
+      "moving_label_points": 1
+    },
+    {
+      "frame": 973,
+      "person_points": 2,
+      "stationary_label_points": 0,
+      "moving_label_points": 2
+    },
+    {
+      "frame": 974,
+      "person_points": 1,
+      "stationary_label_points": 0,
+      "moving_label_points": 1
+    },
+    {
+      "frame": 975,
+      "person_points": 2,
+      "stationary_label_points": 0,
+      "moving_label_points": 2
+    },
+    {
+      "frame": 976,
+      "person_points": 1,
+      "stationary_label_points": 0,
+      "moving_label_points": 1
+    },
+    {
+      "frame": 977,
+      "person_points": 1,
+      "stationary_label_points": 0,
+      "moving_label_points": 1
+    },
+    {
+      "frame": 978,
+      "person_points": 3,
+      "stationary_label_points": 0,
+      "moving_label_points": 3
+    },
+    {
+      "frame": 979,
+      "person_points": 11,
+      "stationary_label_points": 0,
+      "moving_label_points": 11
+    },
+    {
+      "frame": 980,
+      "person_points": 15,
+      "stationary_label_points": 0,
+      "moving_label_points": 15
+    },
+    {
+      "frame": 981,
+      "person_points": 18,
+      "stationary_label_points": 0,
+      "moving_label_points": 18
+    },
+    {
+      "frame": 982,
+      "person_points": 23,
+      "stationary_label_points": 0,
+      "moving_label_points": 23
+    },
+    {
+      "frame": 983,
+      "person_points": 31,
+      "stationary_label_points": 0,
+      "moving_label_points": 31
+    },
+    {
+      "frame": 984,
+      "person_points": 35,
+      "stationary_label_points": 0,
+      "moving_label_points": 35
+    },
+    {
+      "frame": 985,
+      "person_points": 40,
+      "stationary_label_points": 0,
+      "moving_label_points": 40
+    },
+    {
+      "frame": 986,
+      "person_points": 48,
+      "stationary_label_points": 1,
+      "moving_label_points": 47
+    },
+    {
+      "frame": 987,
+      "person_points": 49,
+      "stationary_label_points": 0,
+      "moving_label_points": 49
+    },
+    {
+      "frame": 988,
+      "person_points": 52,
+      "stationary_label_points": 0,
+      "moving_label_points": 52
+    },
+    {
+      "frame": 989,
+      "person_points": 42,
+      "stationary_label_points": 0,
+      "moving_label_points": 42
+    },
+    {
+      "frame": 990,
+      "person_points": 35,
+      "stationary_label_points": 0,
+      "moving_label_points": 35
+    },
+    {
+      "frame": 991,
+      "person_points": 28,
+      "stationary_label_points": 0,
+      "moving_label_points": 28
+    },
+    {
+      "frame": 992,
+      "person_points": 25,
+      "stationary_label_points": 0,
+      "moving_label_points": 25
+    },
+    {
+      "frame": 993,
+      "person_points": 17,
+      "stationary_label_points": 0,
+      "moving_label_points": 17
+    },
+    {
+      "frame": 994,
+      "person_points": 22,
+      "stationary_label_points": 2,
+      "moving_label_points": 20
+    },
+    {
+      "frame": 995,
+      "person_points": 14,
+      "stationary_label_points": 4,
+      "moving_label_points": 10
+    },
+    {
+      "frame": 996,
+      "person_points": 11,
+      "stationary_label_points": 5,
+      "moving_label_points": 6
+    },
+    {
+      "frame": 997,
+      "person_points": 3,
+      "stationary_label_points": 3,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 998,
+      "person_points": 5,
+      "stationary_label_points": 5,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 999,
+      "person_points": 8,
+      "stationary_label_points": 8,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 1000,
+      "person_points": 10,
+      "stationary_label_points": 10,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 1001,
+      "person_points": 9,
+      "stationary_label_points": 9,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 1002,
+      "person_points": 8,
+      "stationary_label_points": 8,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 1003,
+      "person_points": 9,
+      "stationary_label_points": 9,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 1004,
+      "person_points": 10,
+      "stationary_label_points": 10,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 1005,
+      "person_points": 9,
+      "stationary_label_points": 9,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 1006,
+      "person_points": 11,
+      "stationary_label_points": 11,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 1007,
+      "person_points": 12,
+      "stationary_label_points": 12,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 1008,
+      "person_points": 12,
+      "stationary_label_points": 12,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 1009,
+      "person_points": 13,
+      "stationary_label_points": 13,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 1010,
+      "person_points": 20,
+      "stationary_label_points": 20,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 1011,
+      "person_points": 23,
+      "stationary_label_points": 23,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 1012,
+      "person_points": 28,
+      "stationary_label_points": 28,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 1013,
+      "person_points": 30,
+      "stationary_label_points": 30,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 1014,
+      "person_points": 42,
+      "stationary_label_points": 42,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 1015,
+      "person_points": 47,
+      "stationary_label_points": 47,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 1016,
+      "person_points": 50,
+      "stationary_label_points": 50,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 1017,
+      "person_points": 54,
+      "stationary_label_points": 54,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 1018,
+      "person_points": 58,
+      "stationary_label_points": 58,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 1019,
+      "person_points": 61,
+      "stationary_label_points": 61,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 1020,
+      "person_points": 66,
+      "stationary_label_points": 66,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 1021,
+      "person_points": 67,
+      "stationary_label_points": 67,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 1022,
+      "person_points": 72,
+      "stationary_label_points": 72,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 1023,
+      "person_points": 75,
+      "stationary_label_points": 75,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 1024,
+      "person_points": 81,
+      "stationary_label_points": 81,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 1025,
+      "person_points": 87,
+      "stationary_label_points": 87,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 1026,
+      "person_points": 105,
+      "stationary_label_points": 105,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 1027,
+      "person_points": 132,
+      "stationary_label_points": 132,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 1028,
+      "person_points": 142,
+      "stationary_label_points": 142,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 1029,
+      "person_points": 151,
+      "stationary_label_points": 151,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 1030,
+      "person_points": 152,
+      "stationary_label_points": 152,
+      "moving_label_points": 0
+    },
+    {
+      "frame": 1031,
+      "person_points": 525,
+      "stationary_label_points": 155,
+      "moving_label_points": 370
+    },
+    {
+      "frame": 1032,
+      "person_points": 518,
+      "stationary_label_points": 169,
+      "moving_label_points": 349
+    },
+    {
+      "frame": 1033,
+      "person_points": 494,
+      "stationary_label_points": 173,
+      "moving_label_points": 321
+    },
+    {
+      "frame": 1034,
+      "person_points": 449,
+      "stationary_label_points": 178,
+      "moving_label_points": 271
+    },
+    {
+      "frame": 1035,
+      "person_points": 474,
+      "stationary_label_points": 198,
+      "moving_label_points": 276
+    },
+    {
+      "frame": 1036,
+      "person_points": 456,
+      "stationary_label_points": 218,
+      "moving_label_points": 238
+    },
+    {
+      "frame": 1037,
+      "person_points": 452,
+      "stationary_label_points": 227,
+      "moving_label_points": 225
+    },
+    {
+      "frame": 1038,
+      "person_points": 460,
+      "stationary_label_points": 256,
+      "moving_label_points": 204
+    },
+    {
+      "frame": 1039,
+      "person_points": 452,
+      "stationary_label_points": 261,
+      "moving_label_points": 191
+    },
+    {
+      "frame": 1040,
+      "person_points": 450,
+      "stationary_label_points": 275,
+      "moving_label_points": 175
+    },
+    {
+      "frame": 1041,
+      "person_points": 438,
+      "stationary_label_points": 281,
+      "moving_label_points": 157
+    },
+    {
+      "frame": 1042,
+      "person_points": 426,
+      "stationary_label_points": 287,
+      "moving_label_points": 139
+    },
+    {
+      "frame": 1043,
+      "person_points": 406,
+      "stationary_label_points": 291,
+      "moving_label_points": 115
+    },
+    {
+      "frame": 1044,
+      "person_points": 393,
+      "stationary_label_points": 310,
+      "moving_label_points": 83
+    },
+    {
+      "frame": 1045,
+      "person_points": 385,
+      "stationary_label_points": 325,
+      "moving_label_points": 60
+    },
+    {
+      "frame": 1046,
+      "person_points": 398,
+      "stationary_label_points": 347,
+      "moving_label_points": 51
+    },
+    {
+      "frame": 1047,
+      "person_points": 409,
+      "stationary_label_points": 370,
+      "moving_label_points": 39
+    },
+    {
+      "frame": 1048,
+      "person_points": 416,
+      "stationary_label_points": 369,
+      "moving_label_points": 47
+    },
+    {
+      "frame": 1049,
+      "person_points": 423,
+      "stationary_label_points": 370,
+      "moving_label_points": 53
+    },
+    {
+      "frame": 1050,
+      "person_points": 433,
+      "stationary_label_points": 388,
+      "moving_label_points": 45
+    },
+    {
+      "frame": 1051,
+      "person_points": 444,
+      "stationary_label_points": 395,
+      "moving_label_points": 49
+    },
+    {
+      "frame": 1052,
+      "person_points": 475,
+      "stationary_label_points": 415,
+      "moving_label_points": 60
+    },
+    {
+      "frame": 1053,
+      "person_points": 528,
+      "stationary_label_points": 451,
+      "moving_label_points": 77
+    },
+    {
+      "frame": 1054,
+      "person_points": 549,
+      "stationary_label_points": 455,
+      "moving_label_points": 94
+    },
+    {
+      "frame": 1055,
+      "person_points": 594,
+      "stationary_label_points": 484,
+      "moving_label_points": 110
+    },
+    {
+      "frame": 1056,
+      "person_points": 627,
+      "stationary_label_points": 506,
+      "moving_label_points": 121
+    },
+    {
+      "frame": 1057,
+      "person_points": 618,
+      "stationary_label_points": 492,
+      "moving_label_points": 126
+    },
+    {
+      "frame": 1058,
+      "person_points": 648,
+      "stationary_label_points": 524,
+      "moving_label_points": 124
+    },
+    {
+      "frame": 1059,
+      "person_points": 680,
+      "stationary_label_points": 556,
+      "moving_label_points": 124
+    },
+    {
+      "frame": 1060,
+      "person_points": 674,
+      "stationary_label_points": 561,
+      "moving_label_points": 113
+    },
+    {
+      "frame": 1061,
+      "person_points": 698,
+      "stationary_label_points": 590,
+      "moving_label_points": 108
+    },
+    {
+      "frame": 1062,
+      "person_points": 690,
+      "stationary_label_points": 593,
+      "moving_label_points": 97
+    },
+    {
+      "frame": 1063,
+      "person_points": 723,
+      "stationary_label_points": 621,
+      "moving_label_points": 102
+    },
+    {
+      "frame": 1064,
+      "person_points": 735,
+      "stationary_label_points": 648,
+      "moving_label_points": 87
+    },
+    {
+      "frame": 1065,
+      "person_points": 756,
+      "stationary_label_points": 672,
+      "moving_label_points": 84
+    },
+    {
+      "frame": 1066,
+      "person_points": 794,
+      "stationary_label_points": 710,
+      "moving_label_points": 84
+    },
+    {
+      "frame": 1067,
+      "person_points": 803,
+      "stationary_label_points": 726,
+      "moving_label_points": 77
+    },
+    {
+      "frame": 1068,
+      "person_points": 827,
+      "stationary_label_points": 755,
+      "moving_label_points": 72
+    },
+    {
+      "frame": 1069,
+      "person_points": 861,
+      "stationary_label_points": 784,
+      "moving_label_points": 77
+    },
+    {
+      "frame": 1070,
+      "person_points": 881,
+      "stationary_label_points": 809,
+      "moving_label_points": 72
+    },
+    {
+      "frame": 1071,
+      "person_points": 878,
+      "stationary_label_points": 802,
+      "moving_label_points": 76
+    },
+    {
+      "frame": 1072,
+      "person_points": 861,
+      "stationary_label_points": 791,
+      "moving_label_points": 70
+    },
+    {
+      "frame": 1073,
+      "person_points": 870,
+      "stationary_label_points": 799,
+      "moving_label_points": 71
+    },
+    {
+      "frame": 1074,
+      "person_points": 856,
+      "stationary_label_points": 796,
+      "moving_label_points": 60
+    },
+    {
+      "frame": 1075,
+      "person_points": 891,
+      "stationary_label_points": 823,
+      "moving_label_points": 68
+    },
+    {
+      "frame": 1076,
+      "person_points": 928,
+      "stationary_label_points": 856,
+      "moving_label_points": 72
+    },
+    {
+      "frame": 1077,
+      "person_points": 940,
+      "stationary_label_points": 869,
+      "moving_label_points": 71
+    },
+    {
+      "frame": 1078,
+      "person_points": 954,
+      "stationary_label_points": 882,
+      "moving_label_points": 72
+    },
+    {
+      "frame": 1079,
+      "person_points": 977,
+      "stationary_label_points": 918,
+      "moving_label_points": 59
+    },
+    {
+      "frame": 1080,
+      "person_points": 979,
+      "stationary_label_points": 914,
+      "moving_label_points": 65
+    },
+    {
+      "frame": 1081,
+      "person_points": 1002,
+      "stationary_label_points": 926,
+      "moving_label_points": 76
+    },
+    {
+      "frame": 1082,
+      "person_points": 1027,
+      "stationary_label_points": 956,
+      "moving_label_points": 71
+    },
+    {
+      "frame": 1083,
+      "person_points": 1094,
+      "stationary_label_points": 1016,
+      "moving_label_points": 78
+    },
+    {
+      "frame": 1084,
+      "person_points": 1150,
+      "stationary_label_points": 1077,
+      "moving_label_points": 73
+    },
+    {
+      "frame": 1085,
+      "person_points": 1148,
+      "stationary_label_points": 1074,
+      "moving_label_points": 74
+    },
+    {
+      "frame": 1086,
+      "person_points": 1144,
+      "stationary_label_points": 1073,
+      "moving_label_points": 71
+    },
+    {
+      "frame": 1087,
+      "person_points": 1174,
+      "stationary_label_points": 1087,
+      "moving_label_points": 87
+    },
+    {
+      "frame": 1088,
+      "person_points": 1135,
+      "stationary_label_points": 1054,
+      "moving_label_points": 81
+    },
+    {
+      "frame": 1089,
+      "person_points": 1167,
+      "stationary_label_points": 1077,
+      "moving_label_points": 90
+    },
+    {
+      "frame": 1090,
+      "person_points": 1163,
+      "stationary_label_points": 1077,
+      "moving_label_points": 86
+    },
+    {
+      "frame": 1091,
+      "person_points": 1168,
+      "stationary_label_points": 1079,
+      "moving_label_points": 89
+    },
+    {
+      "frame": 1092,
+      "person_points": 1089,
+      "stationary_label_points": 1006,
+      "moving_label_points": 83
+    },
+    {
+      "frame": 1093,
+      "person_points": 1136,
+      "stationary_label_points": 1046,
+      "moving_label_points": 90
+    },
+    {
+      "frame": 1094,
+      "person_points": 1119,
+      "stationary_label_points": 1040,
+      "moving_label_points": 79
+    },
+    {
+      "frame": 1095,
+      "person_points": 1138,
+      "stationary_label_points": 1054,
+      "moving_label_points": 84
+    },
+    {
+      "frame": 1096,
+      "person_points": 1120,
+      "stationary_label_points": 1030,
+      "moving_label_points": 90
+    },
+    {
+      "frame": 1097,
+      "person_points": 1103,
+      "stationary_label_points": 1018,
+      "moving_label_points": 85
+    },
+    {
+      "frame": 1098,
+      "person_points": 1112,
+      "stationary_label_points": 1018,
+      "moving_label_points": 94
+    },
+    {
+      "frame": 1099,
+      "person_points": 1116,
+      "stationary_label_points": 1017,
+      "moving_label_points": 99
+    },
+    {
+      "frame": 1100,
+      "person_points": 1114,
+      "stationary_label_points": 1023,
+      "moving_label_points": 91
+    }
+  ]
+}

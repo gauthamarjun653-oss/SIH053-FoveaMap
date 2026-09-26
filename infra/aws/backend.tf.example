@@ -1,0 +1,18 @@
+# ==============================================================================
+# S3 Backend with DynamoDB State Locking (Optional / Team Sharing)
+# ==============================================================================
+# To enable this remote backend:
+# 1. Ensure the S3 bucket and DynamoDB table exist (e.g. created via backend_bootstrap)
+# 2. Rename this file to backend.tf or uncomment the block below
+# 3. Run: terraform init -migrate-state
+# ==============================================================================
+
+# terraform {
+#   backend "s3" {
+#     bucket         = "sih-perception-tfstate-454096720696"
+#     key            = "foveamap/aws/terraform.tfstate"
+#     region         = "us-east-1"
+#     dynamodb_table = "foveamap-tf-locks"
+#     encrypt        = true
+#   }
+# }

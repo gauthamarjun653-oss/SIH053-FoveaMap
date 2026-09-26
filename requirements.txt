@@ -1,0 +1,16 @@
+numpy>=1.24
+scipy>=1.11  # convex-hull ground support and exact spatial queries
+pyyaml>=6.0
+matplotlib>=3.7
+tqdm>=4.65
+psutil>=5.9
+
+# Testing
+pytest>=7.4
+hypothesis>=6.90
+
+# Module B (semantic segmentation). CPU-only installs work but FPS is not representative.
+torch>=2.0
+
+# Module E visualisation (optional until the rerun spike passes; Open3D is the fallback)
+rerun-sdk>=0.15

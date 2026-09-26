@@ -1,0 +1,36 @@
+{
+  "measured": true,
+  "provenance": {
+    "git_commit": "fe332e1ba7c365c70f023f8129c83fd83aa95670",
+    "hardware": "Linux-6.8.0-1063-aws-x86_64-with-glibc2.35",
+    "sequence": "sequence 08",
+    "inference": "live",
+    "timestamp": "2026-08-28T07:39:55.657919+00:00"
+  },
+  "baseline": {
+    "label": "Uniform 5 cm 3D Voxel",
+    "resolution": "5 cm (uniform)",
+    "occupied_cells": null,
+    "memory_mb": 1.31272081798084,
+    "fps": null,
+    "recall_by_band": {
+      "0-10": 0.9237381509907939,
+      "10-25": 0.9597133871566114,
+      "25-50": 0.9603145766597142,
+      "50-100": 0.9200821869866841
+    }
+  },
+  "foveated": {
+    "label": "Foveated 2.5D Grid",
+    "resolution": "5 cm near \u2192 40 cm far",
+    "occupied_cells": null,
+    "memory_mb": 3.2973337892409726,
+    "fps": null,
+    "recall_by_band": {
+      "0-10": 0.9204074161985142,
+      "10-25": 0.971337998153601,
+      "25-50": 0.9748697984741085,
+      "50-100": 0.9658946584103366
+    }
+  }
+}

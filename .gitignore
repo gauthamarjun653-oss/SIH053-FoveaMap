@@ -1,0 +1,137 @@
+# ==============================================================================
+# Git Ignore Configuration for Project FoveaMap (SIH26053)
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# Private Keys, Certificates & Security Credentials
+# ------------------------------------------------------------------------------
+infra/keys/*
+infra/credentials/
+*.pem
+*.key
+*.pkcs12
+*.pfx
+*.p12
+*.ppk
+id_rsa
+id_rsa*
+id_ed25519
+id_ed25519*
+id_ecdsa
+id_dsa
+
+# ------------------------------------------------------------------------------
+# Environment Variables & Cloud Credentials
+# ------------------------------------------------------------------------------
+.env
+.env.*
+*.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.aws/
+.gcp/
+credentials
+*credentials*.json
+*credentials*.csv
+*accessKeys*.csv
+secrets/
+*.secret
+*.token
+
+# ------------------------------------------------------------------------------
+# Terraform & Infrastructure
+# ------------------------------------------------------------------------------
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+*.tfvars
+*.tfvars.json
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraformrc
+terraform.rc
+
+# ------------------------------------------------------------------------------
+# Python & Virtual Environments
+# ------------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+env/
+*.egg-info/
+.installed.cfg
+*.egg
+build/
+dist/
+develop-eggs/
+downloads/
+eggs/
+.pytest_cache/
+.hypothesis/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+.tox/
+
+# ------------------------------------------------------------------------------
+# Datasets, Sensor Logs & Heavy Binaries
+# ------------------------------------------------------------------------------
+data/
+datasets/
+outputs/
+runs/
+logs/
+*.log
+*.pcd
+*.bin
+*.label
+*.las
+*.laz
+*.ply
+*.bag
+*.db3
+*.h5
+*.hdf5
+*.parquet
+*.feather
+*.pt
+*.pth
+*.onnx
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.7z
+*.rar
+
+# ------------------------------------------------------------------------------
+# OS & Editor Artifacts
+# ------------------------------------------------------------------------------
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# ------------------------------------------------------------------------------
+# Dataset-derived browser exports; regenerate locally.
+demoUI/frames_*.js
+demoUI/scene.js
+demoUI/scene.json

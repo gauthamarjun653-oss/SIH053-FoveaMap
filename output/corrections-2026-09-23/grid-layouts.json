@@ -1,0 +1,202 @@
+{
+  "frames": 10,
+  "stored_map_mb_cascade_f64": {
+    "n": 10,
+    "median": 3.493056,
+    "p95": 5.396609399999999,
+    "worst": 5.598348
+  },
+  "stored_map_mb_direct_compact": {
+    "n": 10,
+    "median": 2.328704,
+    "p95": 3.5977395999999997,
+    "worst": 3.732232
+  },
+  "reduction_pct_median": 33.333333333333336,
+  "bytes_per_cell": {
+    "cascade_f64": 84,
+    "direct_compact": 56
+  },
+  "build_ms_cascade": {
+    "n": 10,
+    "median": 24.137143498592195,
+    "p95": 36.643952400299895,
+    "worst": 36.841397999523906
+  },
+  "build_ms_direct_compact": {
+    "n": 10,
+    "median": 19.412957999520586,
+    "p95": 21.173549101695244,
+    "worst": 21.219576003204565
+  },
+  "rss_delta_mb_cascade": {
+    "n": 10,
+    "median": 1.35168,
+    "p95": 11.696127999999993,
+    "worst": 14.848
+  },
+  "rss_delta_mb_direct_compact": {
+    "n": 10,
+    "median": 0.0,
+    "p95": 2.4143871999999993,
+    "worst": 2.854912
+  },
+  "agreement_process_peak_rss_mb": 77.963264,
+  "isolated_variants": {
+    "cascade": {
+      "layout": "cascade",
+      "samples": [
+        [
+          "09",
+          "000000"
+        ],
+        [
+          "09",
+          "000398"
+        ],
+        [
+          "09",
+          "000795"
+        ],
+        [
+          "09",
+          "001192"
+        ],
+        [
+          "09",
+          "001590"
+        ],
+        [
+          "10",
+          "000000"
+        ],
+        [
+          "10",
+          "000300"
+        ],
+        [
+          "10",
+          "000600"
+        ],
+        [
+          "10",
+          "000900"
+        ],
+        [
+          "10",
+          "001200"
+        ]
+      ],
+      "build_ms": {
+        "n": 10,
+        "median": 23.734904500088305,
+        "p95": 31.275227050173267,
+        "worst": 32.067654999991646
+      },
+      "stored_map_mb": {
+        "n": 10,
+        "median": 3.493056,
+        "p95": 5.396609399999999,
+        "worst": 5.598348
+      },
+      "baseline_process_rss_mb": 34.336768,
+      "peak_process_rss_mb": 58.40896,
+      "peak_rss_source": "Linux VmHWM",
+      "scope": "load + build + stats + optional pack; no detector/inference/viewer"
+    },
+    "compact": {
+      "layout": "compact",
+      "samples": [
+        [
+          "09",
+          "000000"
+        ],
+        [
+          "09",
+          "000398"
+        ],
+        [
+          "09",
+          "000795"
+        ],
+        [
+          "09",
+          "001192"
+        ],
+        [
+          "09",
+          "001590"
+        ],
+        [
+          "10",
+          "000000"
+        ],
+        [
+          "10",
+          "000300"
+        ],
+        [
+          "10",
+          "000600"
+        ],
+        [
+          "10",
+          "000900"
+        ],
+        [
+          "10",
+          "001200"
+        ]
+      ],
+      "build_ms": {
+        "n": 10,
+        "median": 19.54944799945224,
+        "p95": 22.460683900862932,
+        "worst": 23.22806799929822
+      },
+      "stored_map_mb": {
+        "n": 10,
+        "median": 2.328704,
+        "p95": 3.5977395999999997,
+        "worst": 3.732232
+      },
+      "baseline_process_rss_mb": 34.361344,
+      "peak_process_rss_mb": 55.730176,
+      "peak_rss_source": "Linux VmHWM",
+      "scope": "load + build + stats + optional pack; no detector/inference/viewer"
+    }
+  },
+  "shared_process_timings_note": "Use isolated_variants for performance comparisons",
+  "exact_fields": {
+    "same_cells": true,
+    "count": true,
+    "hist": true,
+    "z_min": true,
+    "z_max": true
+  },
+  "bounded_fields": {
+    "max_abs_mean_err_m": {
+      "n": 40,
+      "median": 1.1920928955078125e-07,
+      "p95": 2.384185791015625e-07,
+      "worst": 3.178914393942023e-07
+    },
+    "max_abs_var_err_m2": {
+      "n": 40,
+      "median": 6.757693526981967e-08,
+      "p95": 2.4052003788632687e-07,
+      "worst": 3.931831003001207e-07
+    },
+    "max_rel_var_err": {
+      "n": 40,
+      "median": 5.93708961053989e-08,
+      "p95": 5.957555159960654e-08,
+      "worst": 5.957555159960654e-08
+    }
+  },
+  "tolerances": {
+    "mean_m": 0.001,
+    "var_m2": 0.0001
+  },
+  "within_tolerance": true
+}

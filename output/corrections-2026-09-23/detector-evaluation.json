@@ -1,0 +1,244 @@
+{
+  "frames_per_sequence": 3,
+  "max_range_missing_m": 25.0,
+  "max_range_below_m": 30.0,
+  "require_supported": true,
+  "recall_scored": false,
+  "candidate_units": {
+    "old": "cells",
+    "new": "clusters"
+  },
+  "comparison_note": "Cell and cluster counts are not comparable false-alarm rates; accuracy needs independent region annotations.",
+  "labels": "ground truth; segmentation inference not measured",
+  "beam_model": "approximate uniform elevations; no calibrated blind mask",
+  "recall_note": "no hand-labelled depression set exists yet; cost and behaviour only",
+  "sequences": [
+    {
+      "sequence": "09",
+      "frames": 3,
+      "frame_ids": [
+        "000000",
+        "000795",
+        "001590"
+      ],
+      "new": {
+        "latency_ms": {
+          "n": 3,
+          "median": 271.03278700087685,
+          "p95": 275.4910549007036,
+          "worst": 275.98641800068435,
+          "mean": 260.4807380012062
+        },
+        "emitted_cells_per_frame": {
+          "n": 3,
+          "median": 1128.0,
+          "p95": 1405.2,
+          "worst": 1436.0,
+          "mean": 1166.0
+        },
+        "candidates_per_frame": {
+          "n": 3,
+          "median": 165.0,
+          "p95": 166.8,
+          "worst": 167.0,
+          "mean": 156.33333333333334
+        },
+        "missing_return_per_frame": {
+          "n": 3,
+          "median": 137.0,
+          "p95": 158.6,
+          "worst": 161.0,
+          "mean": 133.33333333333334
+        },
+        "below_plane_per_frame": {
+          "n": 3,
+          "median": 28.0,
+          "p95": 34.3,
+          "worst": 35.0,
+          "mean": 23.0
+        },
+        "visibility_states": {
+          "OBSERVED": 155067,
+          "OCCLUDED": 8945,
+          "NO_GROUND": 38802,
+          "BLIND": 0,
+          "EXPECTED_EMPTY": 50855
+        },
+        "missing_return_status_frames": {
+          "approximate beam model; self-occlusion uncalibrated": 3
+        },
+        "ground_states": {
+          "UNSUPPORTED": 22846,
+          "EXTRAPOLATED": 36180,
+          "SUPPORTED": 105640
+        },
+        "clusters_rejected_small": 409,
+        "clusters_rejected_shape": 295,
+        "inconsistent_rays": {
+          "n": 3,
+          "median": 1955.0,
+          "p95": 2377.1,
+          "worst": 2424.0,
+          "mean": 1812.0
+        },
+        "sensor_height_m": {
+          "n": 3,
+          "median": 1.7061901949819822,
+          "p95": 1.7091709398246495,
+          "worst": 1.709502133696057,
+          "mean": 1.700512707115433
+        },
+        "range_hist_missing_return": {
+          "2.5-5m": 50,
+          "5-7.5m": 172,
+          "7.5-10m": 77,
+          "10-15m": 77,
+          "15-20m": 19,
+          "20-25m": 5,
+          "25-30m": 0,
+          ">=30m": 0
+        },
+        "range_hist_below_plane": {
+          "2.5-5m": 0,
+          "5-7.5m": 2,
+          "7.5-10m": 11,
+          "10-15m": 26,
+          "15-20m": 18,
+          "20-25m": 11,
+          "25-30m": 1,
+          ">=30m": 0
+        }
+      },
+      "old": {
+        "latency_ms": {
+          "n": 3,
+          "median": 1073.6562109996157,
+          "p95": 1155.5139262989542,
+          "worst": 1164.6092279988807,
+          "mean": 1089.64058199975
+        },
+        "candidates_per_frame": {
+          "n": 3,
+          "median": 123666.0,
+          "p95": 128430.6,
+          "worst": 128960.0,
+          "mean": 111960.0
+        }
+      }
+    },
+    {
+      "sequence": "10",
+      "frames": 3,
+      "frame_ids": [
+        "000000",
+        "000600",
+        "001200"
+      ],
+      "new": {
+        "latency_ms": {
+          "n": 3,
+          "median": 279.47571700133267,
+          "p95": 286.66878160001943,
+          "worst": 287.4680109998735,
+          "mean": 194.49257433370803
+        },
+        "emitted_cells_per_frame": {
+          "n": 3,
+          "median": 1078.0,
+          "p95": 2104.0,
+          "worst": 2218.0,
+          "mean": 1105.6666666666667
+        },
+        "candidates_per_frame": {
+          "n": 3,
+          "median": 138.0,
+          "p95": 362.09999999999997,
+          "worst": 387.0,
+          "mean": 176.33333333333334
+        },
+        "missing_return_per_frame": {
+          "n": 3,
+          "median": 130.0,
+          "p95": 139.9,
+          "worst": 141.0,
+          "mean": 90.33333333333333
+        },
+        "below_plane_per_frame": {
+          "n": 3,
+          "median": 8.0,
+          "p95": 222.2,
+          "worst": 246.0,
+          "mean": 86.0
+        },
+        "visibility_states": {
+          "OBSERVED": 95350,
+          "OCCLUDED": 2461,
+          "NO_GROUND": 34213,
+          "BLIND": 0,
+          "EXPECTED_EMPTY": 27391
+        },
+        "missing_return_status_frames": {
+          "approximate beam model; self-occlusion uncalibrated": 2,
+          "unavailable: no accepted bootstrap plane": 1
+        },
+        "ground_states": {
+          "UNSUPPORTED": 23441,
+          "EXTRAPOLATED": 20552,
+          "SUPPORTED": 92333
+        },
+        "clusters_rejected_small": 282,
+        "clusters_rejected_shape": 191,
+        "inconsistent_rays": {
+          "n": 3,
+          "median": 1536.0,
+          "p95": 3948.8999999999996,
+          "worst": 4217.0,
+          "mean": 1917.6666666666667
+        },
+        "sensor_height_m": {
+          "n": 2,
+          "median": 1.6715333132467265,
+          "p95": 1.7234633705807083,
+          "worst": 1.7292333769511508,
+          "mean": 1.6715333132467265
+        },
+        "range_hist_missing_return": {
+          "2.5-5m": 58,
+          "5-7.5m": 101,
+          "7.5-10m": 46,
+          "10-15m": 50,
+          "15-20m": 16,
+          "20-25m": 0,
+          "25-30m": 0,
+          ">=30m": 0
+        },
+        "range_hist_below_plane": {
+          "2.5-5m": 4,
+          "5-7.5m": 40,
+          "7.5-10m": 39,
+          "10-15m": 65,
+          "15-20m": 25,
+          "20-25m": 62,
+          "25-30m": 23,
+          ">=30m": 0
+        }
+      },
+      "old": {
+        "latency_ms": {
+          "n": 3,
+          "median": 823.9344829999027,
+          "p95": 1248.1812404002994,
+          "worst": 1295.3197690003435,
+          "mean": 961.0689793335041
+        },
+        "candidates_per_frame": {
+          "n": 3,
+          "median": 66610.0,
+          "p95": 176534.19999999998,
+          "worst": 188748.0,
+          "mean": 106802.33333333333
+        }
+      }
+    }
+  ]
+}

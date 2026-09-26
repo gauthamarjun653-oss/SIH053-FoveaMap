@@ -1,0 +1,77 @@
+{
+  "frames": 30,
+  "stored_map_mb_cascade_f64": {
+    "n": 30,
+    "median": 3.553578,
+    "p95": 5.560472399999999,
+    "worst": 6.191052
+  },
+  "stored_map_mb_direct_compact": {
+    "n": 30,
+    "median": 2.369052,
+    "p95": 3.7069815999999998,
+    "worst": 4.127368
+  },
+  "reduction_pct_median": 33.333333333333336,
+  "bytes_per_cell": {
+    "cascade_f64": 84,
+    "direct_compact": 56
+  },
+  "build_ms_cascade": {
+    "n": 30,
+    "median": 21.11770749979769,
+    "p95": 29.930813550890882,
+    "worst": 33.61972099810373
+  },
+  "build_ms_direct_compact": {
+    "n": 30,
+    "median": 16.958072999841534,
+    "p95": 18.47654719967977,
+    "worst": 19.11553200261551
+  },
+  "rss_delta_mb_cascade": {
+    "n": 30,
+    "median": 0.0,
+    "p95": 7.525375999999985,
+    "worst": 14.843904
+  },
+  "rss_delta_mb_direct_compact": {
+    "n": 30,
+    "median": 0.0,
+    "p95": 3.2909311999999984,
+    "worst": 5.844992
+  },
+  "peak_process_rss_mb": 85.925888,
+  "exact_fields": {
+    "same_cells": true,
+    "count": true,
+    "hist": true,
+    "z_min": true,
+    "z_max": true
+  },
+  "bounded_fields": {
+    "max_abs_mean_err_m": {
+      "n": 120,
+      "median": 1.1920928955078125e-07,
+      "p95": 4.390875487203515e-07,
+      "worst": 4.76837158203125e-07
+    },
+    "max_abs_var_err_m2": {
+      "n": 120,
+      "median": 7.48674102712954e-08,
+      "p95": 2.862051599716864e-07,
+      "worst": 1.7567657479844456e-06
+    },
+    "max_rel_var_err": {
+      "n": 120,
+      "median": 5.9459391643612776e-08,
+      "p95": 5.957555159960654e-08,
+      "worst": 5.959032300425149e-08
+    }
+  },
+  "tolerances": {
+    "mean_m": 0.001,
+    "var_m2": 0.0001
+  },
+  "within_tolerance": true
+}

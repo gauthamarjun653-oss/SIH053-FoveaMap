@@ -1,0 +1,39 @@
+{
+  "sequence": "07",
+  "device": "cuda",
+  "confidence_threshold": 0.5,
+  "selection": "Three annotation-rich frames among scans already downloaded; selected for demonstration, not unbiased evaluation",
+  "scope": "Per-point person classification within planar 2.5\u2013100 m; unknown GT ignored. Sequence 07 is in the pretrained model training split. Does not evaluate bounding boxes, object counts or motion.",
+  "frames": [
+    {
+      "frame": 185,
+      "true_person_points": 426,
+      "predicted_person_points": 687,
+      "true_positives": 400,
+      "false_positives": 287,
+      "false_negatives": 26,
+      "precision": 0.5822416302765647,
+      "recall": 0.9389671361502347
+    },
+    {
+      "frame": 1091,
+      "true_person_points": 1168,
+      "predicted_person_points": 1257,
+      "true_positives": 1149,
+      "false_positives": 108,
+      "false_negatives": 19,
+      "precision": 0.9140811455847255,
+      "recall": 0.9837328767123288
+    },
+    {
+      "frame": 1090,
+      "true_person_points": 1163,
+      "predicted_person_points": 1283,
+      "true_positives": 1143,
+      "false_positives": 140,
+      "false_negatives": 20,
+      "precision": 0.8908807482462977,
+      "recall": 0.9828030954428203
+    }
+  ]
+}

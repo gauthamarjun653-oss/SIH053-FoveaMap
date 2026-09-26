@@ -1,0 +1,11 @@
+{
+  "implementation": "corrected",
+  "label_mode": "gt-labels",
+  "frames": 3,
+  "rendering_included": false,
+  "processing_ms_median": 314.5702089968836,
+  "processing_ms_p95": 321.4286166981765,
+  "build_ms_median": 24.475759997585556,
+  "detection_ms_median": 275.16647199809086,
+  "last_map_payload_bytes": 3423056
+}

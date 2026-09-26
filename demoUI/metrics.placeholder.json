@@ -1,0 +1,26 @@
+{
+  "measured": false,
+  "provenance": {
+    "git_commit": null,
+    "hardware": null,
+    "sequence": null,
+    "inference": null,
+    "timestamp": null
+  },
+  "baseline": {
+    "label": "Uniform 5 cm 3D Voxel",
+    "resolution": "5 cm (uniform)",
+    "occupied_cells": 128000,
+    "memory_mb": 6.10,
+    "fps": 11.8,
+    "recall_by_band": {"0-10": 1.000, "10-25": 1.000, "25-50": 1.000, "50-100": 1.000}
+  },
+  "foveated": {
+    "label": "Foveated 2.5D Grid",
+    "resolution": "5 cm near → 40 cm far",
+    "occupied_cells": 13400,
+    "memory_mb": 0.64,
+    "fps": 12.4,
+    "recall_by_band": {"0-10": 0.996, "10-25": 0.972, "25-50": 0.915, "50-100": 0.783}
+  }
+}

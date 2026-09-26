@@ -1,0 +1,173 @@
+{
+  "frames_per_sequence": 12,
+  "max_range_m": 25.0,
+  "require_supported": true,
+  "recall_scored": false,
+  "recall_note": "no hand-labelled depression set exists yet; cost and behaviour only",
+  "sequences": [
+    {
+      "sequence": "09",
+      "frames": 12,
+      "new": {
+        "latency_ms": {
+          "n": 12,
+          "median": 87.5938134995522,
+          "p95": 103.51456070075074,
+          "worst": 104.22267800095142,
+          "mean": 85.20103158328614
+        },
+        "candidates_per_frame": {
+          "n": 12,
+          "median": 185.0,
+          "p95": 251.25,
+          "worst": 254.0,
+          "mean": 187.25
+        },
+        "missing_return_per_frame": {
+          "n": 12,
+          "median": 149.0,
+          "p95": 213.45,
+          "worst": 214.0,
+          "mean": 145.0
+        },
+        "below_plane_per_frame": {
+          "n": 12,
+          "median": 35.5,
+          "p95": 95.89999999999995,
+          "worst": 130.0,
+          "mean": 42.25
+        },
+        "visibility_states": {
+          "OBSERVED": 802752,
+          "OCCLUDED": 45972,
+          "NO_GROUND": 31549,
+          "BLIND": 80700,
+          "EXPECTED_EMPTY": 61622
+        },
+        "ground_states": {
+          "UNSUPPORTED": 81959,
+          "EXTRAPOLATED": 53851,
+          "SUPPORTED": 480638
+        },
+        "clusters_rejected_small": 1397,
+        "clusters_rejected_shape": 368,
+        "inconsistent_rays": {
+          "n": 12,
+          "median": 27349.0,
+          "p95": 40091.2,
+          "worst": 40936.0,
+          "mean": 29771.666666666668
+        },
+        "sensor_height_m": {
+          "n": 12,
+          "median": 1.680292397174176,
+          "p95": 1.776090863523266,
+          "worst": 1.7798444114411855,
+          "mean": 1.6762642151486569
+        },
+        "range_hist_missing_return": {
+          "2.5-5m": 403,
+          "5-7.5m": 345,
+          "7.5-10m": 640,
+          "10-15m": 204,
+          "15-20m": 104,
+          "20-25m": 44,
+          "25-30m": 0,
+          ">=30m": 0
+        },
+        "range_hist_below_plane": {
+          "2.5-5m": 24,
+          "5-7.5m": 47,
+          "7.5-10m": 127,
+          "10-15m": 151,
+          "15-20m": 92,
+          "20-25m": 66,
+          "25-30m": 0,
+          ">=30m": 0
+        }
+      }
+    },
+    {
+      "sequence": "10",
+      "frames": 12,
+      "new": {
+        "latency_ms": {
+          "n": 12,
+          "median": 77.1207805009908,
+          "p95": 98.57918899997456,
+          "worst": 108.62183700010064,
+          "mean": 77.88601475112955
+        },
+        "candidates_per_frame": {
+          "n": 12,
+          "median": 131.5,
+          "p95": 256.5,
+          "worst": 273.0,
+          "mean": 146.25
+        },
+        "missing_return_per_frame": {
+          "n": 12,
+          "median": 89.0,
+          "p95": 220.39999999999992,
+          "worst": 271.0,
+          "mean": 105.5
+        },
+        "below_plane_per_frame": {
+          "n": 12,
+          "median": 13.0,
+          "p95": 145.5999999999999,
+          "worst": 227.0,
+          "mean": 40.75
+        },
+        "visibility_states": {
+          "OBSERVED": 706233,
+          "OCCLUDED": 50663,
+          "NO_GROUND": 61417,
+          "BLIND": 68818,
+          "EXPECTED_EMPTY": 48379
+        },
+        "ground_states": {
+          "UNSUPPORTED": 58082,
+          "EXTRAPOLATED": 48223,
+          "SUPPORTED": 399577
+        },
+        "clusters_rejected_small": 1029,
+        "clusters_rejected_shape": 275,
+        "inconsistent_rays": {
+          "n": 12,
+          "median": 35803.5,
+          "p95": 55541.5,
+          "worst": 56053.0,
+          "mean": 36971.5
+        },
+        "sensor_height_m": {
+          "n": 12,
+          "median": 1.7372590322805674,
+          "p95": 1.8007751091758388,
+          "worst": 1.8191230853430265,
+          "mean": 1.7133737621595257
+        },
+        "range_hist_missing_return": {
+          "2.5-5m": 285,
+          "5-7.5m": 262,
+          "7.5-10m": 444,
+          "10-15m": 169,
+          "15-20m": 77,
+          "20-25m": 29,
+          "25-30m": 0,
+          ">=30m": 0
+        },
+        "range_hist_below_plane": {
+          "2.5-5m": 25,
+          "5-7.5m": 70,
+          "7.5-10m": 91,
+          "10-15m": 130,
+          "15-20m": 81,
+          "20-25m": 92,
+          "25-30m": 0,
+          ">=30m": 0
+        }
+      }
+    }
+  ]
+}

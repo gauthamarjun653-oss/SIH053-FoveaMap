@@ -1,0 +1,35 @@
+{
+  "date": "2026-09-23",
+  "tests": {
+    "passed": 76,
+    "skipped": 3,
+    "reason": "Two optional torch tests and one rerun SDK test"
+  },
+  "regression_tests_added": 17,
+  "sequences_checked": [
+    "09",
+    "10"
+  ],
+  "labels": "ground truth; neural inference not exercised",
+  "dual_viewer_preparation": "seq09 frame000000 successful; GUI/VNC not started",
+  "annotation_overwrite_guard": "existing manifest rejected with exit 2; annotations preserved",
+  "accuracy": "not established; independent complete-region annotations required",
+  "files": {
+    "src/analytics/ground.py": "9cabec49cfaeb5792f3238415ec2766b54c4b4eaffaeb07feb539fa85d10c927",
+    "src/analytics/negative_obs2.py": "84391ed8bf48be9870bc2a0be4ac1fc6b92da363a4ae671a9abe743983de2098",
+    "src/analytics/visibility.py": "02d3d2d26a3c00e678e2cef3affa87af187ac4c85d237c1a7ca1480643010dc0",
+    "src/frame_pipeline.py": "16f87b80e6b1c9347bb24c6eeec5e5476d2234d9113498f958dbdfa2a03b9b31",
+    "src/grid/compact.py": "25853ab3224a41b24c6e5b51b833d12cb04182dae0dc761db34f9c55692f53ba",
+    "src/main.py": "4445621c25fee2d9c0fc4d1247bc624df1a04391b98c2a42a6d778f12848c18f",
+    "src/viz/rerun_viewer.py": "b2b44d770695e8242f162f6ba2d0f06b73ef01b3c18309578c792d4c1fa14c5a",
+    "scripts/compare_grid_layouts.py": "cd94fef3575e70be5b43bfa9e2d926206d4b4b4ab1cac04bf3825826d47447c2",
+    "scripts/eval_negative_obs.py": "1ce54573cbc2dc3e7f6aa4f25f9d708fff3dda764a7e5ad23eae8d03149caf4a",
+    "scripts/extract_examples.py": "70686af2a21db7f9cc5084c2dfbdaed169ad536f01e19b19b90c8b322b7e0664",
+    "scripts/viz_dual_fovea.py": "dbbcd0118e6ecb71c8948cc84249da67adc608d762c9606b27b2f441f299405a",
+    "tests/test_corrected_pipeline.py": "edc20ff1d13a833cba334b06236e30a77282ed6ac9970752b0bfc7917f1c671a",
+    "docs/corrections-2026-09-23.md": "bc6cef15f29223f39df0bacf5fc430f628f08dee20a6a031f2e28a770a943403",
+    "docs/ground-visibility-definition.md": "97f3d07faa5a0602672fdd773a8bcdd439360291889fbcdd510437172374ad95",
+    ".github/workflows/ci.yml": "18ac6ce47d8f527040b2f14a8af8006451a627e2700f8dab6b7ab0b160bb0824",
+    "requirements.txt": "71f403504a9819c4533028b9b5f54dfef82783e15d35f08d7f4b1725f25982a9"
+  }
+}

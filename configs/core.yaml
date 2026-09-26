@@ -1,0 +1,14 @@
+# Development defaults, not certified vehicle limits. Tune on separate data.
+map_memory_mb: 8.0
+vehicle:
+  height_m: 1.5
+  width_m: 1.8
+  lateral_margin_m: 0.2
+  clearance_margin_m: 0.2
+  max_slope_deg: 10.0
+  max_roughness_m: 0.08
+  max_step_m: 0.15
+  fit_radius_m: 2.5
+  tile_size_m: 2.0
+  min_ground_points: 8
+  min_xy_spread_m: 0.15

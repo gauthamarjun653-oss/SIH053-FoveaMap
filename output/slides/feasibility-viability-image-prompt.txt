@@ -1,0 +1,52 @@
+Use case: productivity-visual. Generate ONE finished professional 16:9 landscape presentation slide, high resolution ideally 3840x2160. It is an image preview of a Canva slide for Team Trojans Smart India Hackathon 2026, FoveaMap. White background, strong black/navy typography, blue technical header, olive-green data header, orange buildability header, restrained red risk header. Inspired by a dense academic feasibility slide with three top columns and efficient lower sections. No browser chrome, no Canva UI, no extra slides, no photographic mockup. Clean flat presentation design, full canvas, generous readable body type despite dense content. Use almost all usable space with about 3% outside margins. Professional consistent sans-serif, bold lead-ins, crisp legible spelling. Small 'TEAM TROJANS' text top left and 'SMART INDIA HACKATHON 2026' top right; do not invent official logos. Main title centred 'FEASIBILITY AND VIABILITY'. Subtitle 'FoveaMap: Adaptive Semantic Elevation Mapping'. Light rules, aligned columns, small line icons are welcome. Reserve 12% header, 37% three-column content, 34% lower content, 12% delivery strip, 5% footer. Left and middle lower area combined is a two-column risk table; right lower area practical viability. No large decorative illustrations or empty space.
+
+Render exact text below, preserving all substantive points with correct labels for planned features. Never imply planned features already implemented. Font sizes body ~30px at 1920-wide equivalent minimum where possible. Risks in table no cramped wrapping.
+
+TOP LEFT blue heading: TECHNICAL FEASIBILITY
+• Working grid core: Sparse storage, direct construction and compact 56-byte cell records.
+• Distance-based detail: 5, 10, 20 and 40 cm cells across 2.5–100 m.
+• Reusable software: Python, NumPy and SciPy. PyTorch/SalsaNext for planned inference.
+• Separate map layers: Extend ground height, obstacle clearance and traversability.
+• Independent modules: Test segmentation, geometry, mapping and visualization.
+
+TOP MIDDLE green heading: DATA AND VALIDATION
+• Available locally: Sequences 09 and 10, with 2,792 labelled scans.
+• Alignment inputs: KITTI poses and calibration for comparison across frames.
+• Model evaluation: Sequence 08 for validation. 09/10 for development and demos.
+• Pothole evidence: Add reviewed examples. Current candidates remain unverified.
+• Fair comparisons: Map payload, peak RAM, full-pipeline latency and accuracy by distance.
+
+TOP RIGHT orange heading: WHY IT IS BUILDABLE
+• Extend the existing prototype with separately testable features.
+• Reuse pretrained SalsaNext after restoring weights and the inference environment.
+• Compute derived values only when needed to reduce retained memory.
+• Add temporal evidence for motion and stale-data removal.
+• Stage refinement: Distance bands first, then hazard checks and a cell budget.
+
+LOWER LEFT TWO THIRDS red heading: RISKS AND MITIGATION
+Table headers: Risk | Feasible response
+Sidewalks treated as drivable | Surface class, terrain geometry and vehicle limits
+Parked cars labelled moving | Separate object identity from motion across frames
+False pothole alarms | Supported geometry, visibility and repeated observations
+Hazards lost in coarse cells | Check height changes and minority obstacle evidence
+Ring-boundary overlap | Unique cell ownership and boundary tests
+Memory growth or frame backlog | Bounded local map, evidence expiry and bounded queues
+
+LOWER RIGHT heading: PRACTICAL VIABILITY
+• Affordable development: Replay datasets before live-sensor trials.
+• Controlled deployment: Measure GPU and CPU costs on the target device.
+• Clear evidence: Identify ground truth versus model predictions.
+• Acceptance criteria: Memory reduction, latency, terrain and motion accuracy.
+
+BOTTOM full-width labelled DELIVERY PATH. Five compact connected stages with numbers and straight horizontal arrows:
+1 Working grid core
+2 Compact storage improvements
+3 Terrain and motion layers
+4 Budgeted refinement
+5 Held-out evaluation
+
+Small but readable bottom footer with two lines:
+Current: distance-based grid and dataset replay.
+Planned: traversability, motion estimation, temporal updates and hazard-aware refinement.
+
+Make it look like an excellent competition technical slide. Clearly organized, near full use of area, no overlaps, no text cropped. Exact numbers and units. No invented performance percentages or certified safety claims.

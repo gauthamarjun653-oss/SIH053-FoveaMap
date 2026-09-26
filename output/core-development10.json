@@ -1,0 +1,1272 @@
+{
+  "sequence": "10",
+  "mode": "gt-labels",
+  "frames": 30,
+  "bytes_per_cell": 40,
+  "processing_ms_median": 184.24496700026793,
+  "processing_ms_p95": 222.58542810122887,
+  "processing_throughput_fps": 5.349484660044131,
+  "median_map_bytes": 2818420.0,
+  "process_peak_rss_bytes": 134438912,
+  "reference_in_peak": true,
+  "rendering_included": false,
+  "semantics_are_predictions": false,
+  "random_weights": false,
+  "tracker_numeric_bytes": 384,
+  "motion_confusion_rows_truth_cols_pred_unknown_stationary_moving": [
+    [
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0
+    ],
+    [
+      2428,
+      0,
+      9016
+    ]
+  ],
+  "caveats": [
+    "GT motion benchmark is diagnostic on development sequences, not held-out accuracy.",
+    "Dataset moving labels are not necessarily instantaneous velocity.",
+    "Traversability uses configured vehicle limits, not verified terrain ground truth.",
+    "Pothole detection disabled; no pothole claims.",
+    "Map payload excludes working arrays/model/GPU memory."
+  ],
+  "per_frame": [
+    {
+      "frame": 0,
+      "processing_ms": 173.04624800090096,
+      "motion_ms": 18.044422002276406,
+      "grid_ms": 47.52238999935798,
+      "terrain_ms": 101.13088700018125,
+      "core_ms": 166.69769900181564,
+      "map_bytes": 2667960,
+      "cells": 66699,
+      "raw_bytes": 1938944,
+      "terrain": {
+        "drivable": 17019,
+        "blocked": 46809,
+        "unknown": 2871,
+        "supported_cells": 17376,
+        "limits": {
+          "max_slope_deg": 10.0,
+          "max_roughness_m": 0.08,
+          "max_step_m": 0.15,
+          "height_m": 1.5,
+          "clearance_margin_m": 0.2,
+          "fit_radius_m": 2.5,
+          "tile_size_m": 2.0,
+          "min_ground_points": 8,
+          "min_xy_spread_m": 0.15
+        },
+        "meaning": "observed-surface assessment; unobserved space remains unknown"
+      },
+      "motion": {
+        "source": "geometric tracking with ego-motion compensation",
+        "tracks": 2,
+        "stationary_points": 0,
+        "moving_points": 0,
+        "unknown_movable_points": 68,
+        "capacity_skipped_points": 0
+      },
+      "assigned_points": 121155,
+      "discarded_points": 29,
+      "uniform_map_bytes": 3485880,
+      "savings_vs_uniform_pct": 23.46380254053496
+    },
+    {
+      "frame": 1,
+      "processing_ms": 151.90105299916468,
+      "motion_ms": 15.991209002095275,
+      "grid_ms": 33.88857299796655,
+      "terrain_ms": 98.77928400237579,
+      "core_ms": 148.6590660024376,
+      "map_bytes": 2676880,
+      "cells": 66922,
+      "raw_bytes": 1939328,
+      "terrain": {
+        "drivable": 17016,
+        "blocked": 47040,
+        "unknown": 2866,
+        "supported_cells": 17379,
+        "limits": {
+          "max_slope_deg": 10.0,
+          "max_roughness_m": 0.08,
+          "max_step_m": 0.15,
+          "height_m": 1.5,
+          "clearance_margin_m": 0.2,
+          "fit_radius_m": 2.5,
+          "tile_size_m": 2.0,
+          "min_ground_points": 8,
+          "min_xy_spread_m": 0.15
+        },
+        "meaning": "observed-surface assessment; unobserved space remains unknown"
+      },
+      "motion": {
+        "source": "geometric tracking with ego-motion compensation",
+        "tracks": 2,
+        "stationary_points": 0,
+        "moving_points": 0,
+        "unknown_movable_points": 74,
+        "capacity_skipped_points": 0
+      },
+      "assigned_points": 121178,
+      "discarded_points": 30,
+      "uniform_map_bytes": 3491000,
+      "savings_vs_uniform_pct": 23.32053852764251
+    },
+    {
+      "frame": 2,
+      "processing_ms": 151.1212430013984,
+      "motion_ms": 15.51330400252482,
+      "grid_ms": 33.82055799738737,
+      "terrain_ms": 97.75311300109024,
+      "core_ms": 147.08697500100243,
+      "map_bytes": 2679920,
+      "cells": 66998,
+      "raw_bytes": 1942064,
+      "terrain": {
+        "drivable": 17144,
+        "blocked": 47022,
+        "unknown": 2832,
+        "supported_cells": 17537,
+        "limits": {
+          "max_slope_deg": 10.0,
+          "max_roughness_m": 0.08,
+          "max_step_m": 0.15,
+          "height_m": 1.5,
+          "clearance_margin_m": 0.2,
+          "fit_radius_m": 2.5,
+          "tile_size_m": 2.0,
+          "min_ground_points": 8,
+          "min_xy_spread_m": 0.15
+        },
+        "meaning": "observed-surface assessment; unobserved space remains unknown"
+      },
+      "motion": {
+        "source": "geometric tracking with ego-motion compensation",
+        "tracks": 3,
+        "stationary_points": 0,
+        "moving_points": 0,
+        "unknown_movable_points": 101,
+        "capacity_skipped_points": 0
+      },
+      "assigned_points": 121351,
+      "discarded_points": 28,
+      "uniform_map_bytes": 3503240,
+      "savings_vs_uniform_pct": 23.501672737237534
+    },
+    {
+      "frame": 3,
+      "processing_ms": 204.74208499945235,
+      "motion_ms": 17.99936400129809,
+      "grid_ms": 42.919413001072826,
+      "terrain_ms": 133.92127299812273,
+      "core_ms": 194.84005000049365,
+      "map_bytes": 2687920,
+      "cells": 67198,
+      "raw_bytes": 1945504,
+      "terrain": {
+        "drivable": 17162,
+        "blocked": 47145,
+        "unknown": 2891,
+        "supported_cells": 17590,
+        "limits": {
+          "max_slope_deg": 10.0,
+          "max_roughness_m": 0.08,
+          "max_step_m": 0.15,
+          "height_m": 1.5,
+          "clearance_margin_m": 0.2,
+          "fit_radius_m": 2.5,
+          "tile_size_m": 2.0,
+          "min_ground_points": 8,
+          "min_xy_spread_m": 0.15
+        },
+        "meaning": "observed-surface assessment; unobserved space remains unknown"
+      },
+      "motion": {
+        "source": "geometric tracking with ego-motion compensation",
+        "tracks": 5,
+        "stationary_points": 0,
+        "moving_points": 0,
+        "unknown_movable_points": 121,
+        "capacity_skipped_points": 0
+      },
+      "assigned_points": 121568,
+      "discarded_points": 26,
+      "uniform_map_bytes": 3511240,
+      "savings_vs_uniform_pct": 23.448126587758168
+    },
+    {
+      "frame": 4,
+      "processing_ms": 188.49362199762254,
+      "motion_ms": 22.591820001252927,
+      "grid_ms": 48.05434899753891,
+      "terrain_ms": 110.54543700083741,
+      "core_ms": 181.19160599962925,
+      "map_bytes": 2697400,
+      "cells": 67435,
+      "raw_bytes": 1950624,
+      "terrain": {
+        "drivable": 17043,
+        "blocked": 47543,
+        "unknown": 2849,
+        "supported_cells": 17496,
+        "limits": {
+          "max_slope_deg": 10.0,
+          "max_roughness_m": 0.08,
+          "max_step_m": 0.15,
+          "height_m": 1.5,
+          "clearance_margin_m": 0.2,
+          "fit_radius_m": 2.5,
+          "tile_size_m": 2.0,
+          "min_ground_points": 8,
+          "min_xy_spread_m": 0.15
+        },
+        "meaning": "observed-surface assessment; unobserved space remains unknown"
+      },
+      "motion": {
+        "source": "geometric tracking with ego-motion compensation",
+        "tracks": 7,
+        "stationary_points": 0,
+        "moving_points": 0,
+        "unknown_movable_points": 120,
+        "capacity_skipped_points": 0
+      },
+      "assigned_points": 121887,
+      "discarded_points": 27,
+      "uniform_map_bytes": 3523240,
+      "savings_vs_uniform_pct": 23.439788376607893
+    },
+    {
+      "frame": 5,
+      "processing_ms": 188.79520300106378,
+      "motion_ms": 17.680379998637363,
+      "grid_ms": 37.73381900100503,
+      "terrain_ms": 109.04705699795159,
+      "core_ms": 164.46125599759398,
+      "map_bytes": 2711440,
+      "cells": 67786,
+      "raw_bytes": 1951824,
+      "terrain": {
+        "drivable": 17118,
+        "blocked": 47855,
+        "unknown": 2813,
+        "supported_cells": 17729,
+        "limits": {
+          "max_slope_deg": 10.0,
+          "max_roughness_m": 0.08,
+          "max_step_m": 0.15,
+          "height_m": 1.5,
+          "clearance_margin_m": 0.2,
+          "fit_radius_m": 2.5,
+          "tile_size_m": 2.0,
+          "min_ground_points": 8,
+          "min_xy_spread_m": 0.15
+        },
+        "meaning": "observed-surface assessment; unobserved space remains unknown"
+      },
+      "motion": {
+        "source": "geometric tracking with ego-motion compensation",
+        "tracks": 7,
+        "stationary_points": 0,
+        "moving_points": 0,
+        "unknown_movable_points": 143,
+        "capacity_skipped_points": 0
+      },
+      "assigned_points": 121961,
+      "discarded_points": 28,
+      "uniform_map_bytes": 3531600,
+      "savings_vs_uniform_pct": 23.223468116434475
+    },
+    {
+      "frame": 6,
+      "processing_ms": 155.20031400228618,
+      "motion_ms": 16.42801400157623,
+      "grid_ms": 34.17437999814865,
+      "terrain_ms": 100.5088669990073,
+      "core_ms": 151.11126099873218,
+      "map_bytes": 2730760,
+      "cells": 68269,
+      "raw_bytes": 1951168,
+      "terrain": {
+        "drivable": 17052,
+        "blocked": 48299,
+        "unknown": 2918,
+        "supported_cells": 17718,
+        "limits": {
+          "max_slope_deg": 10.0,
+          "max_roughness_m": 0.08,
+          "max_step_m": 0.15,
+          "height_m": 1.5,
+          "clearance_margin_m": 0.2,
+          "fit_radius_m": 2.5,
+          "tile_size_m": 2.0,
+          "min_ground_points": 8,
+          "min_xy_spread_m": 0.15
+        },
+        "meaning": "observed-surface assessment; unobserved space remains unknown"
+      },
+      "motion": {
+        "source": "geometric tracking with ego-motion compensation",
+        "tracks": 8,
+        "stationary_points": 0,
+        "moving_points": 148,
+        "unknown_movable_points": 9,
+        "capacity_skipped_points": 0
+      },
+      "assigned_points": 121920,
+      "discarded_points": 28,
+      "uniform_map_bytes": 3542720,
+      "savings_vs_uniform_pct": 22.919112997922497
+    },
+    {
+      "frame": 7,
+      "processing_ms": 155.95194900015485,
+      "motion_ms": 16.648026001348626,
+      "grid_ms": 34.432862001267495,
+      "terrain_ms": 101.32551599963335,
+      "core_ms": 152.40640400224947,
+      "map_bytes": 2737400,
+      "cells": 68435,
+      "raw_bytes": 1951728,
+      "terrain": {
+        "drivable": 17006,
+        "blocked": 48463,
+        "unknown": 2966,
+        "supported_cells": 17762,
+        "limits": {
+          "max_slope_deg": 10.0,
+          "max_roughness_m": 0.08,
+          "max_step_m": 0.15,
+          "height_m": 1.5,
+          "clearance_margin_m": 0.2,
+          "fit_radius_m": 2.5,
+          "tile_size_m": 2.0,
+          "min_ground_points": 8,
+          "min_xy_spread_m": 0.15
+        },
+        "meaning": "observed-surface assessment; unobserved space remains unknown"
+      },
+      "motion": {
+        "source": "geometric tracking with ego-motion compensation",
+        "tracks": 8,
+        "stationary_points": 0,
+        "moving_points": 87,
+        "unknown_movable_points": 63,
+        "capacity_skipped_points": 0
+      },
+      "assigned_points": 121957,
+      "discarded_points": 26,
+      "uniform_map_bytes": 3551240,
+      "savings_vs_uniform_pct": 22.917065588357865
+    },
+    {
+      "frame": 8,
+      "processing_ms": 164.21222099961597,
+      "motion_ms": 15.526741000940092,
+      "grid_ms": 35.287768001580844,
+      "terrain_ms": 101.72206299830577,
+      "core_ms": 152.5365720008267,
+      "map_bytes": 2742280,
+      "cells": 68557,
+      "raw_bytes": 1955696,
+      "terrain": {
+        "drivable": 16898,
+        "blocked": 48749,
+        "unknown": 2910,
+        "supported_cells": 17622,
+        "limits": {
+          "max_slope_deg": 10.0,
+          "max_roughness_m": 0.08,
+          "max_step_m": 0.15,
+          "height_m": 1.5,
+          "clearance_margin_m": 0.2,
+          "fit_radius_m": 2.5,
+          "tile_size_m": 2.0,
+          "min_ground_points": 8,
+          "min_xy_spread_m": 0.15
+        },
+        "meaning": "observed-surface assessment; unobserved space remains unknown"
+      },
+      "motion": {
+        "source": "geometric tracking with ego-motion compensation",
+        "tracks": 9,
+        "stationary_points": 0,
+        "moving_points": 140,
+        "unknown_movable_points": 23,
+        "capacity_skipped_points": 0
+      },
+      "assigned_points": 122204,
+      "discarded_points": 27,
+      "uniform_map_bytes": 3557920,
+      "savings_vs_uniform_pct": 22.924630120969557
+    },
+    {
+      "frame": 9,
+      "processing_ms": 166.74400400006562,
+      "motion_ms": 16.859588999068365,
+      "grid_ms": 35.53911799826892,
+      "terrain_ms": 111.08114300077432,
+      "core_ms": 163.4798499981116,
+      "map_bytes": 2759680,
+      "cells": 68992,
+      "raw_bytes": 1959872,
+      "terrain": {
+        "drivable": 16866,
+        "blocked": 49252,
+        "unknown": 2874,
+        "supported_cells": 17662,
+        "limits": {
+          "max_slope_deg": 10.0,
+          "max_roughness_m": 0.08,
+          "max_step_m": 0.15,
+          "height_m": 1.5,
+          "clearance_margin_m": 0.2,
+          "fit_radius_m": 2.5,
+          "tile_size_m": 2.0,
+          "min_ground_points": 8,
+          "min_xy_spread_m": 0.15
+        },
+        "meaning": "observed-surface assessment; unobserved space remains unknown"
+      },
+      "motion": {
+        "source": "geometric tracking with ego-motion compensation",
+        "tracks": 8,
+        "stationary_points": 0,
+        "moving_points": 172,
+        "unknown_movable_points": 29,
+        "capacity_skipped_points": 0
+      },
+      "assigned_points": 122467,
+      "discarded_points": 25,
+      "uniform_map_bytes": 3573640,
+      "savings_vs_uniform_pct": 22.77677661991695
+    },
+    {
+      "frame": 10,
+      "processing_ms": 217.76892799971392,
+      "motion_ms": 23.209146998851793,
+      "grid_ms": 52.57754600097542,
+      "terrain_ms": 137.33858500199858,
+      "core_ms": 213.1252780018258,
+      "map_bytes": 2777560,
+      "cells": 69439,
+      "raw_bytes": 1959568,
+      "terrain": {
+        "drivable": 16766,
+        "blocked": 49749,
+        "unknown": 2924,
+        "supported_cells": 17527,
+        "limits": {
+          "max_slope_deg": 10.0,
+          "max_roughness_m": 0.08,
+          "max_step_m": 0.15,
+          "height_m": 1.5,
+          "clearance_margin_m": 0.2,
+          "fit_radius_m": 2.5,
+          "tile_size_m": 2.0,
+          "min_ground_points": 8,
+          "min_xy_spread_m": 0.15
+        },
+        "meaning": "observed-surface assessment; unobserved space remains unknown"
+      },
+      "motion": {
+        "source": "geometric tracking with ego-motion compensation",
+        "tracks": 8,
+        "stationary_points": 0,
+        "moving_points": 203,
+        "unknown_movable_points": 0,
+        "capacity_skipped_points": 0
+      },
+      "assigned_points": 122443,
+      "discarded_points": 30,
+      "uniform_map_bytes": 3579280,
+      "savings_vs_uniform_pct": 22.398918218189134
+    },
+    {
+      "frame": 11,
+      "processing_ms": 174.05923700061976,
+      "motion_ms": 17.680311000731308,
+      "grid_ms": 38.549420998606365,
+      "terrain_ms": 105.62012199807214,
+      "core_ms": 161.8498539974098,
+      "map_bytes": 2787560,
+      "cells": 69689,
+      "raw_bytes": 1959520,
+      "terrain": {
+        "drivable": 16418,
+        "blocked": 50181,
+        "unknown": 3090,
+        "supported_cells": 17297,
+        "limits": {
+          "max_slope_deg": 10.0,
+          "max_roughness_m": 0.08,
+          "max_step_m": 0.15,
+          "height_m": 1.5,
+          "clearance_margin_m": 0.2,
+          "fit_radius_m": 2.5,
+          "tile_size_m": 2.0,
+          "min_ground_points": 8,
+          "min_xy_spread_m": 0.15
+        },
+        "meaning": "observed-surface assessment; unobserved space remains unknown"
+      },
+      "motion": {
+        "source": "geometric tracking with ego-motion compensation",
+        "tracks": 7,
+        "stationary_points": 0,
+        "moving_points": 246,
+        "unknown_movable_points": 1,
+        "capacity_skipped_points": 0
+      },
+      "assigned_points": 122439,
+      "discarded_points": 31,
+      "uniform_map_bytes": 3592160,
+      "savings_vs_uniform_pct": 22.398779564384665
+    },
+    {
+      "frame": 12,
+      "processing_ms": 163.6095940011728,
+      "motion_ms": 17.517863001558,
+      "grid_ms": 35.1759180011868,
+      "terrain_ms": 98.31858899997314,
+      "core_ms": 151.01237000271794,
+      "map_bytes": 2797200,
+      "cells": 69930,
+      "raw_bytes": 1958272,
+      "terrain": {
+        "drivable": 16124,
+        "blocked": 50619,
+        "unknown": 3187,
+        "supported_cells": 17001,
+        "limits": {
+          "max_slope_deg": 10.0,
+          "max_roughness_m": 0.08,
+          "max_step_m": 0.15,
+          "height_m": 1.5,
+          "clearance_margin_m": 0.2,
+          "fit_radius_m": 2.5,
+          "tile_size_m": 2.0,
+          "min_ground_points": 8,
+          "min_xy_spread_m": 0.15
+        },
+        "meaning": "observed-surface assessment; unobserved space remains unknown"
+      },
+      "motion": {
+        "source": "geometric tracking with ego-motion compensation",
+        "tracks": 5,
+        "stationary_points": 0,
+        "moving_points": 228,
+        "unknown_movable_points": 0,
+        "capacity_skipped_points": 0
+      },
+      "assigned_points": 122362,
+      "discarded_points": 30,
+      "uniform_map_bytes": 3594680,
+      "savings_vs_uniform_pct": 22.185006732170876
+    },
+    {
+      "frame": 13,
+      "processing_ms": 160.3082510009699,
+      "motion_ms": 16.322600000421517,
+      "grid_ms": 36.777138000616105,
+      "terrain_ms": 95.41631899992353,
+      "core_ms": 148.51605700096115,
+      "map_bytes": 2810320,
+      "cells": 70258,
+      "raw_bytes": 1960336,
+      "terrain": {
+        "drivable": 15889,
+        "blocked": 51165,
+        "unknown": 3204,
+        "supported_cells": 16818,
+        "limits": {
+          "max_slope_deg": 10.0,
+          "max_roughness_m": 0.08,
+          "max_step_m": 0.15,
+          "height_m": 1.5,
+          "clearance_margin_m": 0.2,
+          "fit_radius_m": 2.5,
+          "tile_size_m": 2.0,
+          "min_ground_points": 8,
+          "min_xy_spread_m": 0.15
+        },
+        "meaning": "observed-surface assessment; unobserved space remains unknown"
+      },
+      "motion": {
+        "source": "geometric tracking with ego-motion compensation",
+        "tracks": 5,
+        "stationary_points": 0,
+        "moving_points": 249,
+        "unknown_movable_points": 2,
+        "capacity_skipped_points": 0
+      },
+      "assigned_points": 122492,
+      "discarded_points": 29,
+      "uniform_map_bytes": 3604160,
+      "savings_vs_uniform_pct": 22.025659238213624
+    },
+    {
+      "frame": 14,
+      "processing_ms": 159.84752899748855,
+      "motion_ms": 16.22980899992399,
+      "grid_ms": 34.63276800175663,
+      "terrain_ms": 97.41165000014007,
+      "core_ms": 148.2742270018207,
+      "map_bytes": 2815400,
+      "cells": 70385,
+      "raw_bytes": 1959680,
+      "terrain": {
+        "drivable": 15643,
+        "blocked": 51509,
+        "unknown": 3233,
+        "supported_cells": 16573,
+        "limits": {
+          "max_slope_deg": 10.0,
+          "max_roughness_m": 0.08,
+          "max_step_m": 0.15,
+          "height_m": 1.5,
+          "clearance_margin_m": 0.2,
+          "fit_radius_m": 2.5,
+          "tile_size_m": 2.0,
+          "min_ground_points": 8,
+          "min_xy_spread_m": 0.15
+        },
+        "meaning": "observed-surface assessment; unobserved space remains unknown"
+      },
+      "motion": {
+        "source": "geometric tracking with ego-motion compensation",
+        "tracks": 5,
+        "stationary_points": 0,
+        "moving_points": 286,
+        "unknown_movable_points": 0,
+        "capacity_skipped_points": 0
+      },
+      "assigned_points": 122450,
+      "discarded_points": 30,
+      "uniform_map_bytes": 3607160,
+      "savings_vs_uniform_pct": 21.949677862917085
+    },
+    {
+      "frame": 15,
+      "processing_ms": 212.18437199786422,
+      "motion_ms": 17.51220500227646,
+      "grid_ms": 36.31786599726183,
+      "terrain_ms": 146.63194400054635,
+      "core_ms": 200.46201500008465,
+      "map_bytes": 2827480,
+      "cells": 70687,
+      "raw_bytes": 1953632,
+      "terrain": {
+        "drivable": 15113,
+        "blocked": 52256,
+        "unknown": 3318,
+        "supported_cells": 16122,
+        "limits": {
+          "max_slope_deg": 10.0,
+          "max_roughness_m": 0.08,
+          "max_step_m": 0.15,
+          "height_m": 1.5,
+          "clearance_margin_m": 0.2,
+          "fit_radius_m": 2.5,
+          "tile_size_m": 2.0,
+          "min_ground_points": 8,
+          "min_xy_spread_m": 0.15
+        },
+        "meaning": "observed-surface assessment; unobserved space remains unknown"
+      },
+      "motion": {
+        "source": "geometric tracking with ego-motion compensation",
+        "tracks": 4,
+        "stationary_points": 0,
+        "moving_points": 314,
+        "unknown_movable_points": 0,
+        "capacity_skipped_points": 0
+      },
+      "assigned_points": 122072,
+      "discarded_points": 30,
+      "uniform_map_bytes": 3610920,
+      "savings_vs_uniform_pct": 21.696409779225235
+    },
+    {
+      "frame": 16,
+      "processing_ms": 219.60455900261877,
+      "motion_ms": 25.0338699988788,
+      "grid_ms": 49.534331999893766,
+      "terrain_ms": 132.06658600029186,
+      "core_ms": 206.63478799906443,
+      "map_bytes": 2836520,
+      "cells": 70913,
+      "raw_bytes": 1949088,
+      "terrain": {
+        "drivable": 14512,
+        "blocked": 52969,
+        "unknown": 3432,
+        "supported_cells": 15539,
+        "limits": {
+          "max_slope_deg": 10.0,
+          "max_roughness_m": 0.08,
+          "max_step_m": 0.15,
+          "height_m": 1.5,
+          "clearance_margin_m": 0.2,
+          "fit_radius_m": 2.5,
+          "tile_size_m": 2.0,
+          "min_ground_points": 8,
+          "min_xy_spread_m": 0.15
+        },
+        "meaning": "observed-surface assessment; unobserved space remains unknown"
+      },
+      "motion": {
+        "source": "geometric tracking with ego-motion compensation",
+        "tracks": 3,
+        "stationary_points": 0,
+        "moving_points": 350,
+        "unknown_movable_points": 1,
+        "capacity_skipped_points": 0
+      },
+      "assigned_points": 121787,
+      "discarded_points": 31,
+      "uniform_map_bytes": 3614560,
+      "savings_vs_uniform_pct": 21.525164888672478
+    },
+    {
+      "frame": 17,
+      "processing_ms": 252.16483199983486,
+      "motion_ms": 37.50741399926483,
+      "grid_ms": 62.302294001710834,
+      "terrain_ms": 140.82457699987572,
+      "core_ms": 240.63428500085138,
+      "map_bytes": 2837320,
+      "cells": 70933,
+      "raw_bytes": 1942224,
+      "terrain": {
+        "drivable": 14202,
+        "blocked": 53408,
+        "unknown": 3323,
+        "supported_cells": 15055,
+        "limits": {
+          "max_slope_deg": 10.0,
+          "max_roughness_m": 0.08,
+          "max_step_m": 0.15,
+          "height_m": 1.5,
+          "clearance_margin_m": 0.2,
+          "fit_radius_m": 2.5,
+          "tile_size_m": 2.0,
+          "min_ground_points": 8,
+          "min_xy_spread_m": 0.15
+        },
+        "meaning": "observed-surface assessment; unobserved space remains unknown"
+      },
+      "motion": {
+        "source": "geometric tracking with ego-motion compensation",
+        "tracks": 2,
+        "stationary_points": 0,
+        "moving_points": 359,
+        "unknown_movable_points": 0,
+        "capacity_skipped_points": 0
+      },
+      "assigned_points": 121358,
+      "discarded_points": 31,
+      "uniform_map_bytes": 3607360,
+      "savings_vs_uniform_pct": 21.346358555841395
+    },
+    {
+      "frame": 18,
+      "processing_ms": 190.7125849975273,
+      "motion_ms": 21.035562000179198,
+      "grid_ms": 46.77522299971315,
+      "terrain_ms": 119.24459200236015,
+      "core_ms": 187.0553770022525,
+      "map_bytes": 2836680,
+      "cells": 70917,
+      "raw_bytes": 1938256,
+      "terrain": {
+        "drivable": 13799,
+        "blocked": 53844,
+        "unknown": 3274,
+        "supported_cells": 14374,
+        "limits": {
+          "max_slope_deg": 10.0,
+          "max_roughness_m": 0.08,
+          "max_step_m": 0.15,
+          "height_m": 1.5,
+          "clearance_margin_m": 0.2,
+          "fit_radius_m": 2.5,
+          "tile_size_m": 2.0,
+          "min_ground_points": 8,
+          "min_xy_spread_m": 0.15
+        },
+        "meaning": "observed-surface assessment; unobserved space remains unknown"
+      },
+      "motion": {
+        "source": "geometric tracking with ego-motion compensation",
+        "tracks": 2,
+        "stationary_points": 0,
+        "moving_points": 419,
+        "unknown_movable_points": 0,
+        "capacity_skipped_points": 0
+      },
+      "assigned_points": 121110,
+      "discarded_points": 31,
+      "uniform_map_bytes": 3608520,
+      "savings_vs_uniform_pct": 21.38937847095208
+    },
+    {
+      "frame": 19,
+      "processing_ms": 164.4136949980748,
+      "motion_ms": 17.758882000634912,
+      "grid_ms": 40.13181000118493,
+      "terrain_ms": 103.02366500036442,
+      "core_ms": 160.91435700218426,
+      "map_bytes": 2835480,
+      "cells": 70887,
+      "raw_bytes": 1936832,
+      "terrain": {
+        "drivable": 13465,
+        "blocked": 54135,
+        "unknown": 3287,
+        "supported_cells": 14007,
+        "limits": {
+          "max_slope_deg": 10.0,
+          "max_roughness_m": 0.08,
+          "max_step_m": 0.15,
+          "height_m": 1.5,
+          "clearance_margin_m": 0.2,
+          "fit_radius_m": 2.5,
+          "tile_size_m": 2.0,
+          "min_ground_points": 8,
+          "min_xy_spread_m": 0.15
+        },
+        "meaning": "observed-surface assessment; unobserved space remains unknown"
+      },
+      "motion": {
+        "source": "geometric tracking with ego-motion compensation",
+        "tracks": 2,
+        "stationary_points": 0,
+        "moving_points": 431,
+        "unknown_movable_points": 0,
+        "capacity_skipped_points": 0
+      },
+      "assigned_points": 121024,
+      "discarded_points": 28,
+      "uniform_map_bytes": 3603400,
+      "savings_vs_uniform_pct": 21.310984070599993
+    },
+    {
+      "frame": 20,
+      "processing_ms": 199.97730300019612,
+      "motion_ms": 17.053231000318192,
+      "grid_ms": 50.86695099817007,
+      "terrain_ms": 127.11117900107638,
+      "core_ms": 195.03136099956464,
+      "map_bytes": 2831840,
+      "cells": 70796,
+      "raw_bytes": 1934448,
+      "terrain": {
+        "drivable": 13011,
+        "blocked": 54558,
+        "unknown": 3227,
+        "supported_cells": 13556,
+        "limits": {
+          "max_slope_deg": 10.0,
+          "max_roughness_m": 0.08,
+          "max_step_m": 0.15,
+          "height_m": 1.5,
+          "clearance_margin_m": 0.2,
+          "fit_radius_m": 2.5,
+          "tile_size_m": 2.0,
+          "min_ground_points": 8,
+          "min_xy_spread_m": 0.15
+        },
+        "meaning": "observed-surface assessment; unobserved space remains unknown"
+      },
+      "motion": {
+        "source": "geometric tracking with ego-motion compensation",
+        "tracks": 2,
+        "stationary_points": 0,
+        "moving_points": 441,
+        "unknown_movable_points": 0,
+        "capacity_skipped_points": 0
+      },
+      "assigned_points": 120874,
+      "discarded_points": 29,
+      "uniform_map_bytes": 3594080,
+      "savings_vs_uniform_pct": 21.208209054890258
+    },
+    {
+      "frame": 21,
+      "processing_ms": 225.02432100009173,
+      "motion_ms": 20.266076000552857,
+      "grid_ms": 52.804720999120036,
+      "terrain_ms": 137.5617500016233,
+      "core_ms": 210.6325470012962,
+      "map_bytes": 2835000,
+      "cells": 70875,
+      "raw_bytes": 1930288,
+      "terrain": {
+        "drivable": 12599,
+        "blocked": 55031,
+        "unknown": 3245,
+        "supported_cells": 13082,
+        "limits": {
+          "max_slope_deg": 10.0,
+          "max_roughness_m": 0.08,
+          "max_step_m": 0.15,
+          "height_m": 1.5,
+          "clearance_margin_m": 0.2,
+          "fit_radius_m": 2.5,
+          "tile_size_m": 2.0,
+          "min_ground_points": 8,
+          "min_xy_spread_m": 0.15
+        },
+        "meaning": "observed-surface assessment; unobserved space remains unknown"
+      },
+      "motion": {
+        "source": "geometric tracking with ego-motion compensation",
+        "tracks": 2,
+        "stationary_points": 0,
+        "moving_points": 474,
+        "unknown_movable_points": 0,
+        "capacity_skipped_points": 0
+      },
+      "assigned_points": 120613,
+      "discarded_points": 30,
+      "uniform_map_bytes": 3589960,
+      "savings_vs_uniform_pct": 21.02976077727886
+    },
+    {
+      "frame": 22,
+      "processing_ms": 214.30105900071794,
+      "motion_ms": 22.33785900170915,
+      "grid_ms": 52.92454899972654,
+      "terrain_ms": 133.11926199821755,
+      "core_ms": 208.38166999965324,
+      "map_bytes": 2827400,
+      "cells": 70685,
+      "raw_bytes": 1926976,
+      "terrain": {
+        "drivable": 12180,
+        "blocked": 55402,
+        "unknown": 3103,
+        "supported_cells": 12694,
+        "limits": {
+          "max_slope_deg": 10.0,
+          "max_roughness_m": 0.08,
+          "max_step_m": 0.15,
+          "height_m": 1.5,
+          "clearance_margin_m": 0.2,
+          "fit_radius_m": 2.5,
+          "tile_size_m": 2.0,
+          "min_ground_points": 8,
+          "min_xy_spread_m": 0.15
+        },
+        "meaning": "observed-surface assessment; unobserved space remains unknown"
+      },
+      "motion": {
+        "source": "geometric tracking with ego-motion compensation",
+        "tracks": 2,
+        "stationary_points": 0,
+        "moving_points": 0,
+        "unknown_movable_points": 500,
+        "capacity_skipped_points": 0
+      },
+      "assigned_points": 120409,
+      "discarded_points": 27,
+      "uniform_map_bytes": 3581240,
+      "savings_vs_uniform_pct": 21.04969228535367
+    },
+    {
+      "frame": 23,
+      "processing_ms": 219.60314600073616,
+      "motion_ms": 20.828658998652827,
+      "grid_ms": 51.51649199979147,
+      "terrain_ms": 133.73418300034245,
+      "core_ms": 206.07933399878675,
+      "map_bytes": 2821440,
+      "cells": 70536,
+      "raw_bytes": 1922816,
+      "terrain": {
+        "drivable": 11585,
+        "blocked": 55925,
+        "unknown": 3026,
+        "supported_cells": 12138,
+        "limits": {
+          "max_slope_deg": 10.0,
+          "max_roughness_m": 0.08,
+          "max_step_m": 0.15,
+          "height_m": 1.5,
+          "clearance_margin_m": 0.2,
+          "fit_radius_m": 2.5,
+          "tile_size_m": 2.0,
+          "min_ground_points": 8,
+          "min_xy_spread_m": 0.15
+        },
+        "meaning": "observed-surface assessment; unobserved space remains unknown"
+      },
+      "motion": {
+        "source": "geometric tracking with ego-motion compensation",
+        "tracks": 2,
+        "stationary_points": 0,
+        "moving_points": 0,
+        "unknown_movable_points": 555,
+        "capacity_skipped_points": 0
+      },
+      "assigned_points": 120146,
+      "discarded_points": 30,
+      "uniform_map_bytes": 3569360,
+      "savings_vs_uniform_pct": 20.953896496850977
+    },
+    {
+      "frame": 24,
+      "processing_ms": 179.99631200291333,
+      "motion_ms": 19.586269001592882,
+      "grid_ms": 42.66078999717138,
+      "terrain_ms": 113.18990200015833,
+      "core_ms": 175.4369609989226,
+      "map_bytes": 2826360,
+      "cells": 70659,
+      "raw_bytes": 1923824,
+      "terrain": {
+        "drivable": 11180,
+        "blocked": 56426,
+        "unknown": 3053,
+        "supported_cells": 11746,
+        "limits": {
+          "max_slope_deg": 10.0,
+          "max_roughness_m": 0.08,
+          "max_step_m": 0.15,
+          "height_m": 1.5,
+          "clearance_margin_m": 0.2,
+          "fit_radius_m": 2.5,
+          "tile_size_m": 2.0,
+          "min_ground_points": 8,
+          "min_xy_spread_m": 0.15
+        },
+        "meaning": "observed-surface assessment; unobserved space remains unknown"
+      },
+      "motion": {
+        "source": "geometric tracking with ego-motion compensation",
+        "tracks": 2,
+        "stationary_points": 0,
+        "moving_points": 0,
+        "unknown_movable_points": 582,
+        "capacity_skipped_points": 0
+      },
+      "assigned_points": 120215,
+      "discarded_points": 24,
+      "uniform_map_bytes": 3569160,
+      "savings_vs_uniform_pct": 20.811619540732273
+    },
+    {
+      "frame": 25,
+      "processing_ms": 208.1120570001076,
+      "motion_ms": 25.792772001295816,
+      "grid_ms": 54.653935996611835,
+      "terrain_ms": 122.75109300026088,
+      "core_ms": 203.19780099816853,
+      "map_bytes": 2838400,
+      "cells": 70960,
+      "raw_bytes": 1920288,
+      "terrain": {
+        "drivable": 10695,
+        "blocked": 57290,
+        "unknown": 2975,
+        "supported_cells": 11360,
+        "limits": {
+          "max_slope_deg": 10.0,
+          "max_roughness_m": 0.08,
+          "max_step_m": 0.15,
+          "height_m": 1.5,
+          "clearance_margin_m": 0.2,
+          "fit_radius_m": 2.5,
+          "tile_size_m": 2.0,
+          "min_ground_points": 8,
+          "min_xy_spread_m": 0.15
+        },
+        "meaning": "observed-surface assessment; unobserved space remains unknown"
+      },
+      "motion": {
+        "source": "geometric tracking with ego-motion compensation",
+        "tracks": 2,
+        "stationary_points": 0,
+        "moving_points": 642,
+        "unknown_movable_points": 35,
+        "capacity_skipped_points": 0
+      },
+      "assigned_points": 119993,
+      "discarded_points": 25,
+      "uniform_map_bytes": 3566280,
+      "savings_vs_uniform_pct": 20.410063147032766
+    },
+    {
+      "frame": 26,
+      "processing_ms": 164.2679729993688,
+      "motion_ms": 17.70645899887313,
+      "grid_ms": 38.60467500271625,
+      "terrain_ms": 94.12459099985426,
+      "core_ms": 150.43572500144364,
+      "map_bytes": 2834280,
+      "cells": 70857,
+      "raw_bytes": 1916400,
+      "terrain": {
+        "drivable": 10293,
+        "blocked": 57618,
+        "unknown": 2946,
+        "supported_cells": 10885,
+        "limits": {
+          "max_slope_deg": 10.0,
+          "max_roughness_m": 0.08,
+          "max_step_m": 0.15,
+          "height_m": 1.5,
+          "clearance_margin_m": 0.2,
+          "fit_radius_m": 2.5,
+          "tile_size_m": 2.0,
+          "min_ground_points": 8,
+          "min_xy_spread_m": 0.15
+        },
+        "meaning": "observed-surface assessment; unobserved space remains unknown"
+      },
+      "motion": {
+        "source": "geometric tracking with ego-motion compensation",
+        "tracks": 2,
+        "stationary_points": 0,
+        "moving_points": 666,
+        "unknown_movable_points": 1,
+        "capacity_skipped_points": 0
+      },
+      "assigned_points": 119747,
+      "discarded_points": 28,
+      "uniform_map_bytes": 3558040,
+      "savings_vs_uniform_pct": 20.34153635147441
+    },
+    {
+      "frame": 27,
+      "processing_ms": 202.07578799818293,
+      "motion_ms": 26.114213997061597,
+      "grid_ms": 45.951989999593934,
+      "terrain_ms": 120.22542600243469,
+      "core_ms": 192.29162999909022,
+      "map_bytes": 2828320,
+      "cells": 70708,
+      "raw_bytes": 1916528,
+      "terrain": {
+        "drivable": 9835,
+        "blocked": 57962,
+        "unknown": 2911,
+        "supported_cells": 10482,
+        "limits": {
+          "max_slope_deg": 10.0,
+          "max_roughness_m": 0.08,
+          "max_step_m": 0.15,
+          "height_m": 1.5,
+          "clearance_margin_m": 0.2,
+          "fit_radius_m": 2.5,
+          "tile_size_m": 2.0,
+          "min_ground_points": 8,
+          "min_xy_spread_m": 0.15
+        },
+        "meaning": "observed-surface assessment; unobserved space remains unknown"
+      },
+      "motion": {
+        "source": "geometric tracking with ego-motion compensation",
+        "tracks": 2,
+        "stationary_points": 0,
+        "moving_points": 809,
+        "unknown_movable_points": 0,
+        "capacity_skipped_points": 0
+      },
+      "assigned_points": 119757,
+      "discarded_points": 26,
+      "uniform_map_bytes": 3548480,
+      "savings_vs_uniform_pct": 20.29488682478131
+    },
+    {
+      "frame": 28,
+      "processing_ms": 212.4960099972668,
+      "motion_ms": 22.5296509997861,
+      "grid_ms": 52.33988899999531,
+      "terrain_ms": 123.6101319991576,
+      "core_ms": 198.479671998939,
+      "map_bytes": 2835000,
+      "cells": 70875,
+      "raw_bytes": 1919136,
+      "terrain": {
+        "drivable": 9450,
+        "blocked": 58584,
+        "unknown": 2841,
+        "supported_cells": 10095,
+        "limits": {
+          "max_slope_deg": 10.0,
+          "max_roughness_m": 0.08,
+          "max_step_m": 0.15,
+          "height_m": 1.5,
+          "clearance_margin_m": 0.2,
+          "fit_radius_m": 2.5,
+          "tile_size_m": 2.0,
+          "min_ground_points": 8,
+          "min_xy_spread_m": 0.15
+        },
+        "meaning": "observed-surface assessment; unobserved space remains unknown"
+      },
+      "motion": {
+        "source": "geometric tracking with ego-motion compensation",
+        "tracks": 2,
+        "stationary_points": 0,
+        "moving_points": 1039,
+        "unknown_movable_points": 0,
+        "capacity_skipped_points": 0
+      },
+      "assigned_points": 119917,
+      "discarded_points": 29,
+      "uniform_map_bytes": 3554840,
+      "savings_vs_uniform_pct": 20.24957522701444
+    },
+    {
+      "frame": 29,
+      "processing_ms": 167.2813360019063,
+      "motion_ms": 18.41070699811098,
+      "grid_ms": 41.039362000447,
+      "terrain_ms": 102.36978600005386,
+      "core_ms": 161.81985499861185,
+      "map_bytes": 2822440,
+      "cells": 70561,
+      "raw_bytes": 1922800,
+      "terrain": {
+        "drivable": 8922,
+        "blocked": 58928,
+        "unknown": 2711,
+        "supported_cells": 9558,
+        "limits": {
+          "max_slope_deg": 10.0,
+          "max_roughness_m": 0.08,
+          "max_step_m": 0.15,
+          "height_m": 1.5,
+          "clearance_margin_m": 0.2,
+          "fit_radius_m": 2.5,
+          "tile_size_m": 2.0,
+          "min_ground_points": 8,
+          "min_xy_spread_m": 0.15
+        },
+        "meaning": "observed-surface assessment; unobserved space remains unknown"
+      },
+      "motion": {
+        "source": "geometric tracking with ego-motion compensation",
+        "tracks": 2,
+        "stationary_points": 0,
+        "moving_points": 1313,
+        "unknown_movable_points": 0,
+        "capacity_skipped_points": 0
+      },
+      "assigned_points": 120148,
+      "discarded_points": 27,
+      "uniform_map_bytes": 3548800,
+      "savings_vs_uniform_pct": 20.467763751127144
+    }
+  ]
+}
